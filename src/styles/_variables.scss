@@ -1,17 +1,70 @@
-$font-family: 'Inter', sans-serif;
+// Media queries
+$breakpoint-mobile: 0px;
+$breakpoint-tablet: 768px;
+$breakpoint-desktop: 1200px;
 
-$primary-color: #1e90ff;
-$accent-color: #f97316;
-$text-color: #1f2937;
-$background-color: #ffffff;
-$border-color: #e5e7eb;
+@mixin is-mobile {
+  @media (min-width: $breakpoint-mobile) {
+    @content;
+  }
+}
 
+@mixin is-tablet {
+  @media (min-width: $breakpoint-tablet) {
+    @content;
+  }
+}
+
+@mixin is-desktop {
+  @media (min-width: $breakpoint-desktop) {
+    @content;
+  }
+}
+
+// Colors
+$color-primary: #1e90ff;
+$color-accent: #f97316;
+$color-text: #1f2937;
+$color-background: #ffffff;
+$color-muted: #6b7280;
+$color-border: #e5e7eb;
+
+// Container
+$container-max-width-mobile: 100%;
+$container-max-width-tablet: 720px;
+$container-max-width-desktop: 1140px;
+
+// Grid
+$grid-columns: 12;
+$grid-gutter: 16px;
+
+// Radius
+$radius-sm: 4px;
+$radius-md: 8px;
+$radius-lg: 12px;
+
+// Spacing
 $spacing-xs: 4px;
 $spacing-sm: 8px;
 $spacing-md: 16px;
 $spacing-lg: 24px;
 $spacing-xl: 32px;
+$spacing-2xl: 48px;
 
-$radius-sm: 4px;
-$radius-md: 8px;
-$radius-lg: 12px;
+// Typography
+$font-family-base: 'Inter', sans-serif;
+$font-size-xs: 12px;
+$font-size-sm: 14px;
+$font-size-md: 16px;
+$font-size-lg: 20px;
+$font-size-xl: 24px;
+$font-size-2xl: 32px;
+$font-size-3xl: 40px;
+
+$heading-h1: $font-size-3xl;
+$heading-h2: $font-size-2xl;
+$heading-h3: $font-size-xl;
+$heading-h4: $font-size-lg;
+$paragraph-sm: $font-size-sm;
+$paragraph-md: $font-size-md;
+$paragraph-lg: $font-size-lg;

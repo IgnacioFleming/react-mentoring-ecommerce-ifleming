@@ -1,11 +1,7 @@
-import { MainLayout } from './layout/MainLayout';
+import { Router } from './routes/Router';
 
 function App() {
-  return (
-    <MainLayout>
-      <h1>E-commerce App</h1>
-    </MainLayout>
-  );
+  return <Router />;
 }
 
 export default App;

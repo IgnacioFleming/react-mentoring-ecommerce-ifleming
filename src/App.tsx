@@ -1,8 +1,10 @@
+import { MainLayout } from './layout/MainLayout';
+
 function App() {
   return (
-    <div>
+    <MainLayout>
       <h1>E-commerce App</h1>
-    </div>
+    </MainLayout>
   );
 }
 

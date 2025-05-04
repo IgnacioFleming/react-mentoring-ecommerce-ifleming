@@ -1,0 +1,27 @@
+@use '../../styles/variables' as *;
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: $spacing-md $spacing-lg;
+  background-color: #fff;
+  border-bottom: 1px solid $border-color;
+
+  &__logo {
+    font-weight: bold;
+    font-size: 1.25rem;
+  }
+
+  &__nav {
+    display: flex;
+    gap: $spacing-md;
+  }
+
+  &__icon {
+    font-size: 1.25rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+}

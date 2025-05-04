@@ -1,12 +1,15 @@
 @use '../../styles/variables' as *;
 
 .header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: $spacing-md $spacing-lg;
   background-color: #fff;
   border-bottom: 1px solid $color-border;
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: $spacing-md $spacing-lg;
+  }
 
   &__logo {
     font-weight: bold;

@@ -1,8 +1,11 @@
 import { Link } from 'react-router-dom';
+import { Container } from '../../components/Container/Container';
+
+import styles from './NotFound.module.scss';
 
 export const NotFound = () => {
   return (
-    <div style={{ textAlign: 'center', padding: '4rem 1rem' }}>
+    <Container className={styles.container}>
       <h1>404</h1>
       <p>The page you're looking for does not exist.</p>
       <Link
@@ -16,6 +19,6 @@ export const NotFound = () => {
       >
         ← Back to home
       </Link>
-    </div>
+    </Container>
   );
 };

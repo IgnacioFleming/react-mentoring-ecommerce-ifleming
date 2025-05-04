@@ -1,5 +1,7 @@
+import { Container } from '../../components/Container';
+
 export const Homepage = () => (
-  <div>
+  <Container>
     <h1>Homepage</h1>
-  </div>
+  </Container>
 );

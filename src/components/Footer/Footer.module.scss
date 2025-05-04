@@ -1,14 +1,17 @@
 @use '../../styles/variables' as *;
 
 .footer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: $spacing-lg $spacing-md;
   background-color: #f9fafb;
   border-top: 1px solid $color-border;
   font-size: 0.875rem;
   color: #6b7280;
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: $spacing-lg $spacing-md;
+  }
 
   &__logo {
     font-weight: bold;

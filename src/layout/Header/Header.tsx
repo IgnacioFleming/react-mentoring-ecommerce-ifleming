@@ -1,4 +1,4 @@
-import { Container } from '../Container';
+import { Container } from '../../components/Container';
 import styles from './Header.module.scss';
 
 export const Header = () => (

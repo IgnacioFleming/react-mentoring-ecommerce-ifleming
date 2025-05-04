@@ -1,0 +1,13 @@
+# Ignore files and directories
+
+# Files
+*.min.js
+*.min.css
+*.js.map
+*.css.map
+
+# Directories
+/node_modules/
+/public/
+/build/
+/dist/

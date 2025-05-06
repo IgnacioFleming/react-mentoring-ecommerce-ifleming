@@ -3,6 +3,7 @@ import { Homepage } from '../pages/Homepage';
 import { MainLayout } from '../layout/MainLayout';
 import { NotFound } from '../pages/NotFound';
 import { Shop } from '../pages/Shop';
+import { MyAccount } from '../pages/MyAccount';
 
 export const Router = () => {
   return (
@@ -10,7 +11,8 @@ export const Router = () => {
       <Routes>
         <Route path="/" element={<MainLayout />}>
           <Route index element={<Homepage />} />
-          <Route path="shop" element={<Shop />} />
+          <Route path="/shop" element={<Shop />} />
+          <Route path="/my-account" element={<MyAccount />} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>

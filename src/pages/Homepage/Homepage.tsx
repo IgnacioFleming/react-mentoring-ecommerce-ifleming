@@ -1,7 +1,11 @@
 import { Container } from '../../components/Container';
+import { HeroBanner } from '../../features/homepage/components/HeroBanner';
 
 export const Homepage = () => (
-  <Container>
-    <h1>Homepage</h1>
-  </Container>
+  <>
+    <HeroBanner />
+    <Container>
+      <h1>Homepage</h1>
+    </Container>
+  </>
 );

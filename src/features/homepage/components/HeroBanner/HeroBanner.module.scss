@@ -1,7 +1,8 @@
 @use '../../../../styles/variables' as *;
 
 .heroBanner {
-  background-color: $color-gray-100;
+  background-color: $color-dark-background;
+  color: $color-light-text;
   height: 360px;
 
   &__container {

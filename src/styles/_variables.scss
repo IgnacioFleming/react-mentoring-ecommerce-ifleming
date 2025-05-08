@@ -22,11 +22,6 @@ $breakpoint-desktop: 1200px;
 }
 
 // Colors
-$color-primary: #1e90ff;
-$color-accent: #f97316;
-$color-text: #1f2937;
-$color-white: #ffffff;
-
 $color-gray-100: #f9fafb;
 $color-gray-200: #f3f4f6;
 $color-gray-300: #e5e7eb;
@@ -35,6 +30,37 @@ $color-gray-500: #6b7280;
 $color-gray-600: #4b5563;
 $color-gray-700: #374151;
 $color-gray-800: #1f2937;
+
+$color-primary: #23a6f0;
+$color-secondary-1: #23856d;
+$color-secondary-2: #3c403d;
+$color-dark-background: #252b42;
+$color-light-background: #ffffff;
+$color-success: #2dc071;
+$color-alert: #e77c40;
+$color-danger: #e74040;
+$color-hover: #2a7cc7;
+$color-disabled-element: #8ec2f2;
+$color-muted: #bdbdbd;
+$color-light-gray-1: #fafafa;
+$color-light-gray-2: #ececec;
+$color-primary-text: #23a6f0;
+$color-secondary-text-1: #40bb15;
+$color-secondary-text-2: #3c403d;
+$color-text: #252b42;
+$color-second-text: #737373;
+$color-light-text: #ffffff;
+$color-success-text: #2dc071;
+$color-alert-text: #e77c40;
+$color-danger-text: #e74040;
+$color-hover-text: #2a7cc7;
+$color-disabled-element-text: #8ec2f2;
+$color-muted-text: #bdbdbd;
+$color-light-text-gray-1: #fafafa;
+$color-light-text-gray-2: #ececec;
+$color-faded-primary: #b2e3ff;
+$color-faded-secondary-1: #b2e3ff;
+$color-faded-secondary-2: #ffdcd1;
 
 // Container
 $container-max-width-mobile: 100%;

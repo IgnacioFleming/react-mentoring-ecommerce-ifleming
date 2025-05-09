@@ -1,0 +1,42 @@
+@use '../../styles/variables' as *;
+
+.button {
+  font-weight: $font-weight-bold;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  border-radius: $radius-sm;
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  &--variant-solid {
+    background-color: $color-primary;
+    color: $color-light-text;
+  }
+
+  &--variant-outline {
+    background-color: $color-light-background;
+    border: 1px solid $color-primary;
+    color: $color-primary;
+  }
+
+  &--size-sm {
+    font: $font-btn-text;
+    padding: $spacing-sm $spacing-md;
+  }
+
+  &--size-md {
+    font: $font-btn-text;
+    padding: $spacing-md $spacing-xl;
+  }
+
+  &--size-lg {
+    font: $font-heading-h3;
+    padding: $spacing-md $spacing-xl;
+  }
+
+  &--rounded {
+    border-radius: $radius-2xl;
+  }
+}

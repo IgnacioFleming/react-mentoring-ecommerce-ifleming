@@ -11,9 +11,10 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    gap: $spacing-md;
   }
 
   &__title {
-    font: $text-heading-h1;
+    font: $font-heading-h1;
   }
 }

@@ -1,9 +1,9 @@
 import { Container } from '../../components/Container';
-import { HeroBanner } from '../../features/homepage/components/HeroBanner';
+import { Hero } from '../../features/homepage/components/Hero';
 
 export const Homepage = () => (
   <>
-    <HeroBanner />
+    <Hero />
     <Container>
       <h1>Homepage</h1>
     </Container>

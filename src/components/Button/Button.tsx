@@ -34,7 +34,7 @@ export const Button = ({
       {...props}
     >
       {leftIcon && <span className="flex items-center">{leftIcon}</span>}
-      {children && <span>{children}</span>}
+      {children}
       {rightIcon && <span className="flex items-center">{rightIcon}</span>}
     </button>
   );

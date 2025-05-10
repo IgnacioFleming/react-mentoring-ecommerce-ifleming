@@ -6,9 +6,15 @@ import styles from './Hero.module.scss';
 export const Hero = () => (
   <div className={styles.hero}>
     <Container className={styles.hero__container}>
-      <h1 className={styles.hero__title}>Welcome!</h1>
+      <h5 className={styles.hero__eyebrow}>Summer 2025</h5>
+      <h1 className={styles.hero__title}>New Collection</h1>
+      <h4 className={styles.hero__subtitle}>
+        We know how large objects will act, but things on a small scale.
+      </h4>
       <div>
-        <Button size="sm">Shop Now</Button>
+        <Button size="md" className={styles.hero__button}>
+          Shop Now
+        </Button>
       </div>
     </Container>
   </div>

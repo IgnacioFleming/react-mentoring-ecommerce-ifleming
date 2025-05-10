@@ -1,9 +1,15 @@
 @use '../../../../styles/variables' as *;
 
 .hero {
-  background-color: $color-dark-background;
+  background-color: $color-primary;
   color: $color-light-text;
-  height: 360px;
+  height: 753px;
+  background-size: cover;
+  background-position: center;
+
+  @include is-tablet {
+    height: 716px;
+  }
 
   &__container {
     height: 100%;
@@ -11,10 +17,30 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: $spacing-md;
+    gap: $spacing-xl;
+
+    @include is-tablet {
+      text-align: left;
+    }
+  }
+
+  &__eyebrow {
+    font: $font-heading-h5;
+    text-transform: uppercase;
   }
 
   &__title {
     font: $font-heading-h1;
+    text-transform: uppercase;
+  }
+
+  &__subtitle {
+    font: $font-heading-h4;
+    max-width: 370px;
+  }
+
+  &__button {
+    background-color: $color-success;
+    text-transform: uppercase;
   }
 }

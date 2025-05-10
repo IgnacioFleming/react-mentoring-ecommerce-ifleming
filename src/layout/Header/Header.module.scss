@@ -1,6 +1,39 @@
 @use '../../styles/variables' as *;
 
-.header {
+.banner {
+  display: none;
+
+  @include is-tablet {
+    display: block;
+    background-color: $color-dark-background;
+    height: 58px;
+    color: $color-light-text;
+
+    &__container {
+      display: flex;
+      justify-content: center;
+    }
+
+    &__column {
+      display: flex;
+      flex: 1;
+
+      &--left {
+        justify-content: flex-start;
+      }
+
+      &--center {
+        justify-content: center;
+      }
+
+      &--right {
+        justify-content: flex-end;
+      }
+    }
+  }
+}
+
+.navbar {
   background-color: #fff;
   border-bottom: 1px solid $color-gray-300;
 
@@ -11,19 +44,23 @@
   }
 
   &__logo {
-    font-weight: bold;
-    font-size: 1.25rem;
+    font: $font-heading-h3;
   }
 
   &__nav {
     display: flex;
     gap: $spacing-md;
-  }
 
-  &__icon {
-    font-size: 1.25rem;
-    background: none;
-    border: none;
-    cursor: pointer;
+    &__icon {
+      height: 16px;
+      width: 16px;
+      color: $color-primary;
+      cursor: pointer;
+      transition: all 0.2s ease-in-out;
+
+      &:hover {
+        color: $color-hover;
+      }
+    }
   }
 }

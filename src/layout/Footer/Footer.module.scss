@@ -1,40 +1,68 @@
 @use '../../styles/variables' as *;
 
 .footer {
-  background-color: #f9fafb;
-  border-top: 1px solid $color-gray-300;
-  font-size: 0.875rem;
-  color: #6b7280;
+  border-top: 1px solid $color-light-gray-1;
+  &__nav {
+    display: flex;
+    justify-content: center;
+    padding: $spacing-3xl 0;
+  }
 
-  &__container {
+  &__content {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    padding: $spacing-lg $spacing-md;
-  }
+    gap: $spacing-xl;
 
-  &__logo {
-    font-weight: bold;
-    margin-bottom: $spacing-sm;
-  }
+    @include is-tablet {
+      flex-direction: row;
+    }
 
-  &__links {
-    display: flex;
-    gap: $spacing-md;
-    margin-bottom: $spacing-sm;
+    h3 {
+      font: $font-heading-h3;
+    }
+
+    ul {
+      display: flex;
+      flex-direction: column;
+      gap: $spacing-sm;
+    }
 
     a {
-      color: inherit;
-      text-decoration: none;
+      font: $font-link;
+      color: $color-second-text;
+      transition: all 0.2s ease-in-out;
 
       &:hover {
-        text-decoration: underline;
+        opacity: 0.8;
       }
+    }
+
+    &__column {
+      display: flex;
+      flex-direction: column;
+      gap: $spacing-lg;
+      flex: 1;
     }
   }
 
-  &__social {
+  &__social-media {
     display: flex;
-    gap: $spacing-sm;
+    gap: $spacing-lg;
+  }
+
+  &__icon {
+    width: 24px;
+    height: 24px;
+    fill: $color-primary;
+  }
+
+  &__copyright {
+    display: flex;
+    align-items: center;
+    height: 98px;
+    background-color: $color-light-gray-1;
+    text-align: center;
+    color: $color-second-text;
+    font-size: $font-size-sm;
   }
 }

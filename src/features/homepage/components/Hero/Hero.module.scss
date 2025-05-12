@@ -30,8 +30,12 @@
   }
 
   &__title {
-    font: $font-heading-h1;
+    font: $font-heading-h2;
     text-transform: uppercase;
+
+    @include is-tablet {
+      font: $font-heading-h1;
+    }
   }
 
   &__subtitle {

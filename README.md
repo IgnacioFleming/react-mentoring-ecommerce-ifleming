@@ -6,6 +6,7 @@ A React e-commerce template designed for the Mentoring Program for junior develo
 
 - [React](https://react.dev/reference/react)
 - [TypeScript](https://www.typescriptlang.org/docs/)
+- [TanStack Query](https://tanstack.com/query/latest/docs/framework/react/overview)
 - [Vitest](https://vitest.dev/guide/)
 - [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)
 
@@ -31,8 +32,10 @@ The project is organized into the following directories:
   - `components`: Reusable React components
   - `features`: Feature-specific components and logic
   - `layout`: Layout components (Header, Footer, MainLayout)
+  - `lib`: Utility libraries and helper functions
   - `pages`: Page components (Homepage, Shop, MyAccount, NotFound)
   - `styles`: Global styles and variables
+  - `types`: Type definitions for TypeScript
 - `public`: Static assets and index.html
 - `vite.config.ts`: Vite configuration file
 
@@ -83,9 +86,13 @@ To allow your mentor to review your code and provide feedback:
 ## Start Building
 
 You now have a fully functional copy of the project. Use it to:
-- Complete tasks from the program
-- Practice building React components, using hooks, and integrating APIs
-- Deploy updates and share your progress
+- Complete tasks from the program.
+- Practice building React components, using hooks, and integrating APIs.
+- Deploy updates and share your progress.
+
+## CSS Naming Convention
+
+We use the BEM (Block-Element-Modifier) naming convention for our CSS classes. This convention helps to create a consistent and organized CSS structure. For more information on how BEM works, please refer to the [official BEM documentation](https://getbem.com/naming/).
 
 ## Unit Tests
 

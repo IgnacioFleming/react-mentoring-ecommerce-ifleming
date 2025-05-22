@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import { Link } from 'react-router-dom';
 import { User, ShoppingCart, Heart, Search } from 'lucide-react';
 import { Container } from '../../components/Container';
 import styles from './Header.module.scss';
@@ -14,7 +15,9 @@ export const Header = () => (
     </div>
     <div className={styles.navbar}>
       <Container className={styles.navbar__container}>
-        <div className={styles.navbar__logo}>E-commerce</div>
+        <div className={styles.navbar__logo}>
+          <Link to="/">E-commerce</Link>
+        </div>
         <nav className={styles.navbar__nav}>
           <User className={styles.navbar__nav__icon} />
           <Search className={styles.navbar__nav__icon} />

@@ -2,12 +2,7 @@
 
 .container {
   width: 100%;
-  padding: $spacing-md;
-
-  @include is-tablet {
-    padding-left: $spacing-lg;
-    padding-right: $spacing-lg;
-  }
+  padding: $spacing-md $spacing-xl;
 
   @include is-desktop {
     max-width: $container-max-width-desktop;

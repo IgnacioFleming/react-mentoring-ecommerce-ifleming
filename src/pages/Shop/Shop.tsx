@@ -1,18 +1,19 @@
 import { Container } from '../../components/Container';
-import { useProductCategories } from '../../features/shop/hooks/useProductCategories';
-import Categories from '../../features/shop/components/Categories/Categories';
+// import { useProductCategories } from '../../features/shop/hooks/useProductCategories';
+import { FeaturedCategories } from '../../features/shop/components/FeaturedCategories';
 
 export const Shop = () => {
-  const { productCategories, isLoadingProductCategories, productCategoriesError } =
-    useProductCategories();
+  // const { productCategories, isLoadingProductCategories, productCategoriesError } =
+  //   useProductCategories();
 
-  if (isLoadingProductCategories) return null;
-  if (productCategoriesError) return <p>Something went wrong</p>;
+  // if (isLoadingProductCategories) return null;
+  // if (productCategoriesError) return <p>Something went wrong</p>;
 
   return (
     <Container>
-      <h1>Shop</h1>
-      {productCategories && <Categories productCategories={productCategories} />}
+      <h2>Shop</h2>
+      <FeaturedCategories />
+      {/* {productCategories && <Categories productCategories={productCategories} />} */}
     </Container>
   );
 };

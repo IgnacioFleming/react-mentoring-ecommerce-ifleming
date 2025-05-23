@@ -4,7 +4,7 @@ import { STALE_TIMES } from '../../../lib/api/config';
 
 export const useProductCategories = () => {
   const {
-    data: productCategories,
+    data: productCategories = [],
     isLoading: isLoadingProductCategories,
     error: productCategoriesError,
     ...rest

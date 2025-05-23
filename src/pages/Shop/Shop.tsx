@@ -4,14 +4,16 @@ import { Categories } from '../../features/shop/components/Categories';
 import styles from './Shop.module.scss';
 
 export const Shop = () => {
-  const { productCategories } = useProductCategories();
+  const { productCategories, isLoadingProductCategories } = useProductCategories();
+
+  if (isLoadingProductCategories) return null;
 
   return (
     <div className={styles.shop}>
       <div className={styles.shop__header}>
         <Container>
           <h2>Shop</h2>
-          <Categories productCategories={productCategories || []} />
+          <Categories productCategories={productCategories} />
         </Container>
       </div>
     </div>

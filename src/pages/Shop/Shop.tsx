@@ -8,7 +8,7 @@ export const Shop = () => {
   return (
     <Container>
       <h2>Shop</h2>
-      <Categories productCategories={productCategories} />
+      <Categories productCategories={productCategories || []} />
     </Container>
   );
 };

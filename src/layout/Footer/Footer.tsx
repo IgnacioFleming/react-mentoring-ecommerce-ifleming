@@ -13,13 +13,13 @@ export const Footer = () => (
           <div className={styles.footer__content__column}>
             <h3>Get In Touch</h3>
             <div className={styles['footer__social-media']}>
-              <Link to="#">
+              <Link to="/">
                 <FacebookIcon className={styles.footer__icon} />
               </Link>
-              <Link to="#">
+              <Link to="/">
                 <InstagramIcon className={styles.footer__icon} />
               </Link>
-              <Link to="#">
+              <Link to="/">
                 <XIcon className={styles.footer__icon} />
               </Link>
             </div>
@@ -28,16 +28,16 @@ export const Footer = () => (
             <h3>Company Info</h3>
             <ul>
               <li>
-                <Link to="#">About Us</Link>
+                <Link to="/">About Us</Link>
               </li>
               <li>
-                <Link to="#">Carrier</Link>
+                <Link to="/">Carrier</Link>
               </li>
               <li>
-                <Link to="#">We are hiring</Link>
+                <Link to="/">We are hiring</Link>
               </li>
               <li>
-                <Link to="#">Blog</Link>
+                <Link to="/">Blog</Link>
               </li>
             </ul>
           </div>
@@ -48,10 +48,10 @@ export const Footer = () => (
                 <Link to="/shop">Shop</Link>
               </li>
               <li>
-                <Link to="#">My Cart</Link>
+                <Link to="/my-cart">My Cart</Link>
               </li>
               <li>
-                <Link to="#">My Account</Link>
+                <Link to="/my-account">My Account</Link>
               </li>
             </ul>
           </div>

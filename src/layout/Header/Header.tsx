@@ -19,7 +19,9 @@ export const Header = () => (
           <Link to="/">E-commerce</Link>
         </div>
         <nav className={styles.navbar__nav}>
-          <User className={styles.navbar__nav__icon} />
+          <Link to="/my-account">
+            <User className={styles.navbar__nav__icon} />
+          </Link>
           <Search className={styles.navbar__nav__icon} />
           <ShoppingCart className={styles.navbar__nav__icon} />
           <Heart className={styles.navbar__nav__icon} />

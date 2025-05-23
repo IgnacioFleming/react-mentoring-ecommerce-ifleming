@@ -1,0 +1,66 @@
+@use '../../styles/variables' as *;
+
+.modal {
+  &__overlay {
+    background-color: rgba(#000, 0.6);
+    position: fixed;
+    inset: 0;
+    animation: modalShow 150ms cubic-bezier(0.25, 0.1, 0.25, 1);
+  }
+
+  &__content {
+    background-color: #fff;
+    border-radius: $radius-md;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    animation: modalShow 150ms cubic-bezier(0.25, 0.1, 0.25, 1);
+    max-width: 800px;
+    width: 100%;
+    padding: $spacing-md;
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-md;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &__title {
+    font: $font-heading-h3;
+    color: #000;
+    text-align: center;
+  }
+
+  &__close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: $spacing-md;
+
+    &__icon {
+      width: 20px;
+      height: 20px;
+      transition: all 0.2s ease-in-out;
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }
+}
+
+@keyframes modalShow {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

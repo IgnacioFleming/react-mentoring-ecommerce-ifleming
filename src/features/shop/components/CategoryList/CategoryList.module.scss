@@ -1,0 +1,18 @@
+@use '../../../../styles/variables' as *;
+
+.category-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+
+  @include is-tablet {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  &__link {
+    font: $font-link;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

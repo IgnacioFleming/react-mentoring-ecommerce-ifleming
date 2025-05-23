@@ -1,0 +1,7 @@
+@use '../../styles/variables' as *;
+
+.shop {
+  &__header {
+    background-color: $color-light-gray-1;
+  }
+}

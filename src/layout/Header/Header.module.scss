@@ -35,7 +35,6 @@
 
 .navbar {
   background-color: #fff;
-  border-bottom: 1px solid $color-gray-300;
 
   &__container {
     display: flex;
@@ -45,6 +44,14 @@
 
   &__logo {
     font: $font-heading-h3;
+
+    a {
+      transition: all 0.2s ease-in-out;
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
   }
 
   &__nav {

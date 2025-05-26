@@ -5,18 +5,10 @@ import styles from './NotFound.module.scss';
 
 export const NotFound = () => {
   return (
-    <Container className={styles.container}>
+    <Container className={styles['not-found']}>
       <h1>404</h1>
       <p>The page you're looking for does not exist.</p>
-      <Link
-        to="/"
-        style={{
-          marginTop: '1rem',
-          display: 'inline-block',
-          color: '#1e90ff',
-          textDecoration: 'underline',
-        }}
-      >
+      <Link to="/" className={styles['not-found__link']}>
         ← Back to home
       </Link>
     </Container>

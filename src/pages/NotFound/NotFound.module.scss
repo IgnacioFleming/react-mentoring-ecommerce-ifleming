@@ -1,12 +1,17 @@
-.container {
+.not-found {
   flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
   text-align: center;
 
-  a {
+  &__link {
+    cursor: pointer;
     transition: all 0.2s ease-in-out;
+    margin-top: 1rem;
+    display: inline-block;
+    color: #1e90ff;
+    text-decoration: underline;
 
     &:hover {
       opacity: 0.8;

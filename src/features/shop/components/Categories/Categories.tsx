@@ -34,7 +34,7 @@ export const Categories = ({ productCategories }: CategoriesProps) => {
       <li className={styles['featured-categories__item']}>
         <Modal>
           <Modal.Trigger>
-            <button className={styles.categories__item__button} onClick={() => false}>
+            <button className={styles.categories__item__button}>
               <CategoryCard name="View all" background="#c24360" />
             </button>
           </Modal.Trigger>

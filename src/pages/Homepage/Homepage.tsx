@@ -5,7 +5,10 @@ export const Homepage = () => (
   <>
     <Hero />
     <Container>
-      <h2>Homepage</h2>
+      <h3>Editor's Pick</h3>
+    </Container>
+    <Container>
+      <h3>Bestseller Products</h3>
     </Container>
   </>
 );

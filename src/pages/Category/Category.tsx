@@ -7,6 +7,7 @@ export const Category = () => {
   return (
     <Container>
       <h2>{category}</h2>
+      <h3>Product Grid</h3>
     </Container>
   );
 };

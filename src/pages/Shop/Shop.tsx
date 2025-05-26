@@ -16,6 +16,9 @@ export const Shop = () => {
           <Categories productCategories={productCategories} />
         </Container>
       </div>
+      <Container>
+        <h3>Product Grid</h3>
+      </Container>
     </div>
   );
 };

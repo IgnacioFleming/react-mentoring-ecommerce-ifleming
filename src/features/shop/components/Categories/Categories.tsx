@@ -8,7 +8,7 @@ import type { Category } from '../../../../types/products';
 
 const CATEGORY_COLORS = ['#706f74', '#0990ac', '#ae7472', '#b88491'];
 
-type CategoriesProps = {
+export type CategoriesProps = {
   productCategories: Category[];
 };
 

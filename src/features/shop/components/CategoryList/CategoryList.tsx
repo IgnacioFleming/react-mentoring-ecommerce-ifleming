@@ -3,7 +3,7 @@ import type { Category } from '../../../../types/products';
 
 import styles from './CategoryList.module.scss';
 
-type CategoryListProps = {
+export type CategoryListProps = {
   productCategories: Category[];
 };
 

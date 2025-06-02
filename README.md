@@ -10,12 +10,13 @@ A React e-commerce template designed for the Mentoring Program for junior develo
 - [Vitest](https://vitest.dev/guide/)
 - [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)
 
-## Prerequisites
+
+## Prerequisites
 
 - HTML and CSS knowledge
 - Basic understanding of React and TypeScript
 
-## Features
+## Features
 
 - Responsive design using SCSS and CSS modules
 - TypeScript support for type checking and code completion
@@ -25,7 +26,7 @@ A React e-commerce template designed for the Mentoring Program for junior develo
 - Example pages (Homepage, Shop, MyAccount, NotFound)
 - Button component with various styles and sizes
 
-## Project Structure
+## Project Structure
 
 The project is organized into the following directories:
 - `src`: Source code for the application
@@ -34,9 +35,12 @@ The project is organized into the following directories:
   - `layout`: Layout components (Header, Footer, MainLayout)
   - `lib`: Utility libraries and helper functions
   - `pages`: Page components (Homepage, Shop, MyAccount, NotFound)
+  - `routes`: Application router and route definitions
+  - `store`: Global state management
   - `styles`: Global styles and variables
   - `types`: Type definitions for TypeScript
 - `public`: Static assets and index.html
+- `tests`: Testing setup
 - `vite.config.ts`: Vite configuration file
 
 ## Getting Started
@@ -90,7 +94,7 @@ You now have a fully functional copy of the project. Use it to:
 - Practice building React components, using hooks, and integrating APIs.
 - Deploy updates and share your progress.
 
-## CSS Naming Convention
+## CSS Naming Convention
 
 We use the BEM (Block-Element-Modifier) naming convention for our CSS classes. This convention helps to create a consistent and organized CSS structure. For more information on how BEM works, please refer to the [official BEM documentation](https://getbem.com/naming/).
 
@@ -98,7 +102,7 @@ We use the BEM (Block-Element-Modifier) naming convention for our CSS classes. T
 
 Unit tests are an essential part of the development process, ensuring that individual components and functions behave as expected. In this project, we use Vitest and React Testing Library to write and run unit tests.
 
-### Writing Unit Tests
+### Writing Unit Tests
 - Create a new test file for each component or function you want to test.
 - Use the describe block to group related tests together.
 - Use the it block to write individual tests.
@@ -109,7 +113,7 @@ Unit tests are an essential part of the development process, ensuring that indiv
 - Run npm test or yarn test to execute all unit tests.
 - Use the `--watch` flag to run tests in watch mode.
 
-## Commit Rules
+## Commit Rules
 
 We follow the Conventional Commits specification for commit messages. This specification provides a set of rules for writing commit messages that are easy to read and understand.
 Use the following format for commit messages: `type(scope): subject`
@@ -125,18 +129,18 @@ Use the following format for commit messages: `type(scope): subject`
 - `scope`: Optional scope of the commit (e.g., components/Button)
 - `subject`: Brief description of the commit
 
-### Example Commit Message
+### Example Commit Message
 `feat(components/Button): Add new Button component`
 
-### Reference
+### Reference
 
 For more information on Conventional Commits, please visit the official website: [https://www.conventionalcommits.org/en/v1.0.0/](https://www.conventionalcommits.org/en/v1.0.0/).
 
-### Husky and Lint-Staged
+### Husky and Lint-Staged
 
 We use Husky and Lint-Staged to enforce our commit rules and ensure that our code is formatted consistently.
 
-## Design Tokens
+## Design Tokens
 
 Design tokens are a set of reusable values that define the visual design of our application. They include:
 

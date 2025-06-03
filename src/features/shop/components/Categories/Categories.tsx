@@ -26,7 +26,7 @@ export const Categories = ({ productCategories }: CategoriesProps) => {
     <ul className={styles.categories}>
       {mainCategories.map((category, index) => (
         <li key={category.slug} className={styles.categories__item}>
-          <Link to={`/shop/${category.slug}`}>
+          <Link to={`/shop/category/${category.slug}`}>
             <CategoryCard name={category.name} background={CATEGORY_COLORS[index]} />
           </Link>
         </li>

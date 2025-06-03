@@ -11,7 +11,7 @@ export const CategoryList = ({ productCategories }: CategoryListProps) => (
   <ul className={styles['category-list']}>
     {productCategories?.map((category) => (
       <li key={category.slug}>
-        <Link to={`/shop/${category.slug}`} className={styles['category-list__link']}>
+        <Link to={`/shop/category/${category.slug}`} className={styles['category-list__link']}>
           {category.name}
         </Link>
       </li>

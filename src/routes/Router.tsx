@@ -13,7 +13,7 @@ export const Router = () => {
         <Route path="/" element={<MainLayout />}>
           <Route index element={<Homepage />} />
           <Route path="/shop" element={<Shop />} />
-          <Route path="/shop/:category" element={<Category />} />
+          <Route path="/shop/category/:category" element={<Category />} />
           <Route path="/my-account" element={<MyAccount />} />
           <Route path="*" element={<NotFound />} />
         </Route>

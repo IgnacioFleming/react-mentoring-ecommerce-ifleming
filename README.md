@@ -1,6 +1,6 @@
 # React E-commerce Template for Mentoring Program
 
-A React e-commerce template designed for the Mentoring Program for junior developers, aimed at simulating a real-world work environment and guiding participants through the development of a comprehensive e-commerce project.
+A React e-commerce template designed for the Mentoring Program for React developers, aimed at simulating a real-world work environment and guiding participants through the development of a comprehensive e-commerce project.
 
 ## Stack
 
@@ -86,6 +86,30 @@ To allow your mentor to review your code and provide feedback:
 2.	Click on Settings > Collaborators.
 3.	Search for: @emonteco.
 4.	Click “Add collaborator”.
+
+### Keeping Your Project Updated with Template Changes
+
+If you created your project from this template and want to receive updates when improvements or fixes are made to the original repo, you can link it as an upstream repository and manually sync changes.
+
+1.	Add this template repository as a remote called upstream:
+```bash
+git remote add upstream https://github.com/emonteco/react-mentoring.git
+```
+
+2. Fetch the latest changes from upstream:
+```bash
+git fetch upstream
+```
+
+3. Merge them into your local main branch (or whichever you’re using):
+```bash
+git merge upstream/main
+```
+
+4. Resolve any conflicts if needed, then push your updated branch:
+```bash
+git push origin main
+```
 
 ## Start Building
 

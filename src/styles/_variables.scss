@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+// Media queries
+$breakpoint-mobile: 0px;
+$breakpoint-tablet: 768px;
+$breakpoint-desktop: 1200px;
+
+@mixin is-mobile {
+  @media (min-width: $breakpoint-mobile) {
+    @content;
+  }
+}
+
+@mixin is-tablet {
+  @media (min-width: $breakpoint-tablet) {
+    @content;
+  }
+}
+
+@mixin is-desktop {
+  @media (min-width: $breakpoint-desktop) {
+    @content;
+  }
+}
+
+// Colors
+$color-gray-100: #f9fafb;
+$color-gray-200: #f3f4f6;
+$color-gray-300: #e5e7eb;
+$color-gray-400: #9ca3af;
+$color-gray-500: #6b7280;
+$color-gray-600: #4b5563;
+$color-gray-700: #374151;
+$color-gray-800: #1f2937;
+
+$color-primary: #23a6f0;
+$color-secondary-1: #23856d;
+$color-secondary-2: #3c403d;
+$color-dark-background: #252b42;
+$color-light-background: #ffffff;
+$color-success: #2dc071;
+$color-alert: #e77c40;
+$color-danger: #e74040;
+$color-hover: #2a7cc7;
+$color-disabled-element: #8ec2f2;
+$color-muted: #bdbdbd;
+$color-light-gray-1: #fafafa;
+$color-light-gray-2: #ececec;
+$color-primary-text: #23a6f0;
+$color-secondary-text-1: #40bb15;
+$color-secondary-text-2: #3c403d;
+$color-text: #252b42;
+$color-second-text: #737373;
+$color-light-text: #ffffff;
+$color-success-text: #2dc071;
+$color-alert-text: #e77c40;
+$color-danger-text: #e74040;
+$color-hover-text: #2a7cc7;
+$color-disabled-element-text: #8ec2f2;
+$color-muted-text: #bdbdbd;
+$color-light-text-gray-1: #fafafa;
+$color-light-text-gray-2: #ececec;
+$color-faded-primary: #b2e3ff;
+$color-faded-secondary-1: #b2e3ff;
+$color-faded-secondary-2: #ffdcd1;
+
+// Container
+$container-max-width-mobile: 100%;
+$container-max-width-tablet: 720px;
+$container-max-width-desktop: 1140px;
+
+// Grid
+$grid-columns: 12;
+$grid-gutter: 16px;
+
+// Radius
+$radius-sm: 4px;
+$radius-md: 8px;
+$radius-lg: 12px;
+$radius-xl: 24px;
+$radius-2xl: 36px;
+
+// Spacing
+$spacing-xs: 4px;
+$spacing-sm: 8px;
+$spacing-md: 16px;
+$spacing-lg: 24px;
+$spacing-xl: 32px;
+$spacing-2xl: 48px;
+$spacing-3xl: 64px;
+
+// Typography
+$font-family-base: 'Montserrat', sans-serif;
+
+$font-size-xs: 12px;
+$font-size-sm: 14px;
+$font-size-md: 16px;
+$font-size-lg: 20px;
+$font-size-xl: 24px;
+$font-size-2xl: 30px;
+$font-size-3xl: 40px;
+$font-size-4xl: 58px;
+$font-size-5xl: 90px;
+
+$font-weight-thin: 100;
+$font-weight-extra-light: 200;
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-semi-bold: 600;
+$font-weight-bold: 700;
+$font-weight-extra-bold: 800;
+
+$font-heading-headline: $font-weight-extra-bold 90px/90px $font-family-base;
+$font-heading-h1: $font-weight-extra-bold 58px/80px $font-family-base;
+$font-heading-h2: $font-weight-bold 40px/50px $font-family-base;
+$font-heading-h3: $font-weight-bold 24px/32px $font-family-base;
+$font-heading-h4: $font-weight-medium 20px/30px $font-family-base;
+$font-heading-h5: $font-weight-bold 16px/24px $font-family-base;
+$font-heading-h6: $font-weight-semi-bold 14px/24px $font-family-base;
+$font-btn-text: $font-weight-bold 14px/22px $font-family-base;
+$font-mobile-menu: $font-weight-regular 30px/45px $font-family-base;
+$font-paragraph: $font-weight-medium 14px/20px $font-family-base;
+$font-list: $font-weight-regular 20px/30px $font-family-base;
+$font-link: $font-weight-semi-bold 14px/24px $font-family-base;
+$font-small: $font-weight-regular 12px/16px $font-family-base;

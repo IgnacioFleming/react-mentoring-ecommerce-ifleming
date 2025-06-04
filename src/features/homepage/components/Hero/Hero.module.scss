@@ -1,0 +1,50 @@
+@use '../../../../styles/variables' as *;
+
+.hero {
+  background-color: #00b5da;
+  color: $color-light-text;
+  height: 753px;
+  background-size: cover;
+  background-position: center;
+
+  @include is-tablet {
+    height: 716px;
+  }
+
+  &__container {
+    height: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: $spacing-xl;
+
+    @include is-tablet {
+      text-align: left;
+    }
+  }
+
+  &__eyebrow {
+    font: $font-heading-h5;
+    text-transform: uppercase;
+  }
+
+  &__title {
+    font: $font-heading-h2;
+    text-transform: uppercase;
+
+    @include is-tablet {
+      font: $font-heading-h1;
+    }
+  }
+
+  &__subtitle {
+    font: $font-heading-h4;
+    max-width: 370px;
+  }
+
+  &__button {
+    background-color: $color-success;
+    text-transform: uppercase;
+  }
+}

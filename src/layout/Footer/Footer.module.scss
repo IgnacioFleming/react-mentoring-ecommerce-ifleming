@@ -1,0 +1,68 @@
+@use '../../styles/variables' as *;
+
+.footer {
+  border-top: 1px solid $color-light-gray-1;
+  &__nav {
+    display: flex;
+    justify-content: center;
+    padding: $spacing-3xl 0;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-xl;
+
+    @include is-tablet {
+      flex-direction: row;
+    }
+
+    h3 {
+      font: $font-heading-h3;
+    }
+
+    ul {
+      display: flex;
+      flex-direction: column;
+      gap: $spacing-sm;
+    }
+
+    a {
+      font: $font-link;
+      color: $color-second-text;
+      transition: all 0.2s ease-in-out;
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+
+    &__column {
+      display: flex;
+      flex-direction: column;
+      gap: $spacing-lg;
+      flex: 1;
+    }
+  }
+
+  &__social-media {
+    display: flex;
+    gap: $spacing-lg;
+  }
+
+  &__icon {
+    width: 24px;
+    height: 24px;
+    fill: $color-primary;
+  }
+
+  &__copyright {
+    display: flex;
+    align-items: center;
+    height: 98px;
+    background-color: $color-light-gray-1;
+    text-align: center;
+    color: $color-second-text;
+    font-size: $font-size-sm;
+  }
+}

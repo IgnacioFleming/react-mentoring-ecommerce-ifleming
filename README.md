@@ -26,7 +26,7 @@ A React e-commerce template designed for the Mentoring Program for React develop
 - Example pages (Homepage, Shop, MyAccount, NotFound)
 - Button component with various styles and sizes
 
-## Project Structure
+## Project structure
 
 The project is organized into the following directories:
 - `src`: Source code for the application
@@ -43,9 +43,9 @@ The project is organized into the following directories:
 - `tests`: Testing setup
 - `vite.config.ts`: Vite configuration file
 
-## Getting Started
+## Getting started
 
-### 1. Create Your Own Repository
+### 1. Create your own repository
 
 This project is set up as a [GitHub Template Repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template).
 
@@ -56,7 +56,7 @@ This project is set up as a [GitHub Template Repository](https://docs.github.com
 3.	Keep it public (recommended) or private.
 4.	Click “Create repository from template”.
 
-### 2. Clone and Run Your Repo Locally
+### 2. Clone and run your repo locally
 
 ```bash
 git clone https://github.com/your-username/react-mentoring-project-yourname.git
@@ -79,15 +79,15 @@ yarn dev
 
 Then open your browser and go to: `http://localhost:5173/`.
 
-### Add Your Mentor as a Collaborator
+### Add your mentor as a collaborator
 
 To allow your mentor to review your code and provide feedback:
 1.	Go to your new GitHub repository.
 2.	Click on Settings > Collaborators.
-3.	Search for: @emonteco.
+3.	Search for: `@emonteco`.
 4.	Click “Add collaborator”.
 
-### Keeping Your Project Updated with Template Changes
+### Keeping your project updated with template changes
 
 If you created your project from this template and want to receive updates when improvements or fixes are made to the original repo, you can link it as an upstream repository and manually sync changes.
 
@@ -111,33 +111,33 @@ git merge upstream/main
 git push origin main
 ```
 
-## Start Building
+## Start building
 
 You now have a fully functional copy of the project. Use it to:
 - Complete tasks from the program.
 - Practice building React components, using hooks, and integrating APIs.
 - Deploy updates and share your progress.
 
-## CSS Naming Convention
+## CSS naming convention
 
 We use the BEM (Block-Element-Modifier) naming convention for our CSS classes. This convention helps to create a consistent and organized CSS structure. For more information on how BEM works, please refer to the [official BEM documentation](https://getbem.com/naming/).
 
-## Unit Tests
+## Unit tests
 
 Unit tests are an essential part of the development process, ensuring that individual components and functions behave as expected. In this project, we use Vitest and React Testing Library to write and run unit tests.
 
-### Writing Unit Tests
+### Writing unit tests
 - Create a new test file for each component or function you want to test.
 - Use the describe block to group related tests together.
 - Use the it block to write individual tests.
 - Use the expect function to assert expected behavior.
 
-### Running Unit Tests
+### Running unit tests
 
-- Run npm test or yarn test to execute all unit tests.
+- Run `npm test` or `yarn test` to execute all unit tests.
 - Use the `--watch` flag to run tests in watch mode.
 
-## Commit Rules
+## Commit rules
 
 We follow the Conventional Commits specification for commit messages. This specification provides a set of rules for writing commit messages that are easy to read and understand.
 Use the following format for commit messages: `type(scope): subject`
@@ -153,7 +153,7 @@ Use the following format for commit messages: `type(scope): subject`
 - `scope`: Optional scope of the commit (e.g., components/Button)
 - `subject`: Brief description of the commit
 
-### Example Commit Message
+### Example commit message
 `feat(components/Button): Add new Button component`
 
 ### Reference
@@ -164,7 +164,7 @@ For more information on Conventional Commits, please visit the official website:
 
 We use Husky and Lint-Staged to enforce our commit rules and ensure that our code is formatted consistently.
 
-## Design Tokens
+## Design tokens
 
 Design tokens are a set of reusable values that define the visual design of our application. They include:
 
@@ -186,7 +186,7 @@ Design tokens are a set of reusable values that define the visual design of our 
 
 Your project will be live in a few seconds 🚀
 
-##  Need Help?
+##  Need help?
 
 If you get stuck, ask questions in our community Slack channel or reach out to your mentor directly.
 

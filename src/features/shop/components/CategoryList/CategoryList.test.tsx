@@ -38,7 +38,7 @@ describe('CategoryList', () => {
     );
     const links = getAllByRole('link');
     expect(links).toHaveLength(8);
-    expect(links[0]).toHaveAttribute('href', '/shop/category-1');
-    expect(links[1]).toHaveAttribute('href', '/shop/category-2');
+    expect(links[0]).toHaveAttribute('href', '/shop/category/category-1');
+    expect(links[1]).toHaveAttribute('href', '/shop/category/category-2');
   });
 });

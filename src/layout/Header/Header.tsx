@@ -1,7 +1,11 @@
 import clsx from 'clsx';
 import { Link } from 'react-router-dom';
 import { User, ShoppingCart, Heart, Search, Phone } from 'lucide-react';
-import Mail from '../../assets/icons/mail.svg?react';
+import MailIcon from '../../assets/icons/mail.svg?react';
+import InstagramIcon from '../../assets/icons/instagram.svg?react';
+import YoutubeIcon from '../../assets/icons/youtube.svg?react';
+import FacebookIcon from '../../assets/icons/facebook.svg?react';
+import XIcon from '../../assets/icons/x.svg?react';
 import { Container } from '../../components/Container';
 import styles from './Header.module.scss';
 
@@ -15,12 +19,30 @@ export const Header = () => (
             <small>(225) 555-0118</small>
           </div>
           <div>
-            <Mail />
+            <MailIcon />
             <small>test@test.com</small>
           </div>
         </div>
-        <div className={clsx(styles.banner__column, styles['banner__column--center'])}>2</div>
-        <div className={clsx(styles.banner__column, styles['banner__column--right'])}>3</div>
+        <div className={clsx(styles.banner__column, styles['banner__column--center'])}>
+          <h6>Follow Us and get a chance to win 80% off</h6>
+        </div>
+        <div className={clsx(styles.banner__column, styles['banner__column--right'])}>
+          <h6>Follow Us :</h6>
+          <div>
+            <div>
+              <InstagramIcon />
+            </div>
+            <div>
+              <YoutubeIcon />
+            </div>
+            <div>
+              <FacebookIcon />
+            </div>
+            <div>
+              <XIcon />
+            </div>
+          </div>
+        </div>
       </Container>
     </div>
     <div className={styles.navbar}>

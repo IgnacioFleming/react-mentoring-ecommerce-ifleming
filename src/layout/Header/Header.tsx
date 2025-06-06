@@ -27,7 +27,7 @@ export const Header = () => (
           <h6>Follow Us and get a chance to win 80% off</h6>
         </div>
         <div className={clsx(styles.banner__column, styles['banner__column--right'])}>
-          <h6>Follow Us :</h6>
+          <h6>Follow Us &nbsp;:</h6>
           <div className={styles['banner__social-media']}>
             <div>
               <Link to="#">

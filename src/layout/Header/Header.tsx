@@ -15,11 +15,11 @@ export const Header = () => (
       <Container className={styles.banner__container}>
         <div className={clsx(styles.banner__column, styles['banner__column--left'])}>
           <div>
-            <Phone className={styles.banner__column__icon} />
+            <Phone className={styles.banner__icon} />
             <small>(225) 555-0118</small>
           </div>
           <div>
-            <MailIcon />
+            <MailIcon className={styles.banner__icon} />
             <small>test@test.com</small>
           </div>
         </div>
@@ -28,18 +28,18 @@ export const Header = () => (
         </div>
         <div className={clsx(styles.banner__column, styles['banner__column--right'])}>
           <h6>Follow Us :</h6>
-          <div>
+          <div className={styles['banner__social-media']}>
             <div>
-              <InstagramIcon />
+              <InstagramIcon className={styles.banner__icon} />
             </div>
-            <div>
-              <YoutubeIcon />
+            <div className={styles['banner__social-media--youtube']}>
+              <YoutubeIcon className={styles.banner__icon} />
             </div>
-            <div>
-              <FacebookIcon />
+            <div className={styles['banner__social-media--facebook']}>
+              <FacebookIcon className={styles.banner__icon} />
             </div>
-            <div>
-              <XIcon />
+            <div className={styles['banner__social-media--x']}>
+              <XIcon className={styles.banner__icon} />
             </div>
           </div>
         </div>

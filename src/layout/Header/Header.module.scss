@@ -17,18 +17,73 @@
     &__column {
       display: flex;
       flex: 1;
+      height: 46px;
+      gap: $spacing-sm;
 
       &--left {
         justify-content: flex-start;
+
+        div {
+          display: flex;
+          border-radius: $radius-sm;
+          padding: $spacing-sm;
+          gap: $spacing-xs;
+
+          small {
+            font: $font-small;
+          }
+        }
       }
 
       &--center {
         justify-content: center;
+        padding: $spacing-xs;
+
+        h6 {
+          font: $font-heading-h6;
+        }
       }
 
       &--right {
         justify-content: flex-end;
+        padding: $spacing-xs;
+
+        h6 {
+          font: $font-heading-h6;
+        }
       }
+    }
+
+    &__social-media {
+      width: 120px;
+      height: 26px;
+      position: relative;
+
+      div {
+        position: absolute;
+        padding: $spacing-xs;
+      }
+
+      &--youtube {
+        top: 0;
+        left: 31.5px;
+      }
+
+      &--facebook {
+        top: 0;
+        left: 61.5px;
+      }
+
+      &--x {
+        top: 0;
+        left: 93.5px;
+      }
+    }
+
+    &__icon {
+      width: 16px;
+      height: 16px;
+      fill: $color-light-gray-1;
     }
   }
 }

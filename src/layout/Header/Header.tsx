@@ -46,7 +46,6 @@ export const Header = () => (
             </div>
             <div className={styles['banner__social-media--x']}>
               <Link to="#">
-                {' '}
                 <XIcon className={styles.banner__icon} />
               </Link>
             </div>

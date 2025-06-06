@@ -11,10 +11,10 @@ export const Homepage = () => (
       ctaLink="/shop"
     />
     <Container>
-      <h3>Editor's Pick</h3>
+      <h3>Featured Categories</h3>
     </Container>
     <Container>
-      <h3>Bestseller Products</h3>
+      <h3>Top Rated Products</h3>
     </Container>
   </>
 );

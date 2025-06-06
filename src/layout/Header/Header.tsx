@@ -30,16 +30,25 @@ export const Header = () => (
           <h6>Follow Us :</h6>
           <div className={styles['banner__social-media']}>
             <div>
-              <InstagramIcon className={styles.banner__icon} />
+              <Link to="#">
+                <InstagramIcon className={styles.banner__icon} />
+              </Link>
             </div>
             <div className={styles['banner__social-media--youtube']}>
-              <YoutubeIcon className={styles.banner__icon} />
+              <Link to="#">
+                <YoutubeIcon className={styles.banner__icon} />
+              </Link>
             </div>
             <div className={styles['banner__social-media--facebook']}>
-              <FacebookIcon className={styles.banner__icon} />
+              <Link to="#">
+                <FacebookIcon className={styles.banner__icon} />
+              </Link>
             </div>
             <div className={styles['banner__social-media--x']}>
-              <XIcon className={styles.banner__icon} />
+              <Link to="#">
+                {' '}
+                <XIcon className={styles.banner__icon} />
+              </Link>
             </div>
           </div>
         </div>

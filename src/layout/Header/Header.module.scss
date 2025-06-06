@@ -62,6 +62,12 @@
       div {
         position: absolute;
         padding: $spacing-xs;
+        cursor: pointer;
+        transition: all 0.2s ease-in-out;
+
+        &:hover {
+          opacity: 0.8;
+        }
       }
 
       &--youtube {

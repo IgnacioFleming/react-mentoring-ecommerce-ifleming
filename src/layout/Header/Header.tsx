@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import { Link } from 'react-router-dom';
-import { User, ShoppingCart, Heart, Search } from 'lucide-react';
+import { User, ShoppingCart, Heart, Search, Phone } from 'lucide-react';
+import Mail from '../../assets/icons/mail.svg?react';
 import { Container } from '../../components/Container';
 import styles from './Header.module.scss';
 
@@ -8,7 +9,16 @@ export const Header = () => (
   <header>
     <div className={styles.banner}>
       <Container className={styles.banner__container}>
-        <div className={clsx(styles.banner__column, styles['banner__column--left'])}>1</div>
+        <div className={clsx(styles.banner__column, styles['banner__column--left'])}>
+          <div>
+            <Phone className={styles.banner__column__icon} />
+            <small>(225) 555-0118</small>
+          </div>
+          <div>
+            <Mail />
+            <small>test@test.com</small>
+          </div>
+        </div>
         <div className={clsx(styles.banner__column, styles['banner__column--center'])}>2</div>
         <div className={clsx(styles.banner__column, styles['banner__column--right'])}>3</div>
       </Container>

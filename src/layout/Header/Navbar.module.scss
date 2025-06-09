@@ -62,27 +62,6 @@
       animation: menu_collapses 0.3s ease-in-out;
     }
   }
-
-  &__links {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: $spacing-xl;
-    font: $font-mobile-menu;
-    color: $color-second-text;
-
-    &:visited {
-      color: $color-text;
-    }
-
-    &--active {
-      color: $color-text;
-    }
-  }
-
-  &__links--spaced {
-    padding-block: $spacing-xl;
-  }
 }
 
 @keyframes menu_expands {

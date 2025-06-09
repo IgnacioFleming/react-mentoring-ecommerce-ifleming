@@ -1,9 +1,12 @@
 import * as AccordionPrimitive from '@radix-ui/react-accordion';
-import clsx from 'clsx';
 import { ChevronDown } from 'lucide-react';
 import styles from './Accordion.module.scss';
+import clsx from 'clsx';
 
-export const Accordion = ({ children, ...props }: AccordionPrimitive.AccordionSingleProps) => {
+export const Accordion = ({
+  children,
+  ...props
+}: AccordionPrimitive.AccordionSingleProps | AccordionPrimitive.AccordionMultipleProps) => {
   return <AccordionPrimitive.Root {...props}>{children}</AccordionPrimitive.Root>;
 };
 
@@ -20,21 +23,25 @@ Accordion.Item = Item;
 const Trigger = ({
   children,
   className,
-}: AccordionPrimitive.AccordionHeaderProps & AccordionPrimitive.AccordionTriggerProps) => (
-  <AccordionPrimitive.AccordionHeader>
-    <AccordionPrimitive.Trigger asChild>
-      <div className={clsx(styles.accorion__trigger, className)}>
-        {children}
-        <ChevronDown />
-      </div>
-    </AccordionPrimitive.Trigger>
-  </AccordionPrimitive.AccordionHeader>
-);
+}: AccordionPrimitive.AccordionHeaderProps & AccordionPrimitive.AccordionTriggerProps) => {
+  return (
+    <AccordionPrimitive.AccordionHeader className={className}>
+      <AccordionPrimitive.Trigger asChild>
+        <div className={styles.accordion__trigger}>
+          <div>{children}</div>
+          <ChevronDown className={styles.accordion__trigger__chevron} />
+        </div>
+      </AccordionPrimitive.Trigger>
+    </AccordionPrimitive.AccordionHeader>
+  );
+};
 
 Accordion.Trigger = Trigger;
 
 const Content = ({ children, ...props }: AccordionPrimitive.AccordionContentProps) => (
-  <AccordionPrimitive.Content className={props.className}>{children}</AccordionPrimitive.Content>
+  <AccordionPrimitive.Content className={clsx(styles.accordion__content, props.className)}>
+    {children}
+  </AccordionPrimitive.Content>
 );
 
 Accordion.Content = Content;

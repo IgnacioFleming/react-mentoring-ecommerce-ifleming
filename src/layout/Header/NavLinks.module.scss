@@ -1,0 +1,33 @@
+@use '../../styles/variables' as *;
+
+.navbar {
+  &__links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $spacing-xl;
+    font: $font-mobile-menu;
+    color: $color-second-text;
+
+    &--active {
+      color: $color-text;
+    }
+  }
+
+  &__links--spaced {
+    padding-block: $spacing-xl;
+  }
+
+  &__accordion {
+    all: unset;
+    @extend .navbar__links;
+  }
+
+  &__accordion__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $spacing-xl;
+    padding-top: $spacing-xl;
+  }
+}

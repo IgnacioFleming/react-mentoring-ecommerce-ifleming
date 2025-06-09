@@ -1,7 +1,46 @@
+@use '../../styles/variables' as *;
 .accordion {
   &__trigger {
     display: flex;
     justify-content: center;
+    align-items: center;
     gap: $spacing-sm;
+
+    &__chevron {
+      transition: transform 0.2s ease-in-out;
+    }
+
+    &[data-state='open'] &__chevron {
+      transform: rotate(180deg);
+    }
+  }
+
+  &__content {
+    overflow: hidden;
+  }
+
+  &__content[data-state='open'] {
+    animation: slideDown 0.2s ease-in-out forwards;
+  }
+  &__content[data-state='closed'] {
+    animation: slideUp 0.2s ease-in-out forwards;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    height: 0;
+  }
+  to {
+    height: var(--radix-accordion-content-height);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    height: var(--radix-accordion-content-height);
+  }
+  to {
+    height: 0;
   }
 }

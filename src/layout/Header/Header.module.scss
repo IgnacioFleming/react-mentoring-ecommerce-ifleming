@@ -96,11 +96,14 @@
 
 .navbar {
   background-color: #fff;
+  display: flex;
+  justify-content: space-between;
 
   &__container {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
   }
 
   &__logo {

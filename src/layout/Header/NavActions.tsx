@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import styles from './Header.module.scss';
+import styles from './Navbar.module.scss';
 import { Heart, Search, ShoppingCart, User } from 'lucide-react';
 
 export const NavActions = () => (

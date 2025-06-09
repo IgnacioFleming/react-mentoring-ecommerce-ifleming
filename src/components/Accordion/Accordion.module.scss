@@ -1,0 +1,7 @@
+.accordion {
+  &__trigger {
+    display: flex;
+    justify-content: center;
+    gap: $spacing-sm;
+  }
+}

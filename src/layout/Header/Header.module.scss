@@ -6,7 +6,6 @@
   @include is-tablet {
     display: block;
     background-color: $color-dark-background;
-    height: 58px;
     color: $color-light-text;
 
     &__container {
@@ -17,16 +16,18 @@
     &__column {
       display: flex;
       flex: 1;
-      height: 46px;
-      gap: $spacing-sm;
+      align-items: center;
+      gap: $spacing-md;
+
+      h6 {
+        font: $font-heading-h6;
+      }
 
       &--left {
         justify-content: flex-start;
 
         div {
           display: flex;
-          border-radius: $radius-sm;
-          padding: $spacing-sm;
           gap: $spacing-xs;
 
           small {
@@ -37,59 +38,16 @@
 
       &--center {
         justify-content: center;
-        padding: $spacing-xs;
-
-        h6 {
-          font: $font-heading-h6;
-        }
       }
 
       &--right {
         justify-content: flex-end;
-        padding: $spacing-xs;
-
-        h6 {
-          font: $font-heading-h6;
-        }
-      }
-    }
-
-    &__social-media {
-      width: 120px;
-      height: 26px;
-      position: relative;
-
-      div {
-        position: absolute;
-        padding: $spacing-xs;
-        fill: $color-light-gray-1;
-        cursor: pointer;
-        transition: all 0.2s ease-in-out;
-
-        &:hover {
-          opacity: 0.8;
-        }
-      }
-
-      &--youtube {
-        top: 0;
-        left: 31.5px;
-      }
-
-      &--facebook {
-        top: 0;
-        left: 61.5px;
-      }
-
-      &--x {
-        top: 0;
-        left: 93.5px;
       }
     }
 
     &__icon {
-      width: 16px;
-      height: 16px;
+      width: $size-banner-icon;
+      height: $size-banner-icon;
     }
   }
 }

@@ -1,13 +1,10 @@
 import clsx from 'clsx';
 import { Link } from 'react-router-dom';
-import { User, ShoppingCart, Heart, Search, Phone } from 'lucide-react';
-import MailIcon from '../../assets/icons/mail.svg?react';
-import InstagramIcon from '../../assets/icons/instagram.svg?react';
-import YoutubeIcon from '../../assets/icons/youtube.svg?react';
-import FacebookIcon from '../../assets/icons/facebook.svg?react';
-import XIcon from '../../assets/icons/x.svg?react';
+import { User, ShoppingCart, Heart, Search, Phone, Mail } from 'lucide-react';
+
 import { Container } from '../../components/Container';
 import styles from './Header.module.scss';
+import { SocialMedia } from './components/SocialMedia/SocialMedia';
 
 export const Header = () => (
   <header>
@@ -19,7 +16,7 @@ export const Header = () => (
             <small>(225) 555-0118</small>
           </div>
           <div>
-            <MailIcon className={styles.banner__icon} />
+            <Mail className={styles.banner__icon} />
             <small>test@test.com</small>
           </div>
         </div>
@@ -27,29 +24,8 @@ export const Header = () => (
           <h6>Follow Us and get a chance to win 80% off</h6>
         </div>
         <div className={clsx(styles.banner__column, styles['banner__column--right'])}>
-          <h6>Follow Us &nbsp;:</h6>
-          <div className={styles['banner__social-media']}>
-            <div>
-              <Link to="#">
-                <InstagramIcon className={styles.banner__icon} />
-              </Link>
-            </div>
-            <div className={styles['banner__social-media--youtube']}>
-              <Link to="#">
-                <YoutubeIcon className={styles.banner__icon} />
-              </Link>
-            </div>
-            <div className={styles['banner__social-media--facebook']}>
-              <Link to="#">
-                <FacebookIcon className={styles.banner__icon} />
-              </Link>
-            </div>
-            <div className={styles['banner__social-media--x']}>
-              <Link to="#">
-                <XIcon className={styles.banner__icon} />
-              </Link>
-            </div>
-          </div>
+          <h6>Follow Us:</h6>
+          <SocialMedia />
         </div>
       </Container>
     </div>

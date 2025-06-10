@@ -4,7 +4,7 @@ import { MemoryRouter } from 'react-router-dom';
 import { SocialMedia } from './SocialMedia';
 
 describe('SocialMedia', () => {
-  it('component renders 4 social media icons', () => {
+  it('renders 4 social media icons', () => {
     const { queryAllByRole } = render(
       <MemoryRouter>
         <SocialMedia />

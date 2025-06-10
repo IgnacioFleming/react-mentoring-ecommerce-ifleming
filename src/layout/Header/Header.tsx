@@ -1,7 +1,6 @@
 import clsx from 'clsx';
 import { Link } from 'react-router-dom';
 import { User, ShoppingCart, Heart, Search, Phone, Mail } from 'lucide-react';
-
 import { Container } from '../../components/Container';
 import styles from './Header.module.scss';
 import { SocialMedia } from './components/SocialMedia';

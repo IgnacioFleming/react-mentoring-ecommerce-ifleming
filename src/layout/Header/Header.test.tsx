@@ -5,7 +5,7 @@ import { Header } from './Header';
 
 describe('Header', () => {
   describe('banner', () => {
-    it('banner renders correctly', () => {
+    it('renders the banner correctly', () => {
       const { getByRole } = render(
         <MemoryRouter>
           <Header />

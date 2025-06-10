@@ -4,7 +4,7 @@ import { User, ShoppingCart, Heart, Search, Phone, Mail } from 'lucide-react';
 
 import { Container } from '../../components/Container';
 import styles from './Header.module.scss';
-import { SocialMedia } from './components/SocialMedia/SocialMedia';
+import { SocialMedia } from './components/SocialMedia';
 
 export const Header = () => (
   <header>

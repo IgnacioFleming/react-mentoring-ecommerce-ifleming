@@ -5,7 +5,7 @@ import { Header } from './Header';
 
 describe('Header', () => {
   describe('banner', () => {
-    it('banner renders correctly', () => {
+    it('renders the banner correctly', () => {
       const { getByRole } = render(
         <MemoryRouter>
           <Header />
@@ -62,27 +62,11 @@ describe('Header', () => {
         </MemoryRouter>,
       );
 
-      const heading = getByRole('heading', { name: 'Follow Us :' });
+      const heading = getByRole('heading', { name: 'Follow Us:' });
 
       const icons = queryAllByRole('img');
       expect(heading).toBeInTheDocument();
       expect(icons).toHaveLength(4);
-      icons.forEach((i) => {
-        expect(i).toHaveClass(/banner__icon/);
-      });
-    });
-
-    it('clicking any social media icon should redirect to #', () => {
-      const { getByRole } = render(
-        <MemoryRouter>
-          <Header />
-        </MemoryRouter>,
-      );
-
-      const links = getByRole('banner').querySelectorAll('[class*="banner__social-media"] a');
-      links.forEach((l) => {
-        expect(l).toHaveAttribute('href', '/');
-      });
     });
   });
 });

@@ -1,0 +1,22 @@
+@use '../../../../styles/variables' as *;
+.social-media {
+  display: flex;
+  gap: $spacing-md;
+
+  &__icon {
+    width: $size-banner-icon;
+    height: $size-banner-icon;
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    fill: $color-light-gray-1;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}

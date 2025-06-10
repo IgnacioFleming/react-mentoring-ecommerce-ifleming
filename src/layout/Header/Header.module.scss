@@ -6,7 +6,6 @@
   @include is-tablet {
     display: block;
     background-color: $color-dark-background;
-    height: 58px;
     color: $color-light-text;
 
     &__container {
@@ -17,9 +16,24 @@
     &__column {
       display: flex;
       flex: 1;
+      align-items: center;
+      gap: $spacing-md;
+
+      h6 {
+        font: $font-heading-h6;
+      }
 
       &--left {
         justify-content: flex-start;
+
+        div {
+          display: flex;
+          gap: $spacing-xs;
+
+          small {
+            font: $font-small;
+          }
+        }
       }
 
       &--center {
@@ -29,6 +43,11 @@
       &--right {
         justify-content: flex-end;
       }
+    }
+
+    &__icon {
+      width: $size-banner-icon;
+      height: $size-banner-icon;
     }
   }
 }

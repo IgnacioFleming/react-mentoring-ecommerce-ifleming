@@ -48,34 +48,11 @@
   }
 
   &__menu {
-    transform-origin: top;
-    opacity: 0;
-    transform: scaleY(0);
-    height: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
     &--open {
-      transform: scaleY(1);
-      opacity: 1;
-      height: auto;
-      animation: menu_expands 0.3s ease-in-out;
+      max-height: 1000px;
     }
-    &--closed {
-      animation: menu_collapses 0.3s ease-in-out;
-    }
-  }
-}
-
-@keyframes menu_expands {
-  from {
-    transform: scaleY(0);
-    opacity: 0.3;
-    height: 0;
-  }
-}
-
-@keyframes menu_collapses {
-  from {
-    transform: scaleY(1);
-    opacity: 1;
-    height: auto;
   }
 }

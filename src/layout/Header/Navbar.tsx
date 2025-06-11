@@ -6,10 +6,8 @@ import { NavLinks } from './NavLinks';
 import { NavActions } from './NavActions';
 import clsx from 'clsx';
 
-type ShowMenu = boolean | null;
-
 export const Navbar = () => {
-  const [open, setOpen] = useState<ShowMenu>(null);
+  const [open, setOpen] = useState<boolean>(false);
 
   const handleOpen = () => setOpen(!open);
 
@@ -22,12 +20,7 @@ export const Navbar = () => {
         <Menu onClick={handleOpen} className={styles.navbar__burguer} />
       </div>
 
-      <div
-        className={clsx(
-          styles.navbar__menu,
-          open ? styles['navbar__menu--open'] : open === null ? '' : styles['navbar__menu--closed'],
-        )}
-      >
+      <div className={clsx(styles.navbar__menu, open ? styles['navbar__menu--open'] : '')}>
         <NavLinks />
         <NavActions />
       </div>

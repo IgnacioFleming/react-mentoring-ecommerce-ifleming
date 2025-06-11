@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import styles from './NavLinks.module.scss';
 import clsx from 'clsx';
-import { Accordion } from '../../components/Accordion/Accordion';
+import { Accordion } from '../../../../components/Accordion/Accordion';
 
 const applyNavLinkStyle = ({ isActive }: { isActive: boolean }) =>
   isActive ? styles['navbar__links--active'] : '';

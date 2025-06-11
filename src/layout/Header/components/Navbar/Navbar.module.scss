@@ -1,4 +1,4 @@
-@use '../../styles/variables' as *;
+@use '../../../../styles/variables' as *;
 
 .navbar {
   background-color: #fff;
@@ -44,15 +44,6 @@
       &:hover {
         color: $color-hover;
       }
-    }
-  }
-
-  &__menu {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease-in-out;
-    &--open {
-      max-height: 1000px;
     }
   }
 }

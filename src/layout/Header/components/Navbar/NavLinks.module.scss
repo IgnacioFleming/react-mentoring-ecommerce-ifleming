@@ -12,10 +12,19 @@
     &--active {
       color: $color-text;
     }
+
+    @include is-tablet {
+      flex-direction: row;
+      gap: $spacing-md;
+      font: $font-heading-h5;
+    }
   }
 
   &__links--spaced {
     padding-block: $spacing-xl;
+    @include is-tablet {
+      padding-block: 0;
+    }
   }
 
   &__accordion {

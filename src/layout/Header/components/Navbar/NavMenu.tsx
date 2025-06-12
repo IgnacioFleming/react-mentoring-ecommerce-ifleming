@@ -11,7 +11,7 @@ type NavMenuProps = {
 export const NavMenu = ({ open, closeOnClickingLink }: NavMenuProps) => {
   return (
     <div
-      className={clsx(styles.navbar__menu, open ? styles['navbar__menu--open'] : '')}
+      className={clsx(styles.navbar__nav, open ? styles['navbar__nav--open'] : '')}
       onClick={closeOnClickingLink}
     >
       <NavLinks />

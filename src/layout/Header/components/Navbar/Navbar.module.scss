@@ -8,16 +8,20 @@
   &__container {
     display: flex;
     flex-direction: column;
+    @include is-tablet {
+      flex-direction: row;
+      gap: $spacing-5xl;
+    }
   }
 
   &__main {
     display: flex;
     justify-content: space-between;
+    flex-shrink: 0;
   }
 
   &__logo {
     font: $font-heading-h3;
-
     a {
       transition: all 0.2s ease-in-out;
 
@@ -29,24 +33,9 @@
 
   &__burguer {
     color: $color-second-text;
-  }
 
-  &__nav {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: $spacing-md;
-
-    &__icon {
-      height: 16px;
-      width: 16px;
-      color: $color-primary;
-      cursor: pointer;
-      transition: all 0.2s ease-in-out;
-
-      &:hover {
-        color: $color-hover;
-      }
+    @include is-tablet {
+      display: none;
     }
   }
 }

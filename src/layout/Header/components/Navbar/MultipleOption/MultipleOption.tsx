@@ -1,6 +1,7 @@
 import { Accordion } from '../../../../../components/Accordion';
 import { NavLink } from 'react-router-dom';
 import styles from './MultipleOption.module.scss';
+import { Dropdown } from '../../../../../components/Dropdown';
 
 type MultipleOptionItem = {
   name: string;
@@ -44,11 +45,13 @@ export const MultipleOption = ({ trigger, items, applyNavLinkStyle }: MultipleOp
         </>
       ) : (
         <>
-          <div>
-            <NavLink to={trigger.path} className={applyNavLinkStyle}>
-              {trigger.name}
-            </NavLink>
-            <div>
+          <Dropdown>
+            <Dropdown.Trigger>
+              <NavLink to={trigger.path} className={applyNavLinkStyle}>
+                {trigger.name}
+              </NavLink>
+            </Dropdown.Trigger>
+            <Dropdown.Content>
               {items.map((i, index) => (
                 <div>
                   <NavLink key={index} to={i.path} className={applyNavLinkStyle}>
@@ -56,8 +59,8 @@ export const MultipleOption = ({ trigger, items, applyNavLinkStyle }: MultipleOp
                   </NavLink>
                 </div>
               ))}
-            </div>
-          </div>
+            </Dropdown.Content>
+          </Dropdown>
         </>
       )}
     </>

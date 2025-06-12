@@ -1,4 +1,7 @@
+import clsx from 'clsx';
 import * as DropdownPrimitive from '@radix-ui/react-dropdown-menu';
+import styles from './Dropdown.module.scss';
+import { ChevronDown } from 'lucide-react';
 
 type DropdownProps = DropdownPrimitive.DropdownMenuProps;
 
@@ -9,7 +12,14 @@ export const Dropdown = ({ children, ...props }: DropdownProps) => {
 Dropdown.displayName = 'Dropdown';
 
 const Trigger = ({ children }: DropdownPrimitive.DropdownMenuTriggerProps) => {
-  return <DropdownPrimitive.Trigger asChild>{children}</DropdownPrimitive.Trigger>;
+  return (
+    <DropdownPrimitive.Trigger asChild>
+      <div className={styles.dropdown__trigger}>
+        {children}
+        <ChevronDown size={20} />
+      </div>
+    </DropdownPrimitive.Trigger>
+  );
 };
 
 Dropdown.Trigger = Trigger;
@@ -20,7 +30,9 @@ const Content = ({
 }: DropdownPrimitive.DropdownMenuPortalProps & DropdownPrimitive.DropdownMenuContentProps) => {
   return (
     <DropdownPrimitive.Portal>
-      <DropdownPrimitive.Content className={className}>{children}</DropdownPrimitive.Content>
+      <DropdownPrimitive.Content className={clsx(styles.dropdown__content, className)}>
+        {children}
+      </DropdownPrimitive.Content>
     </DropdownPrimitive.Portal>
   );
 };

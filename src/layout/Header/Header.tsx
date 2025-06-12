@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import { Phone, Mail } from 'lucide-react';
-import { Navbar } from './components/Navbar/Navbar';
+import { Navbar } from './components/Navbar';
 import { SocialMedia } from './components/SocialMedia';
 import { Container } from '../../components/Container';
 import styles from './Header.module.scss';

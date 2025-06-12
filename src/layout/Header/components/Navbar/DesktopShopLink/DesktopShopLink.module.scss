@@ -1,0 +1,12 @@
+@use '../../../../../styles/variables' as *;
+.dropdown {
+  display: none;
+
+  &__content {
+    font: $font-list;
+  }
+
+  @include is-tablet {
+    display: block;
+  }
+}

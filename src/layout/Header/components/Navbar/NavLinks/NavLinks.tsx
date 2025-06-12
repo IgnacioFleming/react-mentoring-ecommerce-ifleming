@@ -1,14 +1,16 @@
 import { NavLink } from 'react-router-dom';
 import styles from './NavLinks.module.scss';
 import clsx from 'clsx';
-import { MultipleOption, MultipleOptionProps } from '../MultipleOption/MultipleOption';
+import { MobileShopLink } from '../MobileShopLink/MobileShopLink';
+import { MultipleCategoryProps } from '../../types/nabvar';
+import { DesktopShopLink } from '../DesktopShopLink/DesktopShopLink';
 
-const trigger: MultipleOptionProps['trigger'] = {
+const trigger: MultipleCategoryProps['trigger'] = {
   name: 'Shop',
   path: '/shop',
 };
 
-const items: MultipleOptionProps['items'] = [
+const items: MultipleCategoryProps['items'] = [
   { name: 'Top Rated', path: '/shop?orderBy=top-rated' },
   { name: 'Price Desc', path: '/shop?orderBy=price-desc' },
   { name: 'Price Asc', path: '/shop?orderBy=price-asc' },
@@ -26,7 +28,8 @@ export const NavLinks = () => {
         </NavLink>
       </li>
       <li>
-        <MultipleOption trigger={trigger} items={items} applyNavLinkStyle={applyNavLinkStyle} />
+        <MobileShopLink trigger={trigger} items={items} applyNavLinkStyle={applyNavLinkStyle} />
+        <DesktopShopLink trigger={trigger} items={items} applyNavLinkStyle={applyNavLinkStyle} />
       </li>
       <li>
         <NavLink to={'/my-account'} className={applyNavLinkStyle}>

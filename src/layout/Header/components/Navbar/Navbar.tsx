@@ -7,7 +7,8 @@ import { useHandleOutsideClick } from '../../hooks/useHandleOutsideClick';
 
 export const Navbar = () => {
   const [open, setOpen] = useState<boolean>(false);
-  const navbarRef = useRef(null);
+  const navbarRef = useRef<HTMLDivElement>(null);
+  const menuRef = useRef<HTMLDivElement>(null);
 
   const toggleMenu = () => {
     setOpen(!open);
@@ -31,7 +32,7 @@ export const Navbar = () => {
         </div>
         <Menu onClick={toggleMenu} className={styles.navbar__burguer} />
       </div>
-      <NavMenu open={open} closeOnClickingLink={closeOnClickingLink} />
+      <NavMenu open={open} closeOnClickingLink={closeOnClickingLink} ref={menuRef} />
     </div>
   );
 };

@@ -1,0 +1,29 @@
+@use '../../../../../styles/variables' as *;
+
+.navbar {
+  &__links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $spacing-xl;
+    font: $font-mobile-menu;
+    color: $color-second-text;
+
+    &--active {
+      color: $color-text;
+    }
+
+    @include is-tablet {
+      flex-direction: row;
+      gap: $spacing-md;
+      font: $font-heading-h5;
+    }
+  }
+
+  &__links--spaced {
+    padding-block: $spacing-xl;
+    @include is-tablet {
+      padding-block: 0;
+    }
+  }
+}

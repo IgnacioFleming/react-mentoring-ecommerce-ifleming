@@ -12,7 +12,7 @@ export const Accordion = ({
 Accordion.displayName = Accordion;
 
 const Item = ({ children, ...props }: AccordionPrimitive.AccordionItemProps) => (
-  <AccordionPrimitive.Item {...props} value={props.value}>
+  <AccordionPrimitive.Item {...props} value={props.value} data-testid="accordion-item">
     {children}
   </AccordionPrimitive.Item>
 );

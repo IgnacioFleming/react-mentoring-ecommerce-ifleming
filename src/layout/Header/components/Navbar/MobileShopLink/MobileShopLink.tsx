@@ -1,16 +1,29 @@
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import { Accordion } from '../../../../../components/Accordion';
 import { MultipleCategoryProps } from '../../types/nabvar';
 import styles from './MobileShopLink.module.scss';
+import { ChevronDown } from 'lucide-react';
+import clsx from 'clsx';
 
 export const MobileShopLink = ({ trigger, items, applyNavLinkStyle }: MultipleCategoryProps) => {
+  const location = useLocation();
+  const isActive = location.pathname === trigger.path;
+
   return (
     <Accordion type="single" collapsible className={styles.accordion}>
       <Accordion.Item value="item-1">
         <Accordion.Trigger className={styles.accordion}>
-          <NavLink to={trigger.path} className={applyNavLinkStyle}>
-            {trigger.name}
-          </NavLink>
+          <div className={styles.accordion__trigger}>
+            <NavLink to={trigger.path} className={applyNavLinkStyle}>
+              {trigger.name}
+            </NavLink>
+            <ChevronDown
+              className={clsx(
+                styles.accordion__trigger__chevron,
+                isActive ? styles['color-text'] : '',
+              )}
+            />
+          </div>
         </Accordion.Trigger>
         <Accordion.Content>
           <div className={styles.accordion__content}>

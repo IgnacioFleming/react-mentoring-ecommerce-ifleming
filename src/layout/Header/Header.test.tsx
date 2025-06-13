@@ -15,7 +15,7 @@ describe('Header', () => {
       expect(banner).toBeInTheDocument();
     });
 
-    it('banner displays 3 columns with its own styles', () => {
+    it('displays the banner with 3 columns and its own styles', () => {
       const { getByRole } = render(
         <MemoryRouter>
           <Header />
@@ -29,7 +29,7 @@ describe('Header', () => {
       expect(columns[2]).toHaveClass(/banner__column--right/);
     });
 
-    it('left column displays phone and email', () => {
+    it('displays phone and email in left column', () => {
       const { getByText } = render(
         <MemoryRouter>
           <Header />
@@ -42,7 +42,7 @@ describe('Header', () => {
       expect(email).toBeInTheDocument();
     });
 
-    it('center column displays promotional message', () => {
+    it('displays promotional message in center column', () => {
       const { getByRole } = render(
         <MemoryRouter>
           <Header />
@@ -55,7 +55,7 @@ describe('Header', () => {
       expect(promotionalMessage).toBeInTheDocument();
     });
 
-    it('right column displays a heading and 4 social media icons', () => {
+    it('displays a heading and 4 social media icons in right column', () => {
       const { getByRole, queryAllByRole } = render(
         <MemoryRouter>
           <Header />

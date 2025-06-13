@@ -1,23 +1,27 @@
 import { NavLink } from 'react-router-dom';
-import { Dropdown } from '../../../../../components/Dropdown';
+import { ChevronDown } from 'lucide-react';
+import { HoverCard } from '../../../../../components/HoverCard';
 import { MultipleCategoryProps } from '../../types/nabvar';
 import styles from './DesktopShopLink.module.scss';
 
 export const DesktopShopLink = ({ trigger, items, applyNavLinkStyle }: MultipleCategoryProps) => {
   return (
-    <Dropdown className={styles.dropdown}>
-      <Dropdown.Trigger>
+    <HoverCard className={styles['hover-card']}>
+      <HoverCard.Trigger>
         <NavLink to={trigger.path} className={applyNavLinkStyle}>
-          {trigger.name}
+          <div className={styles['hover-card__trigger']}>
+            {trigger.name}
+            <ChevronDown size={20} />
+          </div>
         </NavLink>
-      </Dropdown.Trigger>
-      <Dropdown.Content className={styles.dropdown__content}>
+      </HoverCard.Trigger>
+      <HoverCard.Content className={styles['hover-card__content']}>
         {items.map((i, index) => (
-          <div key={index}>
+          <div key={index} className={styles['hover-card__content__item']}>
             <NavLink to={i.path}>{i.name}</NavLink>
           </div>
         ))}
-      </Dropdown.Content>
-    </Dropdown>
+      </HoverCard.Content>
+    </HoverCard>
   );
 };

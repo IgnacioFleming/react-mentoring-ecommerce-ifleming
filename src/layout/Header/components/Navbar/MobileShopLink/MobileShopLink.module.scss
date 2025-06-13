@@ -5,6 +5,21 @@
   all: unset;
   @extend .navbar__links;
 
+  &__trigger {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: $spacing-sm;
+
+    &__chevron {
+      transition: transform 0.2s ease-in-out;
+    }
+
+    &[data-state='open'] &__chevron {
+      transform: rotate(180deg);
+    }
+  }
+
   &__content {
     display: flex;
     flex-direction: column;
@@ -15,4 +30,8 @@
   @include is-tablet {
     display: none;
   }
+}
+
+.color-text {
+  color: $color-text;
 }

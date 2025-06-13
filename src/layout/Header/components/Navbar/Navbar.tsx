@@ -25,14 +25,14 @@ export const Navbar = () => {
   };
 
   return (
-    <div className={styles.navbar__container} ref={navbarRef}>
+    <div className={styles.navbar__container} ref={navbarRef} onClick={closeOnClickingLink}>
       <div className={styles.navbar__main}>
         <div className={styles.navbar__logo}>
           <Link to="/">E-commerce</Link>
         </div>
         <Menu onClick={toggleMenu} className={styles.navbar__burguer} />
       </div>
-      <NavMenu open={open} closeOnClickingLink={closeOnClickingLink} ref={menuRef} />
+      <NavMenu open={open} ref={menuRef} />
     </div>
   );
 };

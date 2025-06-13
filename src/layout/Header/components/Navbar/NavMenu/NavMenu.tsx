@@ -5,17 +5,12 @@ import styles from './NavMenu.module.scss';
 
 type NavMenuProps = {
   open: boolean;
-  closeOnClickingLink: (e: React.MouseEvent) => void;
   ref: React.RefObject<HTMLDivElement | null>;
 };
 
-export const NavMenu = ({ open, closeOnClickingLink, ref }: NavMenuProps) => {
+export const NavMenu = ({ open, ref }: NavMenuProps) => {
   return (
-    <div
-      className={clsx(styles.navbar__nav, open ? styles['navbar__nav--open'] : '')}
-      onClick={closeOnClickingLink}
-      ref={ref}
-    >
+    <div className={clsx(styles.navbar__nav, open ? styles['navbar__nav--open'] : '')} ref={ref}>
       <NavLinks />
       <NavActions />
     </div>

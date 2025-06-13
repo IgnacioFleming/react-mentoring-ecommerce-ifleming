@@ -6,7 +6,7 @@ type HoverCardProps = HoverCardPrimitive.HoverCardProps & { className?: string }
 
 export const HoverCard = ({ children, className, ...props }: HoverCardProps) => {
   return (
-    <div className={className}>
+    <div className={className} data-testid="hover-card">
       <HoverCardPrimitive.Root {...props}>{children}</HoverCardPrimitive.Root>
     </div>
   );

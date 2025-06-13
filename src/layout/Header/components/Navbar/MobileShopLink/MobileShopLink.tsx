@@ -10,7 +10,12 @@ export const MobileShopLink = ({ trigger, items, applyNavLinkStyle }: MultipleCa
   const isActive = location.pathname === trigger.path;
 
   return (
-    <Accordion type="single" collapsible className={styles.accordion}>
+    <Accordion
+      type="single"
+      collapsible
+      className={styles.accordion}
+      data-testid="mobile-shop-link"
+    >
       <Accordion.Item value="item-1">
         <Accordion.Trigger className={styles.accordion}>
           <div className={styles.accordion__trigger}>

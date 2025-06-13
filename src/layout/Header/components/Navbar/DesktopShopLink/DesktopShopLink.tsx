@@ -6,7 +6,7 @@ import styles from './DesktopShopLink.module.scss';
 
 export const DesktopShopLink = ({ trigger, items, applyNavLinkStyle }: MultipleCategoryProps) => {
   return (
-    <HoverCard className={styles['hover-card']}>
+    <HoverCard className={styles['hover-card']} data-testid="desktop-shop-link">
       <HoverCard.Trigger>
         <NavLink to={trigger.path} className={applyNavLinkStyle}>
           <div className={styles['hover-card__trigger']}>

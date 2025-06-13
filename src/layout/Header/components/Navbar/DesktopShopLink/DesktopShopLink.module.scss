@@ -1,9 +1,23 @@
 @use '../../../../../styles/variables' as *;
-.dropdown {
+.hover-card {
   display: none;
+
+  &__trigger {
+    display: flex;
+    gap: $spacing-sm;
+    align-items: center;
+  }
 
   &__content {
     font: $font-list;
+    padding-inline: 0;
+    gap: $spacing-md;
+    &__item {
+      padding-inline: $spacing-lg;
+      &:hover {
+        background-color: $color_gray_300;
+      }
+    }
   }
 
   @include is-tablet {

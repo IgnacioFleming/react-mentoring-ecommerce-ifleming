@@ -12,6 +12,16 @@
     font: $font-list;
     padding-inline: 0;
     gap: $spacing-md;
+    overflow: hidden;
+
+    &[data-state='open'] {
+      animation: expand_vertically 0.2s ease-in-out;
+    }
+
+    &[data-state='closed'] {
+      animation: collapse_vertically 0.2s ease-in-out;
+    }
+
     &__item {
       padding-inline: $spacing-lg;
       &:hover {
@@ -22,5 +32,23 @@
 
   @include is-tablet {
     display: block;
+  }
+}
+
+@keyframes expand_vertically {
+  from {
+    max-height: 0;
+  }
+  to {
+    max-height: 500px;
+  }
+}
+
+@keyframes collapse_vertically {
+  from {
+    max-height: 500px;
+  }
+  to {
+    max-height: 0;
   }
 }

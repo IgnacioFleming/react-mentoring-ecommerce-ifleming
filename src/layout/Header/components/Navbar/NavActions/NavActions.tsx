@@ -3,7 +3,7 @@ import { Heart, Search, ShoppingCart, User } from 'lucide-react';
 import styles from './NavActions.module.scss';
 
 export const NavActions = () => (
-  <nav className={styles['nav-actions']}>
+  <nav className={styles['nav-actions']} data-testid="nav-actions">
     <Link to="/my-account">
       <User className={styles['nav-actions__icon']} />
     </Link>

@@ -21,7 +21,10 @@ export const NavLinks = () => {
     isActive ? styles['navbar__links--active'] : '';
 
   return (
-    <ul className={clsx(styles.navbar__links, styles['navbar__links--spaced'])}>
+    <ul
+      className={clsx(styles.navbar__links, styles['navbar__links--spaced'])}
+      data-testid="nav-links"
+    >
       <li>
         <NavLink to={'/'} className={applyNavLinkStyle}>
           Home

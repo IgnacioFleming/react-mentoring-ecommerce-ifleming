@@ -3,7 +3,7 @@ import { Accordion } from './Accordion';
 import { fireEvent, render } from '@testing-library/react';
 
 const AccordionMock = () => (
-  <Accordion type="single">
+  <Accordion type="single" collapsible>
     <Accordion.Item value="item-1">
       <Accordion.Trigger>
         <button>Trigger</button>
@@ -28,5 +28,18 @@ describe('Accordion', () => {
     fireEvent.click(trigger);
     const content = getByText('Content');
     expect(content).toBeInTheDocument();
+  });
+
+  it('should hide content when clicking on trigger 2 times', async () => {
+    const { getByRole, getByText, queryByText } = render(<AccordionMock />);
+    const trigger = getByRole('button', { name: 'Trigger' });
+
+    fireEvent.click(trigger);
+    const content = getByText('Content');
+    expect(content).toBeInTheDocument();
+
+    fireEvent.click(trigger);
+
+    expect(queryByText('Content')).not.toBeInTheDocument();
   });
 });

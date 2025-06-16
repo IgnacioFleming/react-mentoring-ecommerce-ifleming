@@ -39,20 +39,33 @@ describe('MobileShopLink', () => {
   });
 
   it('expands the content when clicking trigger', () => {
-    const { getByTestId } = renderMobileShopLink();
-    const trigger = getByTestId('trigger');
+    const { getByTestId, getByText } = renderMobileShopLink();
+    const trigger = getByTestId('chevron');
     fireEvent.click(trigger);
-    const content = getByTestId('content');
-    expect(content).toBeInTheDocument();
+    expect(getByText(mockItems[0].name)).toBeInTheDocument();
+    expect(getByText(mockItems[1].name)).toBeInTheDocument();
+  });
+  it('collapses the content when clicking trigger 2 times', () => {
+    const { getByTestId, getByText, queryByText } = renderMobileShopLink();
+    const trigger = getByTestId('chevron');
+
+    fireEvent.click(trigger);
+
+    expect(getByText(mockItems[0].name)).toBeInTheDocument();
+    expect(getByText(mockItems[1].name)).toBeInTheDocument();
+
+    fireEvent.click(trigger);
+
+    expect(queryByText(mockItems[0].name)).toBeNull();
+    expect(queryByText(mockItems[1].name)).toBeNull();
   });
 
   it('navigates correctly when clicking on each link', () => {
-    const { getByRole, getByText } = renderMobileShopLink();
-    const trigger = getByText(mockTrigger.name);
-    fireEvent.mouseDown(trigger);
+    const { getByRole, getByTestId } = renderMobileShopLink();
+    const trigger = getByTestId('chevron');
+    fireEvent.click(trigger);
     const firstLink = getByRole('link', { name: mockItems[0].name });
     expect(firstLink).toHaveAttribute('href', mockItems[0].path);
-
     const secondLink = getByRole('link', { name: mockItems[1].name });
     expect(secondLink).toHaveAttribute('href', mockItems[1].path);
   });

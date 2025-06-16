@@ -17,7 +17,7 @@ export const MobileShopLink = ({ trigger, items, applyNavLinkStyle }: MultipleCa
       data-testid="mobile-shop-link"
     >
       <Accordion.Item value="item-1">
-        <Accordion.Trigger className={styles.accordion} data-testid="trigger">
+        <Accordion.Trigger className={styles.accordion}>
           <div className={styles.accordion__trigger}>
             <NavLink to={trigger.path} className={applyNavLinkStyle}>
               {trigger.name}
@@ -27,10 +27,11 @@ export const MobileShopLink = ({ trigger, items, applyNavLinkStyle }: MultipleCa
                 styles.accordion__trigger__chevron,
                 isActive ? styles['color-text'] : '',
               )}
+              data-testid="chevron"
             />
           </div>
         </Accordion.Trigger>
-        <Accordion.Content data-testid="content">
+        <Accordion.Content>
           <div className={styles.accordion__content}>
             {items.map((i, index) => (
               <NavLink key={index} to={i.path}>

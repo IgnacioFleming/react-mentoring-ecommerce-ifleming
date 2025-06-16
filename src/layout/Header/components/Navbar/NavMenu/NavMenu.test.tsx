@@ -4,16 +4,27 @@ import { NavMenu } from './NavMenu';
 import { MemoryRouter } from 'react-router-dom';
 import React from 'react';
 
+type MockNavMenuProps = {
+  open?: boolean;
+  ref?: React.RefObject<HTMLDivElement | null>;
+};
+
 describe('MobileShopLink', () => {
   const mockOpen = false;
   const mockRef = React.createRef<HTMLDivElement>();
 
-  const renderNavMenu = () =>
-    render(
+  const renderNavMenu = (props?: MockNavMenuProps) => {
+    const defaultProps = {
+      open: mockOpen,
+      ref: mockRef,
+      ...props,
+    };
+    return render(
       <MemoryRouter>
-        <NavMenu open={mockOpen} ref={mockRef} />
+        <NavMenu {...defaultProps} />
       </MemoryRouter>,
     );
+  };
 
   it('renders component correctly', () => {
     const { getByTestId } = renderNavMenu();
@@ -28,5 +39,17 @@ describe('MobileShopLink', () => {
   it('renders NavActions component', () => {
     const { getByTestId } = renderNavMenu();
     expect(getByTestId('nav-actions')).toBeInTheDocument();
+  });
+
+  it('does not have navbar__nav--open styles when open prop is false', () => {
+    const { getByTestId } = renderNavMenu();
+    const navMenu = getByTestId('nav-menu');
+    expect(navMenu).not.toHaveClass(/navbar__nav--open/);
+  });
+
+  it('has navbar__nav--open styles when open prop is true', () => {
+    const { getByTestId } = renderNavMenu({ open: true });
+    const navMenu = getByTestId('nav-menu');
+    expect(navMenu).toHaveClass(/navbar__nav--open/);
   });
 });

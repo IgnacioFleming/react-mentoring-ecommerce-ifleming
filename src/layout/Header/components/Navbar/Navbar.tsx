@@ -30,7 +30,7 @@ export const Navbar = () => {
         <div className={styles.navbar__logo}>
           <Link to="/">E-commerce</Link>
         </div>
-        <Menu onClick={toggleMenu} className={styles.navbar__burguer} />
+        <Menu onClick={toggleMenu} className={styles.navbar__burguer} data-testid="menu-icon" />
       </div>
       <NavMenu open={open} ref={menuRef} />
     </div>

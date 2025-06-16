@@ -47,9 +47,9 @@ describe('MobileShopLink', () => {
   });
 
   it('navigates correctly when clicking on each link', () => {
-    const { getByTestId, getByRole } = renderMobileShopLink();
-    const trigger = getByTestId('trigger');
-    fireEvent.click(trigger);
+    const { getByRole, getByText } = renderMobileShopLink();
+    const trigger = getByText(mockTrigger.name);
+    fireEvent.mouseDown(trigger);
     const firstLink = getByRole('link', { name: mockItems[0].name });
     expect(firstLink).toHaveAttribute('href', mockItems[0].path);
 

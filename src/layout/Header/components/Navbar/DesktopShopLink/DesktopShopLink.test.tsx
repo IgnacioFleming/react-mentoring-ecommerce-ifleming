@@ -47,13 +47,13 @@ describe('DesktopShopLink', () => {
   });
 
   it('navigates correctly when clicking on each link', () => {
-    const { getByTestId, getByRole } = renderDesktopShopLink();
-    const trigger = getByTestId('trigger');
-    fireEvent.mouseEnter(trigger);
-    const firstLink = getByRole('link', { name: mockItems[0].name });
+    const { getByText } = renderDesktopShopLink();
+    const trigger = getByText(mockTrigger.name);
+    fireEvent.pointerOver(trigger);
+    const firstLink = getByText(mockItems[0].name);
     expect(firstLink).toHaveAttribute('href', mockItems[0].path);
 
-    const secondLink = getByRole('link', { name: mockItems[1].name });
+    const secondLink = getByText(mockItems[1].name);
     expect(secondLink).toHaveAttribute('href', mockItems[1].path);
   });
 });

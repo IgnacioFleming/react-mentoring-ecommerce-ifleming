@@ -9,17 +9,17 @@
   }
 
   &__content {
-    font: $font-list;
+    font: $font-link;
     padding-inline: 0;
     gap: $spacing-md;
     overflow: hidden;
 
     &[data-state='open'] {
-      animation: expand_vertically 0.2s ease-in-out;
+      animation: expand-vertically 0.2s ease-in-out;
     }
 
     &[data-state='closed'] {
-      animation: collapse_vertically 0.2s ease-in-out;
+      animation: collapse-vertically 0.2s ease-in-out;
     }
 
     &__item {
@@ -35,7 +35,7 @@
   }
 }
 
-@keyframes expand_vertically {
+@keyframes expand-vertically {
   from {
     max-height: 0;
   }
@@ -44,7 +44,7 @@
   }
 }
 
-@keyframes collapse_vertically {
+@keyframes collapse-vertically {
   from {
     max-height: 500px;
   }

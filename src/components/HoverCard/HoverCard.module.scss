@@ -12,9 +12,9 @@
   &__content {
     display: flex;
     flex-direction: column;
-    margin-top: $spacing-md;
     gap: $spacing-md;
     padding: $spacing-md;
+    padding-top: $spacing-lg;
     background-color: $color-light-background;
   }
 }

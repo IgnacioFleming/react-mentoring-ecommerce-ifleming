@@ -16,7 +16,7 @@
     @include is-tablet {
       flex-direction: row;
       gap: $spacing-md;
-      font: $font-heading-h5;
+      font: $font-link;
     }
   }
 

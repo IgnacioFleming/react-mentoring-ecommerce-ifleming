@@ -5,14 +5,14 @@
   }
 
   &__content[data-state='open'] {
-    animation: slideDown 0.2s ease-in-out;
+    animation: slide-down 0.2s ease-in-out;
   }
   &__content[data-state='closed'] {
-    animation: slideUp 0.2s ease-in-out;
+    animation: slide-up 0.2s ease-in-out;
   }
 }
 
-@keyframes slideDown {
+@keyframes slide-down {
   from {
     height: 0;
   }
@@ -21,7 +21,7 @@
   }
 }
 
-@keyframes slideUp {
+@keyframes slide-up {
   from {
     height: var(--radix-accordion-content-height);
   }

@@ -16,7 +16,7 @@ HoverCard.displayName = 'HoverCard';
 
 const Trigger = ({ children }: HoverCardPrimitive.HoverCardTriggerProps) => {
   return (
-    <HoverCardPrimitive.Trigger asChild>
+    <HoverCardPrimitive.Trigger asChild data-testid="trigger">
       <div className={styles['hover-card__trigger']}>{children}</div>
     </HoverCardPrimitive.Trigger>
   );
@@ -30,7 +30,10 @@ const Content = ({
 }: HoverCardPrimitive.HoverCardPortalProps & HoverCardPrimitive.HoverCardContentProps) => {
   return (
     <HoverCardPrimitive.Portal>
-      <HoverCardPrimitive.Content className={clsx(styles['hover-card__content'], className)}>
+      <HoverCardPrimitive.Content
+        className={clsx(styles['hover-card__content'], className)}
+        data-testid="content"
+      >
         {children}
       </HoverCardPrimitive.Content>
     </HoverCardPrimitive.Portal>

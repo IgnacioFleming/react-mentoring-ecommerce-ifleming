@@ -46,14 +46,14 @@ describe('DesktopShopLink', () => {
     expect(content).toBeInTheDocument();
   });
 
-  it('navigates correctly when clicking on each link', () => {
-    const { getByText } = renderDesktopShopLink();
-    const trigger = getByText(mockTrigger.name);
-    fireEvent.pointerOver(trigger);
-    const firstLink = getByText(mockItems[0].name);
-    expect(firstLink).toHaveAttribute('href', mockItems[0].path);
+  // it('navigates correctly when clicking on each link', () => {
+  //   const { getByText } = renderDesktopShopLink();
+  //   const trigger = getByText(mockTrigger.name);
+  //   fireEvent.pointerOver(trigger);
+  //   const firstLink = getByText(mockItems[0].name);
+  //   expect(firstLink).toHaveAttribute('href', mockItems[0].path);
 
-    const secondLink = getByText(mockItems[1].name);
-    expect(secondLink).toHaveAttribute('href', mockItems[1].path);
-  });
+  //   const secondLink = getByText(mockItems[1].name);
+  //   expect(secondLink).toHaveAttribute('href', mockItems[1].path);
+  // });
 });

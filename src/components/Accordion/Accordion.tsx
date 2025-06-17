@@ -1,6 +1,6 @@
+import clsx from 'clsx';
 import * as AccordionPrimitive from '@radix-ui/react-accordion';
 import styles from './Accordion.module.scss';
-import clsx from 'clsx';
 
 export const Accordion = ({
   children,

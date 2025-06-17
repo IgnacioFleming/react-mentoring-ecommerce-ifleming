@@ -1,9 +1,9 @@
+import clsx from 'clsx';
 import { NavLink, useLocation } from 'react-router-dom';
+import { ChevronDown } from 'lucide-react';
 import { Accordion } from '../../../../../components/Accordion';
 import { MultipleCategoryProps } from '../../types/nabvar';
 import styles from './MobileShopLink.module.scss';
-import { ChevronDown } from 'lucide-react';
-import clsx from 'clsx';
 
 export const MobileShopLink = ({ trigger, items, applyNavLinkStyle }: MultipleCategoryProps) => {
   const location = useLocation();

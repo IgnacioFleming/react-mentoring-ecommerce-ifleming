@@ -1,9 +1,9 @@
-import { NavLink } from 'react-router-dom';
-import styles from './NavLinks.module.scss';
 import clsx from 'clsx';
-import { MobileShopLink } from '../MobileShopLink/MobileShopLink';
+import { NavLink } from 'react-router-dom';
 import { MultipleCategoryProps } from '../../types/nabvar';
+import { MobileShopLink } from '../MobileShopLink/MobileShopLink';
 import { DesktopShopLink } from '../DesktopShopLink/DesktopShopLink';
+import styles from './NavLinks.module.scss';
 
 const trigger: MultipleCategoryProps['trigger'] = {
   name: 'Shop',

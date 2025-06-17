@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom';
-import styles from './Navbar.module.scss';
 import { Menu } from 'lucide-react';
 import { useRef, useState } from 'react';
-import { NavMenu } from './NavMenu';
 import { useHandleOutsideClick } from '../../hooks/useHandleOutsideClick';
+import { NavMenu } from './NavMenu';
+import styles from './Navbar.module.scss';
 
 export const Navbar = () => {
   const [open, setOpen] = useState<boolean>(false);

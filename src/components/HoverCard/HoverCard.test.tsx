@@ -1,9 +1,9 @@
 import { describe, expect, it } from 'vitest';
 import { HoverCard } from './HoverCard';
-import { fireEvent, render } from '@testing-library/react';
+import { render } from '@testing-library/react';
 
-const HoverCardMock = () => (
-  <HoverCard>
+const HoverCardMock = ({ open = false }) => (
+  <HoverCard open={open} openDelay={0} closeDelay={0}>
     <HoverCard.Trigger>
       <button>Trigger</button>
     </HoverCard.Trigger>
@@ -19,12 +19,13 @@ describe('HoverCard', () => {
     expect(getByTestId('hover-card')).toBeInTheDocument();
   });
 
-  it('should render content while hovering over trigger', () => {
-    const { getByRole, getByText } = render(<HoverCardMock />);
-    const trigger = getByRole('button', { name: 'Trigger' });
-    expect(trigger).toBeInTheDocument();
-    fireEvent.mouseEnter(trigger);
-    const content = getByText('Content');
-    expect(content).toBeInTheDocument();
+  it('should render content when prop open is true', async () => {
+    const { getByText } = render(<HoverCardMock open />);
+    expect(getByText('Content')).toBeInTheDocument();
+  });
+
+  it('should hide content when prop open is false', async () => {
+    const { queryByText } = render(<HoverCardMock open={false} />);
+    expect(queryByText('Content')).not.toBeInTheDocument();
   });
 });

@@ -23,10 +23,9 @@ export const MobileShopLink = ({ trigger, items, applyNavLinkStyle }: MultipleCa
               {trigger.name}
             </NavLink>
             <ChevronDown
-              className={clsx(
-                styles.accordion__trigger__chevron,
-                isActive ? styles['color-text'] : '',
-              )}
+              className={clsx(styles.accordion__trigger__chevron, {
+                [styles['color-text']]: isActive,
+              })}
               data-testid="chevron"
             />
           </div>

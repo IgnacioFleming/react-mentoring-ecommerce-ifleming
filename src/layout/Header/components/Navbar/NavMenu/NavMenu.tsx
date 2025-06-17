@@ -11,7 +11,7 @@ type NavMenuProps = {
 export const NavMenu = ({ open, ref }: NavMenuProps) => {
   return (
     <div
-      className={clsx(styles.navbar__nav, open ? styles['navbar__nav--open'] : '')}
+      className={clsx(styles.navbar__nav, { [styles['navbar__nav--open']]: open })}
       ref={ref}
       data-testid="nav-menu"
     >

@@ -9,7 +9,7 @@ export const Accordion = ({
   return <AccordionPrimitive.Root {...props}>{children}</AccordionPrimitive.Root>;
 };
 
-Accordion.displayName = Accordion;
+Accordion.displayName = 'Accordion';
 
 const Item = ({ children, ...props }: AccordionPrimitive.AccordionItemProps) => (
   <AccordionPrimitive.Item {...props} value={props.value} data-testid="accordion-item">

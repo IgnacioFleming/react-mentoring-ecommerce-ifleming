@@ -1,9 +1,9 @@
 import clsx from 'clsx';
-import { Link } from 'react-router-dom';
-import { User, ShoppingCart, Heart, Search, Phone, Mail } from 'lucide-react';
+import { Phone, Mail } from 'lucide-react';
+import { Navbar } from './components/Navbar';
+import { SocialMedia } from './components/SocialMedia';
 import { Container } from '../../components/Container';
 import styles from './Header.module.scss';
-import { SocialMedia } from './components/SocialMedia';
 
 export const Header = () => (
   <header>
@@ -29,18 +29,8 @@ export const Header = () => (
       </Container>
     </div>
     <div className={styles.navbar}>
-      <Container className={styles.navbar__container}>
-        <div className={styles.navbar__logo}>
-          <Link to="/">E-commerce</Link>
-        </div>
-        <nav className={styles.navbar__nav}>
-          <Link to="/my-account">
-            <User className={styles.navbar__nav__icon} />
-          </Link>
-          <Search className={styles.navbar__nav__icon} />
-          <ShoppingCart className={styles.navbar__nav__icon} />
-          <Heart className={styles.navbar__nav__icon} />
-        </nav>
+      <Container>
+        <Navbar />
       </Container>
     </div>
   </header>

@@ -1,0 +1,20 @@
+@use '../../styles/variables' as *;
+
+.hover-card {
+  &__trigger {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-md;
+    padding: $spacing-md;
+    padding-top: $spacing-lg;
+    background-color: $color-light-background;
+  }
+}

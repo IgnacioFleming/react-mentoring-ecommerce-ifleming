@@ -19,7 +19,7 @@ describe('SocialMedia', () => {
     });
   });
 
-  it('clicking any social media icon should redirect to #', () => {
+  it('redirects to # when clicking any social media icon', () => {
     const { queryAllByRole } = render(
       <MemoryRouter>
         <SocialMedia />

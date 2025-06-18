@@ -1,0 +1,55 @@
+@use '../../../../../styles/variables' as *;
+.hover-card {
+  display: none;
+
+  &__trigger {
+    display: flex;
+    gap: $spacing-sm;
+    align-items: center;
+  }
+
+  &__content {
+    font: $font-link;
+    color: $color-second-text;
+    padding-inline: 0;
+    gap: $spacing-md;
+    overflow: hidden;
+
+    &[data-state='open'] {
+      animation: expand-vertically 0.2s ease-in-out;
+    }
+
+    &[data-state='closed'] {
+      animation: collapse-vertically 0.2s ease-in-out;
+    }
+
+    &__item {
+      padding-inline: $spacing-lg;
+      &:hover {
+        background-color: $color_gray_300;
+      }
+    }
+  }
+
+  @include is-tablet {
+    display: block;
+  }
+}
+
+@keyframes expand-vertically {
+  from {
+    max-height: 0;
+  }
+  to {
+    max-height: 500px;
+  }
+}
+
+@keyframes collapse-vertically {
+  from {
+    max-height: 500px;
+  }
+  to {
+    max-height: 0;
+  }
+}

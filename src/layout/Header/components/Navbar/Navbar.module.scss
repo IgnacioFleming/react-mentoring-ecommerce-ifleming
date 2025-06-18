@@ -1,0 +1,41 @@
+@use '../../../../styles/variables' as *;
+
+.navbar {
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    @include is-tablet {
+      flex-direction: row;
+      gap: $spacing-5xl;
+    }
+  }
+
+  &__main {
+    display: flex;
+    justify-content: space-between;
+    flex-shrink: 0;
+  }
+
+  &__logo {
+    font: $font-heading-h3;
+    a {
+      transition: all 0.2s ease-in-out;
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }
+
+  &__burguer {
+    color: $color-second-text;
+
+    @include is-tablet {
+      display: none;
+    }
+  }
+}

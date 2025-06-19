@@ -29,13 +29,12 @@
   overflow: hidden;
   display: grid;
   grid-template-columns: 100%;
-  justify-items: center;
-  gap: $spacing-xl;
+  gap: $spacing-lg;
 
   &__item {
     &__img {
       display: block;
-      width: 325px;
+      width: 100%;
       height: 500px;
       object-fit: cover;
     }
@@ -60,7 +59,12 @@
         background-color: $color-light-background;
         padding: $spacing-sm;
         font: $font-heading-h5;
+        color: $color-text;
       }
     }
+  }
+
+  @include is-tablet {
+    grid-template-columns: 2fr 1fr 1fr;
   }
 }

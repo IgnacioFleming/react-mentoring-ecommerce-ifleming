@@ -8,7 +8,7 @@ export const FeaturedCategoriesList = () => {
       <li>
         <Link to="/shop/category/mens-watches">
           <FeaturedCategoriesItem
-            imagePath="/src/assets/images/featured-categories/men-watches.webp"
+            imagePath="./src/assets/images/featured-categories/men-watches.webp"
             alt="Men's watches photo"
             title="Men's watches"
             caption="MEN'S WATCHES"
@@ -18,7 +18,7 @@ export const FeaturedCategoriesList = () => {
       <li>
         <Link to="/shop/category/womens-shoes">
           <FeaturedCategoriesItem
-            imagePath="/src/assets/images/featured-categories/women-shoes.webp"
+            imagePath="./src/assets/images/featured-categories/women-shoes.webp"
             alt="Women's shoes photo"
             title="Women's shoes"
             caption="WOMEN'S SHOES"
@@ -30,7 +30,7 @@ export const FeaturedCategoriesList = () => {
           <li>
             <Link to="/shop/category/sunglasses">
               <FeaturedCategoriesItem
-                imagePath="/src/assets/images/featured-categories/sunglasses.webp"
+                imagePath="./src/assets/images/featured-categories/sunglasses.webp"
                 alt="Sunglasses photo"
                 title="Sunglasses"
                 caption="SUNGLASSES"
@@ -41,7 +41,7 @@ export const FeaturedCategoriesList = () => {
           <li>
             <Link to="/shop/category/smartphones">
               <FeaturedCategoriesItem
-                imagePath="/src/assets/images/featured-categories/smartphones.webp"
+                imagePath="./src/assets/images/featured-categories/smartphones.webp"
                 alt="Smartphones photo"
                 title="Smartphones"
                 caption="SMARTPHONES"

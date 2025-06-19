@@ -1,4 +1,5 @@
 import { Container } from '../../components/Container';
+import { FeaturedCategories } from '../../features/homepage/components/FeaturedCategories';
 import { Hero } from '../../features/homepage/components/Hero';
 
 export const Homepage = () => (
@@ -11,7 +12,7 @@ export const Homepage = () => (
       ctaLink="/shop"
     />
     <Container>
-      <h3>Featured Categories</h3>
+      <FeaturedCategories />
     </Container>
     <Container>
       <h3>Top Rated Products</h3>

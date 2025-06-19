@@ -45,39 +45,24 @@ const featuredCategories: (FeaturedCategoriesItemProps & Link)[] = [
   },
 ];
 
+const renderCategoryItem = (category: FeaturedCategoriesItemProps & Link, index: number) => (
+  <li key={index}>
+    <Link to={category.link}>
+      <FeaturedCategoriesItem {...category} />
+    </Link>
+  </li>
+);
+
 export const FeaturedCategoriesList = () => {
   const largeCategories = featuredCategories.filter((c) => !c.stacked);
   const stackedCategories = featuredCategories.filter((c) => c.stacked);
   return (
     <ul className={styles['featured-categories-list']} data-testid="featured-categories-list">
-      {largeCategories.map((c, index) => (
-        <li key={index}>
-          <Link to={c.link}>
-            <FeaturedCategoriesItem
-              imagePath={c.imagePath}
-              alt={c.alt}
-              title={c.title}
-              caption={c.caption}
-            />
-          </Link>
-        </li>
-      ))}
+      {largeCategories.map((c, index) => renderCategoryItem(c, index))}
 
       <li>
         <ul className={styles['featured-categories-list--stacked']}>
-          {stackedCategories.map((c, index) => (
-            <li key={index}>
-              <Link to={c.link}>
-                <FeaturedCategoriesItem
-                  imagePath={c.imagePath}
-                  alt={c.alt}
-                  title={c.title}
-                  caption={c.caption}
-                  stacked={c.stacked}
-                />
-              </Link>
-            </li>
-          ))}
+          {stackedCategories.map((c, index) => renderCategoryItem(c, index))}
         </ul>
       </li>
     </ul>

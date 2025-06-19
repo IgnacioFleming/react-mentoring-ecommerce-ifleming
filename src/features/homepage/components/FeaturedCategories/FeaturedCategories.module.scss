@@ -16,11 +16,12 @@
 
   h3 {
     font: $font-heading-h3;
+    color: $color-text;
   }
 
   p {
     font: $font-paragraph;
-    color: $color-gray-400;
+    color: $color-second-text;
     padding-inline: $spacing-md;
   }
 }

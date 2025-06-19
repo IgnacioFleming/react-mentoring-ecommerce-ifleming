@@ -1,6 +1,12 @@
 import { Link } from 'react-router-dom';
-import styles from './FeaturedCategoriesList.module.scss';
 import { FeaturedCategoriesItem } from '../FeaturedCategoriesItem';
+import {
+  menWatches,
+  womenShoes,
+  sunglasses,
+  smartphones,
+} from '../../../../../assets/images/featured-categories';
+import styles from './FeaturedCategoriesList.module.scss';
 
 export const FeaturedCategoriesList = () => {
   return (
@@ -8,7 +14,7 @@ export const FeaturedCategoriesList = () => {
       <li>
         <Link to="/shop/category/mens-watches">
           <FeaturedCategoriesItem
-            imagePath="./src/assets/images/featured-categories/men-watches.webp"
+            imagePath={menWatches}
             alt="Men's watches photo"
             title="Men's watches"
             caption="MEN'S WATCHES"
@@ -18,7 +24,7 @@ export const FeaturedCategoriesList = () => {
       <li>
         <Link to="/shop/category/womens-shoes">
           <FeaturedCategoriesItem
-            imagePath="./src/assets/images/featured-categories/women-shoes.webp"
+            imagePath={womenShoes}
             alt="Women's shoes photo"
             title="Women's shoes"
             caption="WOMEN'S SHOES"
@@ -30,7 +36,7 @@ export const FeaturedCategoriesList = () => {
           <li>
             <Link to="/shop/category/sunglasses">
               <FeaturedCategoriesItem
-                imagePath="./src/assets/images/featured-categories/sunglasses.webp"
+                imagePath={sunglasses}
                 alt="Sunglasses photo"
                 title="Sunglasses"
                 caption="SUNGLASSES"
@@ -41,7 +47,7 @@ export const FeaturedCategoriesList = () => {
           <li>
             <Link to="/shop/category/smartphones">
               <FeaturedCategoriesItem
-                imagePath="./src/assets/images/featured-categories/smartphones.webp"
+                imagePath={smartphones}
                 alt="Smartphones photo"
                 title="Smartphones"
                 caption="SMARTPHONES"

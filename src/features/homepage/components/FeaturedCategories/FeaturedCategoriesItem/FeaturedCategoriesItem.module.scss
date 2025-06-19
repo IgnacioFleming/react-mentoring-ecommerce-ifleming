@@ -5,21 +5,27 @@
   &__img {
     display: block;
     width: 100%;
-    height: 500px;
+    height: $size-section-image;
     object-fit: cover;
+    transition: transform 0.2s ease-in-out;
 
     &--stacked {
-      height: calc((500px - $spacing-md) / 2);
+      height: calc(($size-section-image - $spacing-md) / 2);
+    }
+
+    &:hover {
+      transform: scale(1.08);
     }
   }
 
   figcaption {
     position: absolute;
-    bottom: 24px;
-    left: 16px;
+    bottom: $spacing-lg;
+    left: $spacing-md;
     background-color: $color-light-background;
     padding: $spacing-sm;
     font: $font-heading-h5;
     color: $color-text;
+    text-transform: uppercase;
   }
 }

@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import styles from './FeaturedCategoriesItem.module.scss';
 
-type FeaturedCategoriesProps = {
+export type FeaturedCategoriesProps = {
   imagePath: string;
   alt: string;
   title: string;

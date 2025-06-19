@@ -1,0 +1,66 @@
+@use '../../../../styles/variables' as *;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-2xl;
+  padding-block: $spacing-3xl;
+  width: 100%;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+  text-align: center;
+
+  h3 {
+    font: $font-heading-h3;
+  }
+
+  p {
+    font: $font-paragraph;
+    color: $color-gray-400;
+    padding-inline: $spacing-md;
+  }
+}
+
+.featured-categories {
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 100%;
+  justify-items: center;
+  gap: $spacing-xl;
+
+  &__item {
+    &__img {
+      display: block;
+      width: 325px;
+      height: 500px;
+      object-fit: cover;
+    }
+
+    &--stacked {
+      display: flex;
+      flex-direction: column;
+      gap: $spacing-md;
+
+      &__img {
+        height: calc((500px - $spacing-md) / 2);
+      }
+    }
+
+    figure {
+      position: relative;
+
+      figcaption {
+        position: absolute;
+        bottom: 24px;
+        left: 16px;
+        background-color: $color-light-background;
+        padding: $spacing-sm;
+        font: $font-heading-h5;
+      }
+    }
+  }
+}

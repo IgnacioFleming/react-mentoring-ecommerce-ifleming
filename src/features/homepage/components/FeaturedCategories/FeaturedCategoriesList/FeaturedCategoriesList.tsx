@@ -58,11 +58,11 @@ export const FeaturedCategoriesList = () => {
   const stackedCategories = featuredCategories.filter((c) => c.stacked);
   return (
     <ul className={styles['featured-categories-list']} data-testid="featured-categories-list">
-      {largeCategories.map((c, index) => renderCategoryItem(c, index))}
+      {largeCategories.map(renderCategoryItem)}
 
       <li>
         <ul className={styles['featured-categories-list--stacked']}>
-          {stackedCategories.map((c, index) => renderCategoryItem(c, index))}
+          {stackedCategories.map(renderCategoryItem)}
         </ul>
       </li>
     </ul>

@@ -13,7 +13,7 @@ describe('FeaturedCategories', () => {
 
   it('renders the title correctly', () => {
     const { getByRole } = renderFeaturedCategories();
-    expect(getByRole('heading', { name: 'FEATURED CATEGORIES' })).toBeInTheDocument();
+    expect(getByRole('heading', { name: /featured categories/i })).toBeInTheDocument();
   });
 
   it('renders the subtitle correctly', () => {

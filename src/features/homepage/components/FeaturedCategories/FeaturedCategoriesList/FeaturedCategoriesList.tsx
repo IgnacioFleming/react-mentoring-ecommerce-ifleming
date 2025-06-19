@@ -4,7 +4,7 @@ import { FeaturedCategoriesItem } from '../FeaturedCategoriesItem';
 
 export const FeaturedCategoriesList = () => {
   return (
-    <ul className={styles['featured-categories']}>
+    <ul className={styles['featured-categories']} data-testid="featured-categories-list">
       <li>
         <Link to="/shop/category/mens-watches">
           <FeaturedCategoriesItem

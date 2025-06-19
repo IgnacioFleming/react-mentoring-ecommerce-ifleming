@@ -6,37 +6,10 @@
   grid-template-columns: 100%;
   gap: $spacing-lg;
 
-  &__item {
-    &__img {
-      display: block;
-      width: 100%;
-      height: 500px;
-      object-fit: cover;
-    }
-
-    &--stacked {
-      display: flex;
-      flex-direction: column;
-      gap: $spacing-md;
-
-      &__img {
-        height: calc((500px - $spacing-md) / 2);
-      }
-    }
-
-    figure {
-      position: relative;
-
-      figcaption {
-        position: absolute;
-        bottom: 24px;
-        left: 16px;
-        background-color: $color-light-background;
-        padding: $spacing-sm;
-        font: $font-heading-h5;
-        color: $color-text;
-      }
-    }
+  &--stacked {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-md;
   }
 
   @include is-tablet {

@@ -1,22 +1,31 @@
+import clsx from 'clsx';
+import styles from './FeaturedCategoriesItem.module.scss';
+
 type FeaturedCategoriesProps = {
-  className: string;
   imagePath: string;
   alt: string;
   title: string;
   caption: string;
-  link?: string;
+  stacked?: boolean;
 };
 
 export const FeaturedCategoriesItem = ({
-  className,
   imagePath,
   alt,
   title,
   caption,
+  stacked,
 }: FeaturedCategoriesProps) => {
   return (
-    <figure>
-      <img className={className} src={imagePath} alt={alt} title={title} />
+    <figure className={styles['featured-categories-item']}>
+      <img
+        className={clsx(styles['featured-categories-item__img'], {
+          [styles['featured-categories-item__img--stacked']]: stacked,
+        })}
+        src={imagePath}
+        alt={alt}
+        title={title}
+      />
       <figcaption>
         <h5>{caption}</h5>
       </figcaption>

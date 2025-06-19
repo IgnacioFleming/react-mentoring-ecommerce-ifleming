@@ -1,0 +1,25 @@
+@use '../../../../../styles/variables' as *;
+
+.featured-categories-item {
+  position: relative;
+  &__img {
+    display: block;
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+
+    &--stacked {
+      height: calc((500px - $spacing-md) / 2);
+    }
+  }
+
+  figcaption {
+    position: absolute;
+    bottom: 24px;
+    left: 16px;
+    background-color: $color-light-background;
+    padding: $spacing-sm;
+    font: $font-heading-h5;
+    color: $color-text;
+  }
+}

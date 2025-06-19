@@ -4,7 +4,7 @@ import { FeaturedCategoriesItem } from '../FeaturedCategoriesItem';
 
 export const FeaturedCategoriesList = () => {
   return (
-    <ul className={styles['featured-categories']} data-testid="featured-categories-list">
+    <ul className={styles['featured-categories-list']} data-testid="featured-categories-list">
       <li>
         <Link to="/shop/category/mens-watches">
           <FeaturedCategoriesItem
@@ -26,7 +26,7 @@ export const FeaturedCategoriesList = () => {
         </Link>
       </li>
       <li>
-        <ul className={styles['featured-categories--stacked']}>
+        <ul className={styles['featured-categories-list--stacked']}>
           <li>
             <Link to="/shop/category/sunglasses">
               <FeaturedCategoriesItem

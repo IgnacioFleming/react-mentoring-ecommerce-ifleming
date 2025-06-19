@@ -1,11 +1,11 @@
 import { Link } from 'react-router-dom';
-import { FeaturedCategoriesItem } from '../FeaturedCategoriesItem';
 import {
   menWatches,
   womenShoes,
   sunglasses,
   smartphones,
 } from '../../../../../assets/images/featured-categories';
+import { FeaturedCategoriesItem } from '../FeaturedCategoriesItem';
 import styles from './FeaturedCategoriesList.module.scss';
 
 export const FeaturedCategoriesList = () => {

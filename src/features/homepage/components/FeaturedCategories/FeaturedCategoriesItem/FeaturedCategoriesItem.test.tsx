@@ -1,9 +1,9 @@
 import { describe, expect, it } from 'vitest';
-import { FeaturedCategoriesItem, FeaturedCategoriesProps } from './FeaturedCategoriesItem';
+import { FeaturedCategoriesItem, FeaturedCategoriesItemProps } from './FeaturedCategoriesItem';
 import { render } from '@testing-library/react';
 
 describe('FeaturedCategoriesItem', () => {
-  const mockProps: FeaturedCategoriesProps = {
+  const mockProps: FeaturedCategoriesItemProps = {
     title: 'mockTitle',
     alt: 'mockTitle photo',
     imagePath: '/mockPath',
@@ -11,7 +11,7 @@ describe('FeaturedCategoriesItem', () => {
     stacked: false,
   };
 
-  const renderMockFeaturedCategoriesItem = (props: Partial<FeaturedCategoriesProps> = {}) => {
+  const renderMockFeaturedCategoriesItem = (props: Partial<FeaturedCategoriesItemProps> = {}) => {
     return render(<FeaturedCategoriesItem {...mockProps} {...props} />);
   };
 

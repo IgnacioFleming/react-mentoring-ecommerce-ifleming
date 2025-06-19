@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import styles from './FeaturedCategoriesItem.module.scss';
 
-export type FeaturedCategoriesProps = {
+export type FeaturedCategoriesItemProps = {
   imagePath: string;
   alt: string;
   title: string;
@@ -15,7 +15,7 @@ export const FeaturedCategoriesItem = ({
   title,
   caption,
   stacked,
-}: FeaturedCategoriesProps) => {
+}: FeaturedCategoriesItemProps) => {
   return (
     <figure className={styles['featured-categories-item']}>
       <img

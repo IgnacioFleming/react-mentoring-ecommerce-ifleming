@@ -1,4 +1,14 @@
 import { Product } from '../../../../types/products';
+import {
+  auroraSilkScarf,
+  chronoxSportWatch,
+  eclipseSmartwatch,
+  lunaLeatherBoots,
+  nimbusDownJacket,
+  solarisSunglasses,
+  techoneSmartphoneX,
+  voltaWirelessEarbuds,
+} from '../../../../assets/images/top-rated-products';
 
 export const products: Product[] = [
   {
@@ -7,7 +17,7 @@ export const products: Product[] = [
     rating: 4.5,
     price: 199.99,
     discount: 20,
-    thumbnail: '/assets/products/chronox-sport.jpg',
+    thumbnail: chronoxSportWatch,
   },
   {
     name: 'Luna Leather Boots',
@@ -15,7 +25,7 @@ export const products: Product[] = [
     rating: 4.2,
     price: 149.99,
     discount: 15,
-    thumbnail: '/assets/products/luna-boots.jpg',
+    thumbnail: lunaLeatherBoots,
   },
   {
     name: 'Solaris Sunglasses',
@@ -23,7 +33,7 @@ export const products: Product[] = [
     rating: 4.8,
     price: 89.99,
     discount: 10,
-    thumbnail: '/assets/products/solaris-sunglasses.jpg',
+    thumbnail: solarisSunglasses,
   },
   {
     name: 'TechOne Smartphone X',
@@ -31,7 +41,7 @@ export const products: Product[] = [
     rating: 4.6,
     price: 799.99,
     discount: 5,
-    thumbnail: '/assets/products/techone-x.jpg',
+    thumbnail: techoneSmartphoneX,
   },
   {
     name: 'Aurora Silk Scarf',
@@ -39,7 +49,7 @@ export const products: Product[] = [
     rating: 4.4,
     price: 59.99,
     discount: 25,
-    thumbnail: '/assets/products/aurora-scarf.jpg',
+    thumbnail: auroraSilkScarf,
   },
   {
     name: 'Volta Wireless Earbuds',
@@ -47,7 +57,7 @@ export const products: Product[] = [
     rating: 4.7,
     price: 129.99,
     discount: 18,
-    thumbnail: '/assets/products/volta-earbuds.jpg',
+    thumbnail: voltaWirelessEarbuds,
   },
   {
     name: 'Nimbus Down Jacket',
@@ -55,7 +65,7 @@ export const products: Product[] = [
     rating: 4.3,
     price: 249.99,
     discount: 30,
-    thumbnail: '/assets/products/nimbus-jacket.jpg',
+    thumbnail: nimbusDownJacket,
   },
   {
     name: 'Eclipse Smartwatch',
@@ -63,6 +73,6 @@ export const products: Product[] = [
     rating: 4.1,
     price: 179.99,
     discount: 12,
-    thumbnail: '/assets/products/eclipse-watch.jpg',
+    thumbnail: eclipseSmartwatch,
   },
 ];

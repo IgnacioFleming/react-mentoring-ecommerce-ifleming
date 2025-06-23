@@ -1,6 +1,7 @@
 import { Container } from '../../components/Container';
 import { FeaturedCategories } from '../../features/homepage/components/FeaturedCategories';
 import { Hero } from '../../features/homepage/components/Hero';
+import { TopRatedProducts } from '../../features/homepage/components/TopRatedProducts';
 
 export const Homepage = () => (
   <>
@@ -15,7 +16,7 @@ export const Homepage = () => (
       <FeaturedCategories />
     </Container>
     <Container>
-      <h3>Top Rated Products</h3>
+      <TopRatedProducts />
     </Container>
   </>
 );

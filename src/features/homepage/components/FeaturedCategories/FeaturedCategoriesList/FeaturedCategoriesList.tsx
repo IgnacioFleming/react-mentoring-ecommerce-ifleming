@@ -7,6 +7,7 @@ import {
 } from '../../../../../assets/images/featured-categories';
 import { FeaturedCategoriesItem, FeaturedCategoriesItemProps } from '../FeaturedCategoriesItem';
 import styles from './FeaturedCategoriesList.module.scss';
+import clsx from 'clsx';
 
 type Link = {
   link: string;
@@ -46,25 +47,21 @@ const FEATURED_CATEGORIES: (FeaturedCategoriesItemProps & Link)[] = [
 ];
 
 const renderCategoryItem = (category: FeaturedCategoriesItemProps & Link, index: number) => (
-  <li key={index}>
+  <li
+    key={index}
+    className={clsx(styles['featured-categories-list__item'], {
+      [styles['is-large']]: !category.stacked,
+    })}
+  >
     <Link to={category.link}>
       <FeaturedCategoriesItem {...category} />
     </Link>
   </li>
 );
-
 export const FeaturedCategoriesList = () => {
-  const largeCategories = FEATURED_CATEGORIES.filter((c) => !c.stacked);
-  const stackedCategories = FEATURED_CATEGORIES.filter((c) => c.stacked);
   return (
     <ul className={styles['featured-categories-list']} data-testid="featured-categories-list">
-      {largeCategories.map(renderCategoryItem)}
-
-      <li>
-        <ul className={styles['featured-categories-list--stacked']}>
-          {stackedCategories.map(renderCategoryItem)}
-        </ul>
-      </li>
+      {FEATURED_CATEGORIES.map(renderCategoryItem)}
     </ul>
   );
 };

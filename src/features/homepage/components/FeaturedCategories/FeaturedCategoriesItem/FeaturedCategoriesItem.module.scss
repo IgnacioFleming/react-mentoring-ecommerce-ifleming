@@ -10,7 +10,7 @@
     transition: transform 0.2s ease-in-out;
 
     &--stacked {
-      height: calc(($size-section-image - $spacing-md) / 2);
+      height: calc(($size-section-image - $spacing-lg) / 2);
     }
 
     &:hover {

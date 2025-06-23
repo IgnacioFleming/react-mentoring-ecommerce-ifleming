@@ -6,13 +6,12 @@
   grid-template-columns: 100%;
   gap: $spacing-lg;
 
-  &--stacked {
-    display: flex;
-    flex-direction: column;
-    gap: $spacing-md;
-  }
-
   @include is-tablet {
     grid-template-columns: 2fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+
+    .is-large {
+      grid-row: span 2;
+    }
   }
 }

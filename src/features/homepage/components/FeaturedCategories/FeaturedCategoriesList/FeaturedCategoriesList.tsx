@@ -12,7 +12,7 @@ type Link = {
   link: string;
 };
 
-const featuredCategories: (FeaturedCategoriesItemProps & Link)[] = [
+const FEATURED_CATEGORIES: (FeaturedCategoriesItemProps & Link)[] = [
   {
     imagePath: menWatches,
     alt: "Men's watches photo",
@@ -54,8 +54,8 @@ const renderCategoryItem = (category: FeaturedCategoriesItemProps & Link, index:
 );
 
 export const FeaturedCategoriesList = () => {
-  const largeCategories = featuredCategories.filter((c) => !c.stacked);
-  const stackedCategories = featuredCategories.filter((c) => c.stacked);
+  const largeCategories = FEATURED_CATEGORIES.filter((c) => !c.stacked);
+  const stackedCategories = FEATURED_CATEGORIES.filter((c) => c.stacked);
   return (
     <ul className={styles['featured-categories-list']} data-testid="featured-categories-list">
       {largeCategories.map(renderCategoryItem)}

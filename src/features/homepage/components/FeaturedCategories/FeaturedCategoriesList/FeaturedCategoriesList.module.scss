@@ -1,0 +1,17 @@
+@use '../../../../../styles/variables' as *;
+
+.featured-categories-list {
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 100%;
+  gap: $spacing-lg;
+
+  @include is-tablet {
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+
+    .is-large {
+      grid-row: span 2;
+    }
+  }
+}

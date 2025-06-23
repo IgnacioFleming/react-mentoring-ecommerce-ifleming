@@ -1,0 +1,68 @@
+import { Product } from '../../../../types/products';
+
+export const products: Product[] = [
+  {
+    name: 'ChronoX Sport Watch',
+    brand: 'ChronoX',
+    rating: 4.5,
+    price: 199.99,
+    discount: 20,
+    thumbnail: '/assets/products/chronox-sport.jpg',
+  },
+  {
+    name: 'Luna Leather Boots',
+    brand: 'Luna',
+    rating: 4.2,
+    price: 149.99,
+    discount: 15,
+    thumbnail: '/assets/products/luna-boots.jpg',
+  },
+  {
+    name: 'Solaris Sunglasses',
+    brand: 'Solaris',
+    rating: 4.8,
+    price: 89.99,
+    discount: 10,
+    thumbnail: '/assets/products/solaris-sunglasses.jpg',
+  },
+  {
+    name: 'TechOne Smartphone X',
+    brand: 'TechOne',
+    rating: 4.6,
+    price: 799.99,
+    discount: 5,
+    thumbnail: '/assets/products/techone-x.jpg',
+  },
+  {
+    name: 'Aurora Silk Scarf',
+    brand: 'Aurora',
+    rating: 4.4,
+    price: 59.99,
+    discount: 25,
+    thumbnail: '/assets/products/aurora-scarf.jpg',
+  },
+  {
+    name: 'Volta Wireless Earbuds',
+    brand: 'Volta',
+    rating: 4.7,
+    price: 129.99,
+    discount: 18,
+    thumbnail: '/assets/products/volta-earbuds.jpg',
+  },
+  {
+    name: 'Nimbus Down Jacket',
+    brand: 'Nimbus',
+    rating: 4.3,
+    price: 249.99,
+    discount: 30,
+    thumbnail: '/assets/products/nimbus-jacket.jpg',
+  },
+  {
+    name: 'Eclipse Smartwatch',
+    brand: 'Eclipse',
+    rating: 4.1,
+    price: 179.99,
+    discount: 12,
+    thumbnail: '/assets/products/eclipse-watch.jpg',
+  },
+];

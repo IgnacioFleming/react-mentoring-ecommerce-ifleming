@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import { Link } from 'react-router-dom';
 import {
   menWatches,
@@ -7,7 +8,6 @@ import {
 } from '../../../../../assets/images/featured-categories';
 import { FeaturedCategoriesItem, FeaturedCategoriesItemProps } from '../FeaturedCategoriesItem';
 import styles from './FeaturedCategoriesList.module.scss';
-import clsx from 'clsx';
 
 type Link = {
   link: string;

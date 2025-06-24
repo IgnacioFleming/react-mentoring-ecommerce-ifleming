@@ -2,6 +2,7 @@ import { Container } from '../../components/Container';
 import { FeaturedCategories } from '../../features/homepage/components/FeaturedCategories';
 import { Hero } from '../../features/homepage/components/Hero';
 import { TopRatedProducts } from '../../features/homepage/components/TopRatedProducts';
+import styles from './Homepage.module.scss';
 
 export const Homepage = () => (
   <>
@@ -12,7 +13,7 @@ export const Homepage = () => (
       cta="Shop Now"
       ctaLink="/shop"
     />
-    <Container>
+    <Container className={styles['featured-categories-container']}>
       <FeaturedCategories />
     </Container>
     <Container>

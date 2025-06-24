@@ -12,3 +12,10 @@
     color: $color-second-text;
   }
 }
+
+.top-rated-products {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax($size-card-width, 1fr));
+  justify-items: center;
+  gap: $spacing-xl;
+}

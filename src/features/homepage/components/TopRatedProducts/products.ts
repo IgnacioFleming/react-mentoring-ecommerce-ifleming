@@ -12,7 +12,7 @@ import {
 
 export const PRODUCTS: Product[] = [
   {
-    name: 'ChronoX Sport Watch',
+    name: 'Sport Watch',
     brand: 'ChronoX',
     rating: 4.5,
     price: 199.99,
@@ -20,7 +20,7 @@ export const PRODUCTS: Product[] = [
     thumbnail: chronoxSportWatch,
   },
   {
-    name: 'Luna Leather Boots',
+    name: 'Leather Boots',
     brand: 'Luna',
     rating: 4.2,
     price: 149.99,
@@ -28,7 +28,7 @@ export const PRODUCTS: Product[] = [
     thumbnail: lunaLeatherBoots,
   },
   {
-    name: 'Solaris Sunglasses',
+    name: 'Sunglasses',
     brand: 'Solaris',
     rating: 4.8,
     price: 89.99,
@@ -36,7 +36,7 @@ export const PRODUCTS: Product[] = [
     thumbnail: solarisSunglasses,
   },
   {
-    name: 'TechOne Smartphone X',
+    name: 'Smartphone X',
     brand: 'TechOne',
     rating: 4.6,
     price: 799.99,
@@ -44,7 +44,7 @@ export const PRODUCTS: Product[] = [
     thumbnail: techoneSmartphoneX,
   },
   {
-    name: 'Aurora Silk Scarf',
+    name: 'Silk Scarf',
     brand: 'Aurora',
     rating: 4.4,
     price: 59.99,
@@ -52,7 +52,7 @@ export const PRODUCTS: Product[] = [
     thumbnail: auroraSilkScarf,
   },
   {
-    name: 'Volta Wireless Earbuds',
+    name: 'Wireless Earbuds',
     brand: 'Volta',
     rating: 4.7,
     price: 129.99,
@@ -60,7 +60,7 @@ export const PRODUCTS: Product[] = [
     thumbnail: voltaWirelessEarbuds,
   },
   {
-    name: 'Nimbus Down Jacket',
+    name: 'Down Jacket',
     brand: 'Nimbus',
     rating: 4.3,
     price: 249.99,
@@ -68,7 +68,7 @@ export const PRODUCTS: Product[] = [
     thumbnail: nimbusDownJacket,
   },
   {
-    name: 'Eclipse Smartwatch',
+    name: 'Smartwatch',
     brand: 'Eclipse',
     rating: 4.1,
     price: 179.99,

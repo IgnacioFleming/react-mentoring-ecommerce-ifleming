@@ -1,0 +1,22 @@
+@use '../../styles/variables' as *;
+
+.card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-card;
+
+  &__thumbnail {
+    width: 100%;
+    object-fit: cover;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-sm;
+    padding: $spacing-md;
+    padding-bottom: $spacing-lg;
+  }
+}

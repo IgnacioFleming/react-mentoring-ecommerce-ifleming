@@ -1,4 +1,6 @@
 import { ReactNode } from 'react';
+import styles from './Card.module.scss';
+import clsx from 'clsx';
 
 type Root = {
   children: ReactNode;
@@ -16,7 +18,7 @@ type Main = Root;
 type Footer = Root;
 
 export const Card = ({ children, className }: Root) => {
-  return <article className={className}>{children}</article>;
+  return <article className={clsx(styles.card, className)}>{children}</article>;
 };
 
 Card.displayName = 'Card';
@@ -24,7 +26,7 @@ Card.displayName = 'Card';
 const Thumbnail = ({ src, alt, className, children }: Thumbnail) => {
   return (
     <div className={className}>
-      <img src={src} alt={alt} />
+      <img src={src} alt={alt} className={styles.card__thumbnail} />
       {children}
     </div>
   );
@@ -33,7 +35,7 @@ const Thumbnail = ({ src, alt, className, children }: Thumbnail) => {
 Card.Thumbnail = Thumbnail;
 
 const Content = ({ className, children }: Content) => {
-  return <div className={className}>{children}</div>;
+  return <div className={clsx(styles.card__content, className)}>{children}</div>;
 };
 
 Card.Content = Content;

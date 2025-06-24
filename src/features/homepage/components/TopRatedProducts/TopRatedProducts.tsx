@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Card } from '../../../../components/Card';
-import { products } from './products';
+import { PRODUCTS } from './products';
 import { Button } from '../../../../components/Button';
 import { Eye, Heart, ShoppingCart, Star } from 'lucide-react';
 
@@ -13,7 +13,7 @@ export const TopRatedProducts = () => {
         <p>Customer favorites loved for quality and style</p>
       </header>
       <ul>
-        {products.map((p, index) => (
+        {PRODUCTS.slice(0, 1).map((p, index) => (
           <Card key={index}>
             <Card.Thumbnail src={p.thumbnail} alt={`${p.name} photo`}>
               <div>

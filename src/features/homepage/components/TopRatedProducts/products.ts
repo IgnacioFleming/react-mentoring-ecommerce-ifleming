@@ -10,7 +10,7 @@ import {
   voltaWirelessEarbuds,
 } from '../../../../assets/images/top-rated-products';
 
-export const products: Product[] = [
+export const PRODUCTS: Product[] = [
   {
     name: 'ChronoX Sport Watch',
     brand: 'ChronoX',

@@ -1,0 +1,14 @@
+@use '../../../../styles/variables' as *;
+@use '../../styles/section-layouts.module.scss' as *;
+
+.container {
+  @include section-container;
+}
+
+.header {
+  @include section-header;
+  h4 {
+    font: $font-heading-h4;
+    color: $color-second-text;
+  }
+}

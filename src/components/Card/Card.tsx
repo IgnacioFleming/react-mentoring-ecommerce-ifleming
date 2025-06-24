@@ -17,43 +17,51 @@ type Header = Root;
 type Main = Root;
 type Footer = Root;
 
-export const Card = ({ children, className }: Root) => {
-  return <article className={clsx(styles.card, className)}>{children}</article>;
-};
+export const Card = ({ children, className }: Root) => (
+  <article className={clsx(styles.card, className)} data-testid="card">
+    {children}
+  </article>
+);
 
 Card.displayName = 'Card';
 
-const Thumbnail = ({ src, alt, className, children }: Thumbnail) => {
-  return (
-    <div className={className}>
-      <img src={src} alt={alt} className={styles.card__thumbnail} />
-      {children}
-    </div>
-  );
-};
+const Thumbnail = ({ src, alt, className, children }: Thumbnail) => (
+  <div className={className} data-testid="card-thumbnail">
+    <img src={src} alt={alt} className={styles.card__thumbnail} />
+    {children}
+  </div>
+);
 
 Card.Thumbnail = Thumbnail;
 
-const Content = ({ className, children }: Content) => {
-  return <div className={clsx(styles.card__content, className)}>{children}</div>;
-};
+const Content = ({ className, children }: Content) => (
+  <div className={clsx(styles.card__content, className)} data-testid="card-content">
+    {children}
+  </div>
+);
 
 Card.Content = Content;
 
-const Header = ({ className, children }: Header) => {
-  return <header className={className}>{children}</header>;
-};
+const Header = ({ className, children }: Header) => (
+  <header className={className} data-testid="card-header">
+    {children}
+  </header>
+);
 
 Card.Header = Header;
 
-const Main = ({ className, children }: Main) => {
-  return <div className={className}>{children}</div>;
-};
+const Main = ({ className, children }: Main) => (
+  <div className={className} data-testid="card-header">
+    {children}
+  </div>
+);
 
 Card.Main = Main;
 
-const Footer = ({ className, children }: Footer) => {
-  return <footer className={className}>{children}</footer>;
-};
+const Footer = ({ className, children }: Footer) => (
+  <footer className={className} data-testid="card-footer">
+    {children}
+  </footer>
+);
 
 Card.Footer = Footer;

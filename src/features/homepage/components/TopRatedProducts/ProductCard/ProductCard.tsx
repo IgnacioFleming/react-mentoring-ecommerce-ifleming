@@ -53,7 +53,7 @@ export const ProductCard = ({ product }: ProductCardProps) => {
             rightIcon={<ChevronRight size={24} />}
             className={styles.card__content__footer__btn}
           >
-            Lear More
+            Learn More
           </Button>
         </Card.Footer>
       </Card.Content>

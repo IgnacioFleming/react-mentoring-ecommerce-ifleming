@@ -1,0 +1,108 @@
+@use '../../../../../styles/variables' as *;
+
+.card {
+  max-width: $size-card-width;
+  height: $size-card-height;
+
+  &__thumbnail {
+    position: relative;
+    height: calc($size-card-height / 2);
+
+    &__icons {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      gap: $spacing-sm;
+      position: absolute;
+      bottom: $spacing-lg;
+      transition: opacity 0.2s ease-in-out;
+      div {
+        width: $size-card-icon;
+        height: $size-card-icon;
+        background-color: $color-light-background;
+        color: $color-text;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: $radius-2xl;
+        cursor: pointer;
+        transition: background-color 0.2s ease-in-out;
+
+        &:hover {
+          background-color: $color-gray-300;
+        }
+      }
+
+      @include is-tablet {
+        opacity: 0;
+      }
+    }
+  }
+
+  &:hover &__thumbnail__icons {
+    opacity: 1;
+  }
+
+  &__content {
+    justify-content: center;
+    flex-grow: 1;
+    &__header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      &__brand {
+        font: $font-link;
+        color: $color-primary-text;
+      }
+
+      &__rating {
+        background-color: $color-dark-background;
+        color: $color-light-text;
+        font: $font-small;
+        border-radius: $radius-xl;
+        gap: $spacing-xs;
+        padding: $spacing-xs $spacing-sm;
+        display: flex;
+        align-items: center;
+
+        svg {
+          color: $color-star-icon;
+          fill: $color-star-icon;
+        }
+      }
+    }
+
+    &__main {
+      display: flex;
+      flex-direction: column;
+      gap: $spacing-md;
+      font: $font-heading-h5;
+      color: $color-text;
+
+      & > div {
+        display: flex;
+        gap: $spacing-sm;
+      }
+      &--price {
+        color: $color-secondary-1;
+      }
+
+      &--discount {
+        color: $color-muted-text;
+      }
+    }
+
+    &__footer {
+      &__btn {
+        display: flex;
+        align-items: center;
+        padding: $spacing-sm $spacing-md;
+        span {
+          display: flex;
+          align-items: center;
+        }
+      }
+    }
+  }
+}

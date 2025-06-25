@@ -12,12 +12,10 @@
     position: absolute;
     bottom: $spacing-lg;
     transition: opacity 0.2s ease-in-out;
-    div {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: $size-card-icon;
+    svg {
       height: $size-card-icon;
+      width: $size-card-icon;
+      padding: $spacing-sm $spacing-xs;
       background-color: $color-light-background;
       color: $color-text;
       border-radius: $radius-2xl;

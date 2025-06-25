@@ -4,10 +4,6 @@
   position: relative;
   height: calc($size-card-height / 2);
 
-  &:hover &__icons {
-    opacity: 1;
-  }
-
   &__icons {
     width: 100%;
     display: flex;
@@ -17,13 +13,13 @@
     bottom: $spacing-lg;
     transition: opacity 0.2s ease-in-out;
     div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
       width: $size-card-icon;
       height: $size-card-icon;
       background-color: $color-light-background;
       color: $color-text;
-      display: flex;
-      justify-content: center;
-      align-items: center;
       border-radius: $radius-2xl;
       cursor: pointer;
       transition: background-color 0.2s ease-in-out;

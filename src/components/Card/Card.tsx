@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
-import styles from './Card.module.scss';
 import clsx from 'clsx';
+import styles from './Card.module.scss';
 
 type Root = {
   children: ReactNode;

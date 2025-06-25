@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { render } from '@testing-library/react';
 import { ProductCardThumbnail } from './ProductCardThumbnail';
+
 describe('ProductCardThumbnail', () => {
   const MOCK_NAME = 'mockName';
   const MOCK_THUMBNAIL = 'mockThumbnail';

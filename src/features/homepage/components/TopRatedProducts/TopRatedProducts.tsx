@@ -1,5 +1,5 @@
-import { ProductCard } from './ProductCard';
 import { PRODUCTS } from './products';
+import { ProductCard } from './ProductCard';
 import styles from './TopRatedProducts.module.scss';
 
 export const TopRatedProducts = () => {

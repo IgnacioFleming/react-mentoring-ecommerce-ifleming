@@ -28,4 +28,14 @@ describe('ProductCard', () => {
     const { getByRole } = renderProductCard();
     expect(getByRole('button', { name: 'Learn More' })).toBeInTheDocument();
   });
+
+  it('renders product props correctly', () => {
+    const { getByRole, getByText } = renderProductCard();
+    expect(getByRole('link', { name: MOCK_PRODUCT.brand })).toBeInTheDocument();
+    expect(getByRole('heading', { name: MOCK_PRODUCT.name })).toBeInTheDocument();
+    expect(getByText(MOCK_PRODUCT.rating)).toBeInTheDocument();
+    expect(getByRole('heading', { name: `${MOCK_PRODUCT.discount}% off` })).toBeInTheDocument();
+    expect(getByRole('heading', { name: `$${MOCK_PRODUCT.price}` })).toBeInTheDocument();
+    expect(getByRole('img')).toHaveAttribute('src', MOCK_PRODUCT.thumbnail);
+  });
 });

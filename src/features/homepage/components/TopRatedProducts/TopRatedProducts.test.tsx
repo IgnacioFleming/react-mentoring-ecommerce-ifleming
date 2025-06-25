@@ -2,7 +2,6 @@ import { describe, expect, it } from 'vitest';
 import { render } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import { TopRatedProducts } from './TopRatedProducts';
-import { PRODUCTS } from './products';
 
 describe('TopRatedProducts', () => {
   const renderTopRatedProducts = () =>
@@ -21,12 +20,5 @@ describe('TopRatedProducts', () => {
   it('renders 8 product cards', () => {
     const { queryAllByTestId } = renderTopRatedProducts();
     expect(queryAllByTestId('card')).toHaveLength(8);
-  });
-
-  it('renders correctly each product', () => {
-    const { getByRole } = renderTopRatedProducts();
-    PRODUCTS.forEach((p) => {
-      expect(getByRole('heading', { name: p.name })).toBeInTheDocument();
-    });
   });
 });

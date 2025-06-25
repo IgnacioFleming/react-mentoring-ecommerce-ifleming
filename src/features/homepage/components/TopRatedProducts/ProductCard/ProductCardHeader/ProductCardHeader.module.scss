@@ -1,0 +1,28 @@
+@use '../../../../../../styles/variables' as *;
+
+.product-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &__brand {
+    font: $font-link;
+    color: $color-primary-text;
+  }
+
+  &__rating {
+    background-color: $color-dark-background;
+    color: $color-light-text;
+    font: $font-small;
+    border-radius: $radius-xl;
+    gap: $spacing-xs;
+    padding: $spacing-xs $spacing-sm;
+    display: flex;
+    align-items: center;
+
+    svg {
+      color: $color-star-icon;
+      fill: $color-star-icon;
+    }
+  }
+}

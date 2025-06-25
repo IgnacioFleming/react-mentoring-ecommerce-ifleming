@@ -6,7 +6,7 @@ import { Container } from '../../components/Container';
 import styles from './Header.module.scss';
 
 export const Header = () => (
-  <header className={styles.header}>
+  <header>
     <div className={styles.banner}>
       <Container className={styles.banner__container}>
         <div className={clsx(styles.banner__column, styles['banner__column--left'])}>

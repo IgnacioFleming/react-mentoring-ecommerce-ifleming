@@ -1,0 +1,40 @@
+@use '../../../../../../styles/variables' as *;
+
+.thumbnail {
+  position: relative;
+  height: calc($size-card-height / 2);
+
+  &:hover &__icons {
+    opacity: 1;
+  }
+
+  &__icons {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: $spacing-sm;
+    position: absolute;
+    bottom: $spacing-lg;
+    transition: opacity 0.2s ease-in-out;
+    div {
+      width: $size-card-icon;
+      height: $size-card-icon;
+      background-color: $color-light-background;
+      color: $color-text;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: $radius-2xl;
+      cursor: pointer;
+      transition: background-color 0.2s ease-in-out;
+
+      &:hover {
+        background-color: $color-gray-300;
+      }
+    }
+
+    @include is-tablet {
+      opacity: 0;
+    }
+  }
+}

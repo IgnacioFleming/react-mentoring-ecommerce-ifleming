@@ -13,9 +13,11 @@ export const Homepage = () => (
       cta="Shop Now"
       ctaLink="/shop"
     />
-    <Container className={styles['featured-categories-container']}>
-      <FeaturedCategories />
-    </Container>
+    <div className={styles['featured-categories-container']}>
+      <Container>
+        <FeaturedCategories />
+      </Container>
+    </div>
     <Container>
       <TopRatedProducts />
     </Container>

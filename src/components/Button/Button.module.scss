@@ -39,4 +39,9 @@
   &--rounded {
     border-radius: $radius-2xl;
   }
+
+  &__icon {
+    display: flex;
+    align-items: center;
+  }
 }

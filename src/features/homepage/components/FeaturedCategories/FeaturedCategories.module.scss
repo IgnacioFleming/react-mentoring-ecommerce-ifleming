@@ -1,9 +1,0 @@
-@use '../../styles/section-layouts.module.scss' as *;
-
-.container {
-  @include section-container;
-}
-
-.header {
-  @include section-header;
-}

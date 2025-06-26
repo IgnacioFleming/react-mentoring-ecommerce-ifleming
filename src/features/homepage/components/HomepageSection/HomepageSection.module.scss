@@ -6,7 +6,7 @@
   gap: $spacing-2xl;
   padding-block: $spacing-3xl;
 
-  header {
+  &__header {
     display: flex;
     flex-direction: column;
     gap: $spacing-sm;

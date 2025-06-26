@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { render } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
-import { Product } from '../../../../../types/products';
+import { Product } from '../../types/products';
 import { ProductCard } from './ProductCard';
 
 describe('ProductCard', () => {

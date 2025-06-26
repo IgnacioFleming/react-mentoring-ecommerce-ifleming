@@ -15,7 +15,7 @@ export const HomepageSection = ({ children, className }: SectionContainerProps) 
 HomepageSection.displayName = 'HomepageSection';
 
 const Header = ({ title, subtitle, eyebrow, classname }: HeaderProps) => (
-  <header className={clsx(styles.header, classname)}>
+  <header className={clsx(styles['section-container__header'], classname)}>
     {eyebrow && <h4>{eyebrow}</h4>}
     <h3>{title}</h3>
     <p>{subtitle}</p>

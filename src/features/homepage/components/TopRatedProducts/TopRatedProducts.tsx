@@ -1,7 +1,7 @@
 import { PRODUCTS } from './products';
-import { ProductCard } from './ProductCard';
-import styles from './TopRatedProducts.module.scss';
 import { HomepageSection } from '../HomepageSection';
+import { ProductCard } from '../../../../components/ProductCard';
+import styles from './TopRatedProducts.module.scss';
 
 export const TopRatedProducts = () => {
   return (
@@ -15,7 +15,7 @@ export const TopRatedProducts = () => {
         <ul className={styles['top-rated-products']}>
           {PRODUCTS.map((p, index) => (
             <li key={index}>
-              <ProductCard product={p} />
+              <ProductCard product={p} hasHeader />
             </li>
           ))}
         </ul>

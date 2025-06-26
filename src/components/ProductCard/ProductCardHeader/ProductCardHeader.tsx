@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Star } from 'lucide-react';
-import { Product } from '../../../../../../types/products';
-import { Card } from '../../../../../../components/Card';
+import { Product } from '../../../types/products';
+import { Card } from '../../Card';
 import styles from './ProductCardHeader.module.scss';
 
 type ProductCardHeaderProps = Pick<Product, 'brand' | 'rating'>;

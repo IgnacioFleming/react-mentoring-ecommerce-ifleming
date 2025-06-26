@@ -7,8 +7,8 @@ export type Category = {
 export type Product = {
   name: string;
   brand: string;
-  rating: number;
   price: number;
   discount: number;
   thumbnail: string;
+  rating: number;
 };

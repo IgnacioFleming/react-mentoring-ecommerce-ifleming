@@ -1,5 +1,5 @@
-import { Product } from '../../../../../../types/products';
-import { Card } from '../../../../../../components/Card';
+import { Product } from '../../../types/products';
+import { Card } from '../../Card';
 import styles from './ProductCardMain.module.scss';
 
 type ProductCardMainProps = Pick<Product, 'name' | 'price' | 'discount'>;

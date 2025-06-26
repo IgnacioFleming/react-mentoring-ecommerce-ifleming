@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import { Eye, Heart, ShoppingCart } from 'lucide-react';
-import { Product } from '../../../../../../types/products';
-import { Card } from '../../../../../../components/Card';
+import { Product } from '../../../types/products';
+import { Card } from '../../Card';
 import hoverStyles from '../ProductCard.module.scss';
 import styles from './ProductCardThumbnail.module.scss';
 

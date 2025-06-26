@@ -1,0 +1,32 @@
+@use '../../../../styles/variables' as *;
+
+.section-container {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-2xl;
+  padding-block: $spacing-3xl;
+
+  header {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-sm;
+    text-align: center;
+
+    h3 {
+      font: $font-heading-h3;
+      color: $color-text;
+      text-transform: uppercase;
+    }
+
+    h4 {
+      font: $font-heading-h4;
+      color: $color-second-text;
+    }
+
+    p {
+      font: $font-paragraph;
+      color: $color-second-text;
+      padding-inline: $spacing-md;
+    }
+  }
+}

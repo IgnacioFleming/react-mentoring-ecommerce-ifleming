@@ -1,14 +1,16 @@
 import { FeaturedCategoriesList } from './FeaturedCategoriesList';
-import styles from './FeaturedCategories.module.scss';
+import { HomepageSection } from '../HomepageSection';
 
 export const FeaturedCategories = () => {
   return (
-    <section className={styles.container}>
-      <header className={styles.header}>
-        <h3>Featured Categories</h3>
-        <p>Explore our most loved collections, handpicked for every style</p>
-      </header>
-      <FeaturedCategoriesList />
-    </section>
+    <HomepageSection>
+      <HomepageSection.Header
+        title="Featured Categories"
+        subtitle="Explore our most loved collections, handpicked for every style"
+      />
+      <HomepageSection.Content>
+        <FeaturedCategoriesList />
+      </HomepageSection.Content>
+    </HomepageSection>
   );
 };

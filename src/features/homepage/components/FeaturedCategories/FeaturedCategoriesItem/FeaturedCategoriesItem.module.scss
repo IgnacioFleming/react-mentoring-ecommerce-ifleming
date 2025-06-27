@@ -2,6 +2,7 @@
 
 .featured-categories-item {
   position: relative;
+  overflow: hidden;
   &__img {
     display: block;
     width: 100%;
@@ -14,7 +15,7 @@
     }
 
     &:hover {
-      transform: scale(1.08);
+      transform: scale(1.1);
     }
   }
 

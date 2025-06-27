@@ -1,7 +1,6 @@
-import { PRODUCTS } from './products';
+import { ProductsList } from '../../../../components/ProductsList';
 import { HomepageSection } from '../HomepageSection';
-import { ProductCard } from '../../../../components/ProductCard';
-import styles from './TopRatedProducts.module.scss';
+import { PRODUCTS } from './products';
 
 export const TopRatedProducts = () => {
   return (
@@ -12,13 +11,7 @@ export const TopRatedProducts = () => {
         subtitle="Customer favorites loved for quality and style"
       />
       <HomepageSection.Content>
-        <ul className={styles['top-rated-products']}>
-          {PRODUCTS.map((p, index) => (
-            <li key={index}>
-              <ProductCard product={p} hasHeader />
-            </li>
-          ))}
-        </ul>
+        <ProductsList products={PRODUCTS} />
       </HomepageSection.Content>
     </HomepageSection>
   );

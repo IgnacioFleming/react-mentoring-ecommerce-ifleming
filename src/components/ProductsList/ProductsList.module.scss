@@ -1,6 +1,6 @@
-@use '../../../../styles/variables' as *;
+@use '../../styles/variables' as *;
 
-.top-rated-products {
+.products-list {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax($size-card-width, 1fr));
   justify-items: center;

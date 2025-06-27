@@ -1,0 +1,21 @@
+@use '../../../styles/variables' as *;
+
+.product-card-main {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+  font: $font-heading-h5;
+  color: $color-text;
+
+  & > div {
+    display: flex;
+    gap: $spacing-sm;
+  }
+  &--price {
+    color: $color-secondary-1;
+  }
+
+  &--discount {
+    color: $color-muted-text;
+  }
+}

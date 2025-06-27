@@ -14,10 +14,14 @@ type ProductCardProps = {
 export const ProductCard = ({ product }: ProductCardProps) => (
   <li>
     <Card className={styles.card}>
-      <ProductCardThumbnail thumbnail={product.thumbnail} name={product.name} />
+      <ProductCardThumbnail thumbnail={product.thumbnail} name={product.title} />
       <Card.Content className={styles.card__content}>
         <ProductCardHeader brand={product.brand} rating={product.rating} />
-        <ProductCardMain name={product.name} price={product.price} discount={product.discount} />
+        <ProductCardMain
+          name={product.title}
+          price={product.price}
+          discount={product.discountPercentage}
+        />
         <Card.Footer>
           <Button
             variant="outline"

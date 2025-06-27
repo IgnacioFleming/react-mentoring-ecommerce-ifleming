@@ -5,10 +5,10 @@ export type Category = {
 };
 
 export type Product = {
-  name: string;
+  title: string;
   brand: string;
   price: number;
-  discount: number;
+  discountPercentage: number;
   thumbnail: string;
   rating: number;
 };

@@ -1,8 +1,6 @@
 @use '../../styles/variables' as *;
 
 .card {
-  max-width: $size-card-width;
-
   &:hover .thumbnail__icons {
     opacity: 1;
   }

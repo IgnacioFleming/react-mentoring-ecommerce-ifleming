@@ -13,10 +13,10 @@ describe('ProductCard', () => {
     price: 100,
     thumbnail: 'mockUrl',
   };
-  const renderProductCard = () =>
+  const renderProductCard = ({ hasHeader }: { hasHeader?: boolean } = {}) =>
     render(
       <MemoryRouter>
-        <ProductCard product={MOCK_PRODUCT} />
+        <ProductCard product={MOCK_PRODUCT} hasHeader={hasHeader} />
       </MemoryRouter>,
     );
   it('renders the component correctly', () => {
@@ -29,8 +29,20 @@ describe('ProductCard', () => {
     expect(getByRole('button', { name: 'Learn More' })).toBeInTheDocument();
   });
 
+  it('does not render Header when hasHeader prop is undefined', () => {
+    const { queryByRole, queryByText } = renderProductCard();
+    expect(queryByRole('link', { name: MOCK_PRODUCT.brand })).toBeNull();
+    expect(queryByText(MOCK_PRODUCT.rating)).toBeNull();
+  });
+
+  it('render Header when hasHeader prop is true', () => {
+    const { getByRole, getByText } = renderProductCard({ hasHeader: true });
+    expect(getByRole('link', { name: MOCK_PRODUCT.brand })).toBeInTheDocument();
+    expect(getByText(MOCK_PRODUCT.rating)).toBeInTheDocument();
+  });
+
   it('renders product props correctly', () => {
-    const { getByRole, getByText } = renderProductCard();
+    const { getByRole, getByText } = renderProductCard({ hasHeader: true });
     expect(getByRole('link', { name: MOCK_PRODUCT.brand })).toBeInTheDocument();
     expect(getByRole('heading', { name: MOCK_PRODUCT.name })).toBeInTheDocument();
     expect(getByText(MOCK_PRODUCT.rating)).toBeInTheDocument();

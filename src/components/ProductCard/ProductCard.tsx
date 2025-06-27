@@ -9,14 +9,13 @@ import styles from './ProductCard.module.scss';
 
 type ProductCardProps = {
   product: Product;
-  hasHeader?: boolean;
 };
 
-export const ProductCard = ({ product, hasHeader }: ProductCardProps) => (
+export const ProductCard = ({ product }: ProductCardProps) => (
   <Card className={styles.card}>
     <ProductCardThumbnail thumbnail={product.thumbnail} name={product.name} />
     <Card.Content className={styles.card__content}>
-      {hasHeader && <ProductCardHeader brand={product.brand} rating={product.rating} />}
+      <ProductCardHeader brand={product.brand} rating={product.rating} />
       <ProductCardMain name={product.name} price={product.price} discount={product.discount} />
       <Card.Footer>
         <Button

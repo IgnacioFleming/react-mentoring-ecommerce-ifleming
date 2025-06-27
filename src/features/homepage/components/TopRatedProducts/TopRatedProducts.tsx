@@ -1,8 +1,12 @@
 import { ProductsList } from '../../../../components/ProductsList';
+import { useTopRatedProducts } from '../../hooks/useTopRatedProducts';
 import { HomepageSection } from '../HomepageSection';
-import { PRODUCTS } from './products';
 
 export const TopRatedProducts = () => {
+  const { topRatedProducts, isLoadingTopRatedProducts } = useTopRatedProducts();
+
+  if (isLoadingTopRatedProducts) return null;
+
   return (
     <HomepageSection>
       <HomepageSection.Header
@@ -11,7 +15,7 @@ export const TopRatedProducts = () => {
         subtitle="Customer favorites loved for quality and style"
       />
       <HomepageSection.Content>
-        <ProductsList products={PRODUCTS} />
+        <ProductsList products={topRatedProducts} />
       </HomepageSection.Content>
     </HomepageSection>
   );

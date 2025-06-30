@@ -2,11 +2,11 @@ import { ChevronRight } from 'lucide-react';
 import { Product } from '../../types/products';
 import { Card } from '../Card';
 import { Button } from '../Button';
+import { Skeleton } from '../Skeleton';
 import { ProductCardThumbnail } from './ProductCardThumbnail';
 import { ProductCardHeader } from './ProductCardHeader';
 import { ProductCardMain } from './ProductCardMain';
 import styles from './ProductCard.module.scss';
-import { Skeleton } from '../Skeleton';
 
 type ProductCardProps = {
   product: Product | null;

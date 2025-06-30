@@ -1,8 +1,8 @@
 import { describe, expect, it } from 'vitest';
-import { Product } from '../../types/products';
 import { render } from '@testing-library/react';
-import { ProductsList, ProductsListProps } from './ProductsList';
 import { MemoryRouter } from 'react-router-dom';
+import { Product } from '../../types/products';
+import { ProductsList, ProductsListProps } from './ProductsList';
 
 const PRODUCTS_MOCK: Product[] = [
   {

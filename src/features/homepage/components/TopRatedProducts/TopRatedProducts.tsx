@@ -1,6 +1,6 @@
-import { ProductsList } from '../../../../components/ProductsList';
 import { DataStatus } from '../../../../types/products';
 import { useTopRatedProducts } from '../../hooks/useTopRatedProducts';
+import { ProductsList } from '../../../../components/ProductsList';
 import { HomepageSection } from '../HomepageSection';
 
 export const TopRatedProducts = () => {

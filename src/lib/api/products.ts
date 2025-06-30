@@ -1,7 +1,7 @@
 import { API_BASE_URL } from './config';
 import type { Category, Product } from '../../types/products';
 
-type TopRatedProductResponse = {
+type ProductsResponse = {
   products: Product[];
 };
 
@@ -15,11 +15,11 @@ export const getProductCategories = async (): Promise<Category[]> => {
   return res.json();
 };
 
-export const getTopRatedProducts = async (): Promise<TopRatedProductResponse> => {
-  const res = await fetch(`${API_BASE_URL}/products?sortBy=rating&order=desc&limit=8`);
+export const getProducts = async ({ params }: { params?: string }): Promise<ProductsResponse> => {
+  const res = await fetch(`${API_BASE_URL}/products${params ? '?' + params : ''}`);
 
   if (!res.ok) {
-    throw new Error('Failed to fetch top rated products');
+    throw new Error('Failed to fetch products');
   }
 
   return res.json();

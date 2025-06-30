@@ -7,9 +7,9 @@ import { ProductCard } from './ProductCard';
 describe('ProductCard', () => {
   const MOCK_PRODUCT: Product = {
     brand: 'mockBrand',
-    name: 'mockName',
+    title: 'mockName',
     rating: 5,
-    discount: 10,
+    discountPercentage: 10,
     price: 100,
     thumbnail: 'mockUrl',
   };
@@ -32,9 +32,11 @@ describe('ProductCard', () => {
   it('renders product props correctly', () => {
     const { getByRole, getByText } = renderProductCard();
     expect(getByRole('link', { name: MOCK_PRODUCT.brand })).toBeInTheDocument();
-    expect(getByRole('heading', { name: MOCK_PRODUCT.name })).toBeInTheDocument();
+    expect(getByRole('heading', { name: MOCK_PRODUCT.title })).toBeInTheDocument();
     expect(getByText(MOCK_PRODUCT.rating)).toBeInTheDocument();
-    expect(getByRole('heading', { name: `${MOCK_PRODUCT.discount}% off` })).toBeInTheDocument();
+    expect(
+      getByRole('heading', { name: `${MOCK_PRODUCT.discountPercentage}% off` }),
+    ).toBeInTheDocument();
     expect(getByRole('heading', { name: `$${MOCK_PRODUCT.price}` })).toBeInTheDocument();
     expect(getByRole('img')).toHaveAttribute('src', MOCK_PRODUCT.thumbnail);
   });

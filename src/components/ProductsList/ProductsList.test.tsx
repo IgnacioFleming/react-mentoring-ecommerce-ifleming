@@ -7,26 +7,26 @@ import { MemoryRouter } from 'react-router-dom';
 const PRODUCTS_MOCK: Product[] = [
   {
     brand: 'mockBrand 1',
-    name: 'mockName 1',
+    title: 'mockName 1',
     rating: 4.1,
     price: 100,
-    discount: 10,
+    discountPercentage: 10,
     thumbnail: 'mockURL/1',
   },
   {
     brand: 'mockBrand 2',
-    name: 'mockName 2',
+    title: 'mockName 2',
     rating: 4.2,
     price: 200,
-    discount: 20,
+    discountPercentage: 20,
     thumbnail: 'mockURL/2',
   },
   {
     brand: 'mockBrand 3',
-    name: 'mockName 3',
+    title: 'mockName 3',
     rating: 4.3,
     price: 300,
-    discount: 30,
+    discountPercentage: 30,
     thumbnail: 'mockURL/3',
   },
 ];

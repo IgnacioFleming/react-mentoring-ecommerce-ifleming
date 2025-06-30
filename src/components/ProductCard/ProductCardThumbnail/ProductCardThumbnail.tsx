@@ -5,10 +5,10 @@ import { Card } from '../../Card';
 import hoverStyles from '../ProductCard.module.scss';
 import styles from './ProductCardThumbnail.module.scss';
 
-type ProductCardThumbnailProps = Pick<Product, 'thumbnail' | 'name'>;
+type ProductCardThumbnailProps = Pick<Product, 'thumbnail' | 'title'>;
 
-export const ProductCardThumbnail = ({ thumbnail, name }: ProductCardThumbnailProps) => (
-  <Card.Thumbnail src={thumbnail} alt={`${name} photo`} className={styles.thumbnail}>
+export const ProductCardThumbnail = ({ thumbnail, title }: ProductCardThumbnailProps) => (
+  <Card.Thumbnail src={thumbnail} alt={`${title} photo`} className={styles.thumbnail}>
     <div className={clsx(hoverStyles.thumbnail__icons, styles.thumbnail__icons)}>
       <Heart />
       <ShoppingCart />

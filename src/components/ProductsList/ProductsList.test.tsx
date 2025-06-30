@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { Product } from '../../types/products';
 import { render } from '@testing-library/react';
-import { ProductsList } from './ProductsList';
+import { ProductsList, ProductsListProps } from './ProductsList';
 import { MemoryRouter } from 'react-router-dom';
 
 const PRODUCTS_MOCK: Product[] = [
@@ -32,12 +32,18 @@ const PRODUCTS_MOCK: Product[] = [
 ];
 
 describe('ProductsList', () => {
-  const renderProductsListMock = () =>
-    render(
+  const renderProductsListMock = (props?: Partial<ProductsListProps>) => {
+    const defaultProps: ProductsListProps = {
+      products: PRODUCTS_MOCK,
+      loadingQuantity: 4,
+      status: 'success',
+    };
+    return render(
       <MemoryRouter>
-        <ProductsList products={PRODUCTS_MOCK} />
+        <ProductsList {...defaultProps} {...props} />
       </MemoryRouter>,
     );
+  };
 
   it('renders the component correctly', () => {
     const { getByRole } = renderProductsListMock();
@@ -48,5 +54,15 @@ describe('ProductsList', () => {
   it('renders the correct quantity of ProductCards', () => {
     const { getAllByRole } = renderProductsListMock();
     expect(getAllByRole('listitem')).toHaveLength(3);
+  });
+
+  it('renders ProductsListError when status is error', () => {
+    const { getByRole } = renderProductsListMock({ status: 'error' });
+    expect(getByRole('heading', { name: 'Loading Error:' }));
+  });
+
+  it('renders skeletons when status is loading', () => {
+    const { queryAllByTestId } = renderProductsListMock({ status: 'loading' });
+    expect(queryAllByTestId('skeleton')).toHaveLength(5 * 4);
   });
 });

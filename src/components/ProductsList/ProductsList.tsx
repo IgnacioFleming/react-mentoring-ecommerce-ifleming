@@ -3,7 +3,11 @@ import { ProductCard } from '../ProductCard';
 import { ProductsListError } from './ProductsListError';
 import styles from './ProductsList.module.scss';
 
-type ProductsListProps = { products: Product[]; status?: DataStatus; loadingQuantity?: number };
+export type ProductsListProps = {
+  products: Product[];
+  status?: DataStatus;
+  loadingQuantity?: number;
+};
 
 export const ProductsList = ({ products, status, loadingQuantity }: ProductsListProps) => {
   if (status === PRODUCT_DATA_STATUS.ERROR) return <ProductsListError />;

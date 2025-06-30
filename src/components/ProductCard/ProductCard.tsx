@@ -26,9 +26,9 @@ export const ProductCard = ({ product }: ProductCardProps) => {
             <>
               <ProductCardHeader brand={product.brand} rating={product.rating} />
               <ProductCardMain
-                name={product.title}
+                title={product.title}
                 price={product.price}
-                discount={product.discountPercentage}
+                discountPercentage={product.discountPercentage}
               />
               <Card.Footer>
                 <Button

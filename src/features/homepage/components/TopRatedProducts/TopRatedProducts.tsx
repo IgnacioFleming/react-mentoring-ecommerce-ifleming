@@ -1,11 +1,17 @@
 import { ProductsList } from '../../../../components/ProductsList';
+import { DataStatus } from '../../../../types/products';
 import { useTopRatedProducts } from '../../hooks/useTopRatedProducts';
 import { HomepageSection } from '../HomepageSection';
 
 export const TopRatedProducts = () => {
-  const { topRatedProducts, isLoadingTopRatedProducts } = useTopRatedProducts();
+  const { topRatedProducts, isLoadingTopRatedProducts, topRatedProductsError } =
+    useTopRatedProducts();
 
-  if (isLoadingTopRatedProducts) return null;
+  const dataStatus: DataStatus = isLoadingTopRatedProducts
+    ? 'loading'
+    : topRatedProductsError?.name
+      ? 'error'
+      : 'success';
 
   return (
     <HomepageSection>
@@ -15,7 +21,7 @@ export const TopRatedProducts = () => {
         subtitle="Customer favorites loved for quality and style"
       />
       <HomepageSection.Content>
-        <ProductsList products={topRatedProducts} />
+        <ProductsList products={topRatedProducts} status={dataStatus} loadingQuantity={8} />
       </HomepageSection.Content>
     </HomepageSection>
   );

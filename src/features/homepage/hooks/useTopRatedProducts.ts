@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import { getTopRatedProducts } from '../../../lib/api/products';
+import { getProducts } from '../../../lib/api/products';
 import { STALE_TIMES } from '../../../lib/api/config';
 
 export const useTopRatedProducts = () => {
@@ -10,7 +10,7 @@ export const useTopRatedProducts = () => {
     ...rest
   } = useQuery({
     queryKey: ['topRatedProducts'],
-    queryFn: getTopRatedProducts,
+    queryFn: () => getProducts({ params: 'sortBy=rating&order=desc&limit=8' }),
     staleTime: STALE_TIMES.DEFAULT,
   });
 

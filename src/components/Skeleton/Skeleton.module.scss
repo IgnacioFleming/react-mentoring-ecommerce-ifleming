@@ -1,0 +1,16 @@
+@use '../../styles/variables' as *;
+
+.skeleton {
+  background-color: $color-gray-200;
+  animation: pulse $time-1200 ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+}

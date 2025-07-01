@@ -3,9 +3,11 @@ import { ProductsList } from '../../../../components/ProductsList';
 import { HomepageSection } from '../HomepageSection';
 
 export const TopRatedProducts = () => {
-  const { products: topRatedProducts, getQueryStatus } = useProducts(
-    'sortBy=rating&order=desc&limit=8',
-  );
+  const { products: topRatedProducts, getQueryStatus } = useProducts({
+    sortBy: 'rating',
+    order: 'desc',
+    limit: 8,
+  });
 
   const status = getQueryStatus();
 

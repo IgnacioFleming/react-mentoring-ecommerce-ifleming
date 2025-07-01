@@ -1,9 +1,9 @@
 import { useQuery } from '@tanstack/react-query';
-import { DataStatus } from '../../types/products';
+import { DataStatus, ProductQueryParams } from '../../types/products';
 import { getProducts } from '../../lib/api/products';
 import { STALE_TIMES } from '../../lib/api/config';
 
-export const useProducts = (params: string) => {
+export const useProducts = (params: Partial<ProductQueryParams> = {}) => {
   const {
     data: { products } = { products: [] },
     isLoading: isLoadingProducts,
@@ -12,7 +12,7 @@ export const useProducts = (params: string) => {
     ...rest
   } = useQuery({
     queryKey: ['topRatedProducts'],
-    queryFn: () => getProducts({ params }),
+    queryFn: () => getProducts(params),
     staleTime: STALE_TIMES.DEFAULT,
   });
 

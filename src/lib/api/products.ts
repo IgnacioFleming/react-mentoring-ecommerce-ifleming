@@ -1,5 +1,6 @@
 import { API_BASE_URL } from './config';
-import type { Category, Product } from '../../types/products';
+import type { Category, Product, ProductQueryParams } from '../../types/products';
+import { composeQueryParams } from './utils';
 
 type ProductsResponse = {
   products: Product[];
@@ -15,8 +16,11 @@ export const getProductCategories = async (): Promise<Category[]> => {
   return res.json();
 };
 
-export const getProducts = async ({ params }: { params?: string }): Promise<ProductsResponse> => {
-  const res = await fetch(`${API_BASE_URL}/products${params ? '?' + params : ''}`);
+export const getProducts = async (
+  params: Partial<ProductQueryParams>,
+): Promise<ProductsResponse> => {
+  const queryParams = composeQueryParams<ProductQueryParams>(params);
+  const res = await fetch(`${API_BASE_URL}/products${queryParams}`);
 
   if (!res.ok) {
     throw new Error('Failed to fetch products');

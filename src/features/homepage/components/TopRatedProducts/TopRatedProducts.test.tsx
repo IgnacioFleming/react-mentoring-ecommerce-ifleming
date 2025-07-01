@@ -23,16 +23,15 @@ const PRODUCTS_MOCK: Product[] = vi.hoisted(() => [
   },
 ]);
 
-const mockUseTopRatedProducts = vi.hoisted(() =>
+const mockUseProducts = vi.hoisted(() =>
   vi.fn(() => ({
-    topRatedProducts: PRODUCTS_MOCK,
-    isLoadingTopRatedProducts: false,
-    topRatedProductsError: null,
+    products: PRODUCTS_MOCK,
+    getQueryStatus: vi.fn(() => 'success'),
   })),
 );
 
-vi.mock('../../hooks/useTopRatedProducts', () => ({
-  useTopRatedProducts: () => mockUseTopRatedProducts(),
+vi.mock('../../../hooks/useProducts', () => ({
+  useProducts: () => mockUseProducts(),
 }));
 
 describe('TopRatedProducts', () => {
@@ -54,18 +53,17 @@ describe('TopRatedProducts', () => {
     expect(getByText('Customer favorites loved for quality and style')).toBeInTheDocument();
   });
 
-  it('renders 2 product cards if isLoadingTopRatedProducts is false', () => {
+  it('renders 2 product cards if getQueryStatus is success', () => {
     const { getByText, queryAllByTestId } = renderTopRatedProducts();
     expect(queryAllByTestId('card')).toHaveLength(2);
     expect(getByText('mockBrand 1')).toBeInTheDocument();
     expect(getByText('mockBrand 2')).toBeInTheDocument();
   });
 
-  it('renders 8 loading ProductCards if isLoadignTopRatedProducts is true', () => {
-    mockUseTopRatedProducts.mockImplementation(() => ({
-      topRatedProducts: PRODUCTS_MOCK,
-      isLoadingTopRatedProducts: true,
-      topRatedProductsError: null,
+  it('renders 8 loading ProductCards if getQueryStatus', () => {
+    mockUseProducts.mockImplementation(() => ({
+      products: PRODUCTS_MOCK,
+      getQueryStatus: vi.fn(() => 'loading'),
     }));
     const { queryAllByTestId } = renderTopRatedProducts();
     expect(queryAllByTestId('skeleton')).toHaveLength(8 * 5);

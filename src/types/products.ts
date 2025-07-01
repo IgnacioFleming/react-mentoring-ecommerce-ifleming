@@ -21,12 +21,10 @@ export const PRODUCT_DATA_STATUS = {
 
 export type DataStatus = (typeof PRODUCT_DATA_STATUS)[keyof typeof PRODUCT_DATA_STATUS];
 
-interface QueryParams {
-  sortBy: string;
+type QueryParams<T> = {
+  sortBy: keyof T;
   order: 'asc' | 'desc';
   limit: number;
-}
+};
 
-export interface ProductQueryParams extends QueryParams {
-  sortBy: keyof Product;
-}
+export type ProductQueryParams = QueryParams<Product>;

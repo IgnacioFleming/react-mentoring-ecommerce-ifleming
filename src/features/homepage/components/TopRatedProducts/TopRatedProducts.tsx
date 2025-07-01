@@ -21,7 +21,7 @@ export const TopRatedProducts = () => {
         subtitle="Customer favorites loved for quality and style"
       />
       <HomepageSection.Content>
-        <ProductsList products={topRatedProducts} status={dataStatus} loadingQuantity={8} />
+        <ProductsList products={topRatedProducts} status={dataStatus} skeletonQuantity={8} />
       </HomepageSection.Content>
     </HomepageSection>
   );

@@ -35,7 +35,7 @@ describe('ProductsList', () => {
   const renderProductsListMock = (props?: Partial<ProductsListProps>) => {
     const defaultProps: ProductsListProps = {
       products: PRODUCTS_MOCK,
-      loadingQuantity: 4,
+      skeletonQuantity: 4,
       status: 'success',
     };
     return render(

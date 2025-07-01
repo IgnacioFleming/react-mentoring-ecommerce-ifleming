@@ -1,24 +1,27 @@
 import { DataStatus, Product, PRODUCT_DATA_STATUS } from '../../types/products';
 import { ProductCard } from '../ProductCard';
 import { ProductsListError } from './ProductsListError';
+import { ProductsListSkeleton } from './ProductsListSkeleton';
 import styles from './ProductsList.module.scss';
 
 export type ProductsListProps = {
   products: Product[];
-  status?: DataStatus;
-  loadingQuantity?: number;
+  status: DataStatus;
+  skeletonQuantity: number;
 };
 
-export const ProductsList = ({ products, status, loadingQuantity }: ProductsListProps) => {
-  if (status === PRODUCT_DATA_STATUS.ERROR) return <ProductsListError />;
+export const ProductsList = ({ products, status, skeletonQuantity }: ProductsListProps) => {
+  const isError = status === PRODUCT_DATA_STATUS.ERROR;
+  const isLoading = status === PRODUCT_DATA_STATUS.LOADING;
 
-  const renderProductCard = (p: Product, index: number) => <ProductCard key={index} product={p} />;
-
+  if (isError) return <ProductsListError />;
   return (
     <ul className={styles['products-list']}>
-      {status === PRODUCT_DATA_STATUS.LOADING
-        ? Array(loadingQuantity).fill(null).map(renderProductCard)
-        : products.map(renderProductCard)}
+      {isLoading ? (
+        <ProductsListSkeleton quantity={skeletonQuantity} />
+      ) : (
+        products.map((p, index) => <ProductCard key={index} product={p} />)
+      )}
     </ul>
   );
 };

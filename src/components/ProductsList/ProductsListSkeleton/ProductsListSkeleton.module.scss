@@ -1,0 +1,20 @@
+@use '../../../styles/variables' as *;
+
+.container {
+  width: 100%;
+}
+
+.card {
+  &__thumbnail {
+    height: $size-card-thumbnail;
+  }
+
+  &__content {
+    height: $spacing-md;
+    border-radius: $radius-sm;
+
+    &--button {
+      height: $spacing-2xl;
+    }
+  }
+}

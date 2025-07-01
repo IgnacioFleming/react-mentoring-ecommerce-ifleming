@@ -2,53 +2,38 @@ import { ChevronRight } from 'lucide-react';
 import { Product } from '../../types/products';
 import { Card } from '../Card';
 import { Button } from '../Button';
-import { Skeleton } from '../Skeleton';
 import { ProductCardThumbnail } from './ProductCardThumbnail';
 import { ProductCardHeader } from './ProductCardHeader';
 import { ProductCardMain } from './ProductCardMain';
 import styles from './ProductCard.module.scss';
 
 type ProductCardProps = {
-  product: Product | null;
+  product: Product;
 };
 
 export const ProductCard = ({ product }: ProductCardProps) => {
   return (
     <li className={styles.container}>
       <Card className={styles.card}>
-        {product ? (
-          <ProductCardThumbnail thumbnail={product?.thumbnail} title={product?.title} />
-        ) : (
-          <Skeleton className={styles['card__thumbnail-skeleton']} />
-        )}
+        <ProductCardThumbnail thumbnail={product?.thumbnail} title={product?.title} />
+
         <Card.Content className={styles.card__content}>
-          {product ? (
-            <>
-              <ProductCardHeader brand={product.brand} rating={product.rating} />
-              <ProductCardMain
-                title={product.title}
-                price={product.price}
-                discountPercentage={product.discountPercentage}
-              />
-              <Card.Footer>
-                <Button
-                  variant="outline"
-                  rounded
-                  rightIcon={<ChevronRight size={24} />}
-                  className={styles.card__content__footer__btn}
-                >
-                  Learn More
-                </Button>
-              </Card.Footer>
-            </>
-          ) : (
-            <>
-              <Skeleton className={styles['card__content-skeleton']} />
-              <Skeleton className={styles['card__content-skeleton']} />
-              <Skeleton className={styles['card__content-skeleton']} />
-              <Skeleton className={styles['card__content-skeleton--button']} />
-            </>
-          )}
+          <ProductCardHeader brand={product.brand} rating={product.rating} />
+          <ProductCardMain
+            title={product.title}
+            price={product.price}
+            discountPercentage={product.discountPercentage}
+          />
+          <Card.Footer>
+            <Button
+              variant="outline"
+              rounded
+              rightIcon={<ChevronRight size={24} />}
+              className={styles.card__content__footer__btn}
+            >
+              Learn More
+            </Button>
+          </Card.Footer>
         </Card.Content>
       </Card>
     </li>

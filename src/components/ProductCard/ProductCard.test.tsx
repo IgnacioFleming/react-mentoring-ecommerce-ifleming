@@ -40,16 +40,4 @@ describe('ProductCard', () => {
     expect(getByRole('heading', { name: `$${MOCK_PRODUCT.price}` })).toBeInTheDocument();
     expect(getByRole('img')).toHaveAttribute('src', MOCK_PRODUCT.thumbnail);
   });
-
-  it('renders skeletons when product prop is null', () => {
-    const { queryByTestId, queryAllByTestId } = render(<ProductCard product={null} />);
-    expect(queryByTestId('card')).toBeInTheDocument();
-
-    expect(queryByTestId('card-thumbnail')).toBeNull();
-    expect(queryByTestId('card-header')).toBeNull();
-    expect(queryByTestId('card-main')).toBeNull();
-    expect(queryByTestId('card-footer')).toBeNull();
-
-    expect(queryAllByTestId('skeleton')).toHaveLength(5);
-  });
 });

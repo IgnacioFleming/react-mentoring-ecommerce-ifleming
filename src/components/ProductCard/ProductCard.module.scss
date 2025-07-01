@@ -9,19 +9,6 @@
     opacity: 1;
   }
 
-  &__thumbnail-skeleton {
-    height: $size-card-thumbnail;
-  }
-
-  &__content-skeleton {
-    height: $spacing-lg;
-    border-radius: $radius-sm;
-
-    &--button {
-      height: $spacing-2xl;
-    }
-  }
-
   &__content {
     justify-content: center;
     flex-grow: 1;

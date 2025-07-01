@@ -1,4 +1,6 @@
-export const composeQueryParams = <T>(params: Partial<T>): string => {
+export const composeQueryParams = <T extends Record<string, unknown>>(
+  params: Partial<T> = {},
+): string => {
   const entries = Object.entries(params);
   let paramsString = entries.length > 0 ? '/?' : '';
 

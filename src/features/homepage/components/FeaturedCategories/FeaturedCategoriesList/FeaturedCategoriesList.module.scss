@@ -1,7 +1,6 @@
 @use '../../../../../styles/variables' as *;
 
 .featured-categories-list {
-  overflow: hidden;
   display: grid;
   grid-template-columns: 100%;
   gap: $spacing-lg;

@@ -6,6 +6,7 @@ import './styles/index.scss';
 import App from './App.tsx';
 
 const queryClient = new QueryClient();
+window.__TANSTACK_QUERY_CLIENT__ = queryClient;
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>

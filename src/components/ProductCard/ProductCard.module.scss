@@ -1,5 +1,9 @@
 @use '../../styles/variables' as *;
 
+.container {
+  width: 100%;
+}
+
 .card {
   &:hover .thumbnail__icons {
     opacity: 1;

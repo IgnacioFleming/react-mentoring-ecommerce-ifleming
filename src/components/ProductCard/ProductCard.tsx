@@ -11,24 +11,31 @@ type ProductCardProps = {
   product: Product;
 };
 
-export const ProductCard = ({ product }: ProductCardProps) => (
-  <li>
-    <Card className={styles.card}>
-      <ProductCardThumbnail thumbnail={product.thumbnail} name={product.name} />
-      <Card.Content className={styles.card__content}>
-        <ProductCardHeader brand={product.brand} rating={product.rating} />
-        <ProductCardMain name={product.name} price={product.price} discount={product.discount} />
-        <Card.Footer>
-          <Button
-            variant="outline"
-            rounded
-            rightIcon={<ChevronRight size={24} />}
-            className={styles.card__content__footer__btn}
-          >
-            Learn More
-          </Button>
-        </Card.Footer>
-      </Card.Content>
-    </Card>
-  </li>
-);
+export const ProductCard = ({ product }: ProductCardProps) => {
+  return (
+    <li className={styles.container}>
+      <Card className={styles.card}>
+        <ProductCardThumbnail thumbnail={product?.thumbnail} title={product?.title} />
+
+        <Card.Content className={styles.card__content}>
+          <ProductCardHeader brand={product.brand} rating={product.rating} />
+          <ProductCardMain
+            title={product.title}
+            price={product.price}
+            discountPercentage={product.discountPercentage}
+          />
+          <Card.Footer>
+            <Button
+              variant="outline"
+              rounded
+              rightIcon={<ChevronRight size={24} />}
+              className={styles.card__content__footer__btn}
+            >
+              Learn More
+            </Button>
+          </Card.Footer>
+        </Card.Content>
+      </Card>
+    </li>
+  );
+};

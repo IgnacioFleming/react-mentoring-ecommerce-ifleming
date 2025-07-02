@@ -51,7 +51,7 @@ const Header = ({ className, children }: Header) => (
 Card.Header = Header;
 
 const Main = ({ className, children }: Main) => (
-  <div className={className} data-testid="card-header">
+  <div className={className} data-testid="card-main">
     {children}
   </div>
 );

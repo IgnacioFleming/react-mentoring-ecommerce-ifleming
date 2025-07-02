@@ -1,8 +1,16 @@
-import { ProductsList } from '../../../../components/ProductsList';
+import { useProducts } from '../../../hooks/useProducts';
+import { ProductList } from '../../../../components/ProductList';
 import { HomepageSection } from '../HomepageSection';
-import { PRODUCTS } from './products';
 
 export const TopRatedProducts = () => {
+  const { products: topRatedProducts, getQueryStatus } = useProducts({
+    sortBy: 'rating',
+    order: 'desc',
+    limit: 8,
+  });
+
+  const status = getQueryStatus();
+
   return (
     <HomepageSection>
       <HomepageSection.Header
@@ -11,7 +19,7 @@ export const TopRatedProducts = () => {
         subtitle="Customer favorites loved for quality and style"
       />
       <HomepageSection.Content>
-        <ProductsList products={PRODUCTS} />
+        <ProductList products={topRatedProducts} status={status} skeletonQuantity={8} />
       </HomepageSection.Content>
     </HomepageSection>
   );

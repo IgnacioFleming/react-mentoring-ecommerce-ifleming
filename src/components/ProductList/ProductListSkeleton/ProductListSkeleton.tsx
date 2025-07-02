@@ -1,10 +1,10 @@
 import { Skeleton } from '../../Skeleton';
 import { Card } from '../../Card';
-import styles from './ProductsListSkeleton.module.scss';
+import styles from './ProductListSkeleton.module.scss';
 
 type ProductsSkeletonProps = { quantity: number };
 
-export const ProductsListSkeleton = ({ quantity }: ProductsSkeletonProps) => {
+export const ProductListSkeleton = ({ quantity }: ProductsSkeletonProps) => {
   return (
     <>
       {Array(quantity)

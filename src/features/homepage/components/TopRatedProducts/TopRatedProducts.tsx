@@ -1,5 +1,5 @@
 import { useProducts } from '../../../hooks/useProducts';
-import { ProductsList } from '../../../../components/ProductsList';
+import { ProductList } from '../../../../components/ProductList';
 import { HomepageSection } from '../HomepageSection';
 
 export const TopRatedProducts = () => {
@@ -19,7 +19,7 @@ export const TopRatedProducts = () => {
         subtitle="Customer favorites loved for quality and style"
       />
       <HomepageSection.Content>
-        <ProductsList products={topRatedProducts} status={status} skeletonQuantity={8} />
+        <ProductList products={topRatedProducts} status={status} skeletonQuantity={8} />
       </HomepageSection.Content>
     </HomepageSection>
   );

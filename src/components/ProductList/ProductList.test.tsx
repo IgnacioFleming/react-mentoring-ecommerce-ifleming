@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { render } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import { Product } from '../../types/products';
-import { ProductsList, ProductsListProps } from './ProductsList';
+import { ProductList, ProductListProps } from './ProductList';
 
 const PRODUCTS_MOCK: Product[] = [
   {
@@ -31,38 +31,38 @@ const PRODUCTS_MOCK: Product[] = [
   },
 ];
 
-describe('ProductsList', () => {
-  const renderProductsListMock = (props?: Partial<ProductsListProps>) => {
-    const defaultProps: ProductsListProps = {
+describe('ProductList', () => {
+  const renderProductListMock = (props?: Partial<ProductListProps>) => {
+    const defaultProps: ProductListProps = {
       products: PRODUCTS_MOCK,
       skeletonQuantity: 4,
       status: 'success',
     };
     return render(
       <MemoryRouter>
-        <ProductsList {...defaultProps} {...props} />
+        <ProductList {...defaultProps} {...props} />
       </MemoryRouter>,
     );
   };
 
   it('renders the component correctly', () => {
-    const { getByRole } = renderProductsListMock();
+    const { getByRole } = renderProductListMock();
     expect(getByRole('list')).toBeInTheDocument();
     expect(getByRole('list')).toHaveClass(/products-list/i);
   });
 
   it('renders the correct quantity of ProductCards', () => {
-    const { getAllByRole } = renderProductsListMock();
+    const { getAllByRole } = renderProductListMock();
     expect(getAllByRole('listitem')).toHaveLength(3);
   });
 
-  it('renders ProductsListError when status is error', () => {
-    const { getByRole } = renderProductsListMock({ status: 'error' });
+  it('renders ProductListError when status is error', () => {
+    const { getByRole } = renderProductListMock({ status: 'error' });
     expect(getByRole('heading', { name: 'Loading Error:' }));
   });
 
   it('renders skeletons when status is loading', () => {
-    const { queryAllByTestId } = renderProductsListMock({ status: 'loading' });
+    const { queryAllByTestId } = renderProductListMock({ status: 'loading' });
     expect(queryAllByTestId('skeleton')).toHaveLength(5 * 4);
   });
 });

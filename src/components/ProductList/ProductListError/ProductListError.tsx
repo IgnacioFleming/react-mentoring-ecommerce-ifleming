@@ -1,7 +1,7 @@
 import { CircleX } from 'lucide-react';
-import styles from './ProductsListError.module.scss';
+import styles from './ProductListError.module.scss';
 
-export const ProductsListError = () => (
+export const ProductListError = () => (
   <div className={styles.error}>
     <header className={styles.error__header}>
       <CircleX />

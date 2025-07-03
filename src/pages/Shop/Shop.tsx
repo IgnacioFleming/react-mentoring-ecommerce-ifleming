@@ -10,7 +10,9 @@ export const Shop = () => {
   const [productLimit] = useState(24);
 
   const { productCategories, isLoadingProductCategories } = useProductCategories();
-  const { products, getQueryStatus, productQuantity } = useProducts({ limit: productLimit });
+  const { products, getQueryStatus, displayedProductQuantity } = useProducts({
+    limit: productLimit,
+  });
 
   const productDataStatus = getQueryStatus();
 
@@ -27,7 +29,9 @@ export const Shop = () => {
       <div className={styles.shop__products}>
         <Container>
           <div className={styles.shop__products__header}>
-            {productDataStatus === 'success' && <h6>Showing all {productQuantity} results</h6>}
+            {productDataStatus === 'success' && (
+              <h6>Showing all {displayedProductQuantity} results</h6>
+            )}
           </div>
           <ProductList
             products={products}

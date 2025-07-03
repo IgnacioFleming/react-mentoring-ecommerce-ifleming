@@ -26,8 +26,8 @@ export const Card = ({ children, className }: Root) => (
 Card.displayName = 'Card';
 
 const Thumbnail = ({ src, alt, className, children }: Thumbnail) => (
-  <div className={className} data-testid="card-thumbnail">
-    <img src={src} alt={alt} className={styles.card__thumbnail} />
+  <div className={clsx(styles.card__thumbnail, className)} data-testid="card-thumbnail">
+    <img src={src} alt={alt} width={300} height={300} />
     {children}
   </div>
 );

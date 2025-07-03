@@ -5,7 +5,7 @@ import { STALE_TIMES } from '../../lib/api/config';
 
 export const useProducts = (params: Partial<ProductQueryParams> = {}) => {
   const {
-    data: { products } = { products: [] },
+    data: { products, limit: productQuantity } = { products: [] },
     isLoading: isLoadingProducts,
     error: productsError,
     isError: isErrorProducts,
@@ -24,6 +24,7 @@ export const useProducts = (params: Partial<ProductQueryParams> = {}) => {
 
   return {
     products,
+    productQuantity,
     isLoadingProducts,
     productsError,
     isErrorProducts,

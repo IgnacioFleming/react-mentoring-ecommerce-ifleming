@@ -4,6 +4,9 @@ import { composeQueryParams } from './utils';
 
 type ProductsResponse = {
   products: Product[];
+  total: number;
+  skip: number;
+  limit: number;
 };
 
 export const getProductCategories = async (): Promise<Category[]> => {

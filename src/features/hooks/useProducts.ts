@@ -11,7 +11,7 @@ export const useProducts = (params: Partial<ProductQueryParams> = {}) => {
     isError: isErrorProducts,
     ...rest
   } = useQuery({
-    queryKey: ['topRatedProducts'],
+    queryKey: ['products'],
     queryFn: () => getProducts(params),
     staleTime: STALE_TIMES.DEFAULT,
   });

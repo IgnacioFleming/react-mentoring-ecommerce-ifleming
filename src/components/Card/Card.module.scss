@@ -5,6 +5,7 @@
   flex-direction: column;
   overflow: hidden;
   box-shadow: $shadow-card;
+  height: 100%;
 
   &__thumbnail {
     display: flex;

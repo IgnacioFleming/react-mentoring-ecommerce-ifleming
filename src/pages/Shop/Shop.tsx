@@ -1,19 +1,16 @@
+import { useState } from 'react';
 import { Container } from '../../components/Container';
 import { useProductCategories } from '../../features/shop/hooks/useProductCategories';
 import { Categories } from '../../features/shop/components/Categories';
-import styles from './Shop.module.scss';
 import { ProductList } from '../../components/ProductList';
 import { useProducts } from '../../features/hooks/useProducts';
-import { useRef, useState } from 'react';
+import styles from './Shop.module.scss';
 
 export const Shop = () => {
-  const [page] = useState(1);
-  const itemsPerPage = useRef(24);
+  const [productLimit] = useState(24);
 
   const { productCategories, isLoadingProductCategories } = useProductCategories();
-  const { products, getQueryStatus, productQuantity } = useProducts({
-    limit: page * itemsPerPage.current,
-  });
+  const { products, getQueryStatus, productQuantity } = useProducts({ limit: productLimit });
 
   const productDataStatus = getQueryStatus();
 
@@ -27,14 +24,18 @@ export const Shop = () => {
           <Categories productCategories={productCategories} />
         </Container>
       </div>
-      <Container>
-        {productDataStatus === 'success' && <h6>Showing all {productQuantity} results</h6>}
-        <ProductList
-          products={products}
-          skeletonQuantity={itemsPerPage.current}
-          status={productDataStatus}
-        />
-      </Container>
+      <div className={styles.shop__products}>
+        <Container>
+          <div className={styles.shop__products__header}>
+            {productDataStatus === 'success' && <h6>Showing all {productQuantity} results</h6>}
+          </div>
+          <ProductList
+            products={products}
+            skeletonQuantity={productLimit}
+            status={productDataStatus}
+          />
+        </Container>
+      </div>
     </div>
   );
 };

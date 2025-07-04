@@ -5,13 +5,13 @@ import { STALE_TIMES } from '../../lib/api/config';
 
 export const useProducts = (params: Partial<ProductQueryParams> = {}) => {
   const {
-    data: { products } = { products: [] },
+    data: { products, limit, skip } = { products: [], limit: 0, skip: 0 },
     isLoading: isLoadingProducts,
     error: productsError,
     isError: isErrorProducts,
     ...rest
   } = useQuery({
-    queryKey: ['topRatedProducts'],
+    queryKey: ['products'],
     queryFn: () => getProducts(params),
     staleTime: STALE_TIMES.DEFAULT,
   });
@@ -22,8 +22,11 @@ export const useProducts = (params: Partial<ProductQueryParams> = {}) => {
     return 'success';
   };
 
+  const displayedProductQuantity = limit + skip;
+
   return {
     products,
+    displayedProductQuantity,
     isLoadingProducts,
     productsError,
     isErrorProducts,

@@ -1,15 +1,16 @@
 import { useEffect, useRef, useState } from 'react';
 import { Product } from '../../../../types/products';
-import { ProductList } from '../../../../components/ProductList';
 import { useProducts } from '../../../hooks/useProducts';
-import styles from './ShopProducts.module.scss';
 import { useInfiniteScroll } from '../../hooks/useInfiniteScroll';
+import { ProductList } from '../../../../components/ProductList';
+import styles from './ShopProducts.module.scss';
 
 export const ShopProducts = () => {
   const [skip, setSkip] = useState<number>(0);
   const [shopProducts, setShopProducts] = useState<Product[]>([]);
   const sentinelRef = useRef<HTMLDivElement>(null);
   const LIMIT = 24;
+
   const {
     products,
     getQueryStatus,
@@ -22,6 +23,7 @@ export const ShopProducts = () => {
     limit: LIMIT,
     skip,
   });
+
   const handleSetSkip = () => setSkip((prevSkip) => prevSkip + LIMIT);
 
   useInfiniteScroll({ hasMore, setOffset: handleSetSkip, loadMore: refetch, ref: sentinelRef });

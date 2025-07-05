@@ -2,9 +2,10 @@ import { ProductList } from '../../../../components/ProductList';
 import { useProducts } from '../../../hooks/useProducts';
 import styles from './ShopProducts.module.scss';
 
+const LIMIT = 24;
+
 export const ShopProducts = () => {
-  const LIMIT = 24;
-  const { products, getQueryStatus, displayedProductQuantity } = useProducts({
+  const { products, getQueryStatus, total } = useProducts({
     limit: LIMIT,
   });
 
@@ -12,7 +13,7 @@ export const ShopProducts = () => {
   return (
     <>
       <div className={styles['shop-products__header']}>
-        {productDataStatus === 'success' && <h6>Showing all {displayedProductQuantity} results</h6>}
+        {productDataStatus === 'success' && <h6>Showing all {total} results</h6>}
       </div>
       <ProductList products={products} skeletonQuantity={LIMIT} status={productDataStatus} />
     </>

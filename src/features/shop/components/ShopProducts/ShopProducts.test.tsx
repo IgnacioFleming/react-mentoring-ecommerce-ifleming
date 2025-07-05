@@ -1,9 +1,9 @@
 import { describe, expect, it, vi } from 'vitest';
-import { Product } from '../../../../types/products';
-import { ShopProducts } from './ShopProducts';
 import { render } from '@testing-library/react';
-import { useProducts } from '../../../hooks/useProducts';
 import { MemoryRouter } from 'react-router-dom';
+import { Product } from '../../../../types/products';
+import { useProducts } from '../../../hooks/useProducts';
+import { ShopProducts } from './ShopProducts';
 
 const mockUseProducts = vi.hoisted(() => vi.fn());
 
@@ -72,7 +72,7 @@ describe('ShopProducts', () => {
       getQueryStatus: vi.fn().mockReturnValue('success'),
       total: 3,
     }));
-    const { total } = useProducts();
+    const { total } = useProducts({ queryKey: 'shopProducts' });
     const { getByText, queryAllByTestId } = renderShopProducts();
 
     expect(getByText(`Showing all ${total} results`));

@@ -25,6 +25,9 @@ export type QueryParams<T> = {
   sortBy: keyof T;
   order: 'asc' | 'desc';
   limit: number;
+  skip: number;
 };
 
 export type ProductQueryParams = QueryParams<Product>;
+
+export type QueryKey = string;

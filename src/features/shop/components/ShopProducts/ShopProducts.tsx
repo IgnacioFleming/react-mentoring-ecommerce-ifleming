@@ -6,7 +6,8 @@ const LIMIT = 24;
 
 export const ShopProducts = () => {
   const { products, getQueryStatus, total } = useProducts({
-    limit: LIMIT,
+    params: { limit: LIMIT },
+    queryKey: 'shopProducts',
   });
 
   const productDataStatus = getQueryStatus();

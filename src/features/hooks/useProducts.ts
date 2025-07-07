@@ -3,15 +3,20 @@ import { DataStatus, ProductQueryParams } from '../../types/products';
 import { getProducts } from '../../lib/api/products';
 import { STALE_TIMES } from '../../lib/api/config';
 
-export const useProducts = (params: Partial<ProductQueryParams> = {}) => {
+type UseProductsProps = {
+  queryKey: string;
+  params?: Partial<ProductQueryParams>;
+};
+
+export const useProducts = ({ queryKey, params = {} }: UseProductsProps) => {
   const {
-    data: { products, limit, skip, total } = { products: [], limit: 0, skip: 0, total: 0 },
+    data: { products, total } = { products: [], total: 0 },
     isLoading: isLoadingProducts,
     error: productsError,
     isError: isErrorProducts,
     ...rest
   } = useQuery({
-    queryKey: ['products'],
+    queryKey: [queryKey],
     queryFn: () => getProducts(params),
     staleTime: STALE_TIMES.DEFAULT,
   });
@@ -22,14 +27,9 @@ export const useProducts = (params: Partial<ProductQueryParams> = {}) => {
     return 'success';
   };
 
-  const displayedProductQuantity = limit + skip;
-
-  const hasMore = displayedProductQuantity < total;
-
   return {
     products,
-    hasMore,
-    displayedProductQuantity,
+    total,
     isLoadingProducts,
     productsError,
     isErrorProducts,

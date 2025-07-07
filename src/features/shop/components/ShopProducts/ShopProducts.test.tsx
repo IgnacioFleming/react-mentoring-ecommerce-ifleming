@@ -1,9 +1,9 @@
 import { describe, expect, it, vi } from 'vitest';
-import { Product } from '../../../../types/products';
-import { ShopProducts } from './ShopProducts';
 import { render } from '@testing-library/react';
-import { useProducts } from '../../../hooks/useProducts';
 import { MemoryRouter } from 'react-router-dom';
+import { Product } from '../../../../types/products';
+import { useProducts } from '../../../hooks/useProducts';
+import { ShopProducts } from './ShopProducts';
 
 const mockUseProducts = vi.hoisted(() => vi.fn());
 
@@ -50,7 +50,7 @@ describe('ShopProducts', () => {
     mockUseProducts.mockImplementation(() => ({
       products: PRODUCTS_MOCK,
       getQueryStatus: vi.fn().mockReturnValue('error'),
-      displayedProductQuantity: 24,
+      total: 24,
     }));
     const { getByRole } = renderShopProducts();
     expect(getByRole('heading', { name: 'Loading Error:' }));
@@ -60,7 +60,7 @@ describe('ShopProducts', () => {
     mockUseProducts.mockImplementation(() => ({
       products: PRODUCTS_MOCK,
       getQueryStatus: vi.fn().mockReturnValue('loading'),
-      displayedProductQuantity: 3,
+      total: 3,
     }));
     const { queryAllByTestId } = renderShopProducts();
     expect(queryAllByTestId('skeleton')).toHaveLength(24 * 5);
@@ -70,12 +70,12 @@ describe('ShopProducts', () => {
     mockUseProducts.mockImplementation(() => ({
       products: PRODUCTS_MOCK,
       getQueryStatus: vi.fn().mockReturnValue('success'),
-      displayedProductQuantity: 3,
+      total: 3,
     }));
-    const { displayedProductQuantity } = useProducts();
+    const { total } = useProducts({ queryKey: 'shopProducts' });
     const { getByText, queryAllByTestId } = renderShopProducts();
 
-    expect(getByText(`Showing all ${displayedProductQuantity} results`));
+    expect(getByText(`Showing all ${total} results`));
     expect(getByText('mockBrand 1'));
     expect(getByText('mockBrand 2'));
     expect(getByText('mockBrand 3'));

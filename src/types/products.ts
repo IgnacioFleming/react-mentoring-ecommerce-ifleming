@@ -29,3 +29,5 @@ export type QueryParams<T> = {
 };
 
 export type ProductQueryParams = QueryParams<Product>;
+
+export type QueryKey = string;

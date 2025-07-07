@@ -5,23 +5,17 @@ import { useInfiniteScroll } from '../../hooks/useInfiniteScroll';
 import { ProductList } from '../../../../components/ProductList';
 import styles from './ShopProducts.module.scss';
 
+const LIMIT = 24;
+
+const hasMore = true;
+
 export const ShopProducts = () => {
-  const [skip, setSkip] = useState<number>(0);
+  const [, setSkip] = useState<number>(0);
   const [shopProducts, setShopProducts] = useState<Product[]>([]);
   const sentinelRef = useRef<HTMLDivElement>(null);
-  const LIMIT = 24;
-
-  const {
-    products,
-    getQueryStatus,
-    displayedProductQuantity,
-    refetch,
-    hasMore,
-    isLoadingProducts,
-    isFetching,
-  } = useProducts({
-    limit: LIMIT,
-    skip,
+  const { products, getQueryStatus, total, isLoadingProducts, isFetching, refetch } = useProducts({
+    params: { limit: LIMIT },
+    queryKey: 'shopProducts',
   });
 
   const handleSetSkip = () => setSkip((prevSkip) => prevSkip + LIMIT);
@@ -36,7 +30,7 @@ export const ShopProducts = () => {
   return (
     <>
       <div className={styles['shop-products__header']}>
-        {productDataStatus === 'success' && <h6>Showing all {displayedProductQuantity} results</h6>}
+        {productDataStatus === 'success' && <h6>Showing all {total} results</h6>}
       </div>
       <ProductList products={shopProducts} skeletonQuantity={LIMIT} status={productDataStatus} />
       {!isLoadingProducts && isFetching && (
@@ -45,6 +39,7 @@ export const ShopProducts = () => {
         </div>
       )}
       <div ref={sentinelRef} />
+      <ProductList products={products} skeletonQuantity={LIMIT} status={productDataStatus} />
     </>
   );
 };

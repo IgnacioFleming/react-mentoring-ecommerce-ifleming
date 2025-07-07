@@ -1,6 +1,7 @@
 import { Container } from '../../components/Container';
 import { useProductCategories } from '../../features/shop/hooks/useProductCategories';
 import { Categories } from '../../features/shop/components/Categories';
+import { ShopProducts } from '../../features/shop/components/ShopProducts';
 import styles from './Shop.module.scss';
 
 export const Shop = () => {
@@ -16,9 +17,11 @@ export const Shop = () => {
           <Categories productCategories={productCategories} />
         </Container>
       </div>
-      <Container>
-        <h3>Product Grid</h3>
-      </Container>
+      <div className={styles.shop__products}>
+        <Container>
+          <ShopProducts />
+        </Container>
+      </div>
     </div>
   );
 };

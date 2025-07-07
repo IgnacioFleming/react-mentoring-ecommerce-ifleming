@@ -22,9 +22,12 @@ export const PRODUCT_DATA_STATUS = {
 export type DataStatus = (typeof PRODUCT_DATA_STATUS)[keyof typeof PRODUCT_DATA_STATUS];
 
 export type QueryParams<T> = {
-  sortBy: keyof T;
-  order: 'asc' | 'desc';
-  limit: number;
+  sortBy?: keyof T;
+  order?: 'asc' | 'desc';
+  limit?: number;
+  skip?: number;
 };
 
 export type ProductQueryParams = QueryParams<Product>;
+
+export type QueryKey = string;

@@ -4,9 +4,12 @@ import { HomepageSection } from '../HomepageSection';
 
 export const TopRatedProducts = () => {
   const { products: topRatedProducts, getQueryStatus } = useProducts({
-    sortBy: 'rating',
-    order: 'desc',
-    limit: 8,
+    params: {
+      sortBy: 'rating',
+      order: 'desc',
+      limit: 8,
+    },
+    queryKey: 'topRatedProducts',
   });
 
   const status = getQueryStatus();

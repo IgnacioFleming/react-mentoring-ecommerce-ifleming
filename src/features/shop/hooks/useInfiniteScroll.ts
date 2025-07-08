@@ -1,39 +1,37 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { RefObject, useCallback, useEffect } from 'react';
 
-type UseInfiniteScrollProps = {
-  hasMore: boolean;
-  setOffset: () => void;
+import { useEffect, useState } from 'react';
+
+type UseInfiniteScrollProps<T> = {
+  offset: number;
   loadMore: () => void;
-  ref: RefObject<HTMLElement | null>;
+  newItems: T[];
+  totalItems: number;
 };
 
-export const useInfiniteScroll = ({
-  hasMore,
-  setOffset,
+export const useInfiniteScroll = <T>({
   loadMore,
-  ref,
-}: UseInfiniteScrollProps) => {
-  const handleIntersect = useCallback(
-    (entries: IntersectionObserverEntry[]) => {
-      if (!hasMore) return;
-      const sentinelEntry = entries[0];
-      if (sentinelEntry.isIntersecting) setOffset();
-      loadMore();
-    },
-    [hasMore, loadMore],
-  );
+  offset,
+  newItems,
+  totalItems,
+}: UseInfiniteScrollProps<T>) => {
+  const [accItems, setAccItems] = useState<T[]>([]);
+  const [hasMore, setHasMore] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(handleIntersect, {
-      threshold: 0,
-      rootMargin: '-200px',
-    });
-    const sentinel = ref.current!;
-    observer.observe(sentinel);
-    return () => {
-      if (sentinel) observer.unobserve(sentinel);
-      observer.disconnect();
-    };
-  }, [ref, handleIntersect]);
+    if (!hasMore) return;
+    setLoading(true);
+    loadMore();
+  }, [offset]);
+
+  useEffect(() => {
+    if (newItems.length > 0) {
+      setAccItems((prevItems) => prevItems.concat(newItems));
+      setHasMore([...accItems, ...newItems].length < totalItems);
+    }
+    setLoading(false);
+  }, [newItems]);
+
+  return { accItems, loading };
 };

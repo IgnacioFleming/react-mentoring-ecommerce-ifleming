@@ -1,45 +1,50 @@
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import { Product } from '../../../../types/products';
 import { useProducts } from '../../../hooks/useProducts';
 import { useInfiniteScroll } from '../../hooks/useInfiniteScroll';
+import { useIntersectionObserver } from '../../hooks/useIntersectionObserver';
+import { useHandleIntersect } from '../../hooks/useHandleIntersect';
 import { ProductList } from '../../../../components/ProductList';
 import styles from './ShopProducts.module.scss';
 
 const LIMIT = 24;
 
-const hasMore = true;
-
 export const ShopProducts = () => {
-  const [, setSkip] = useState<number>(0);
-  const [shopProducts, setShopProducts] = useState<Product[]>([]);
+  const [skip, setSkip] = useState<number>(0);
   const sentinelRef = useRef<HTMLDivElement>(null);
-  const { products, getQueryStatus, total, isLoadingProducts, isFetching, refetch } = useProducts({
-    params: { limit: LIMIT },
+
+  const { products, getQueryStatus, total, refetch } = useProducts({
+    params: { limit: LIMIT, skip },
     queryKey: 'shopProducts',
   });
 
-  const handleSetSkip = () => setSkip((prevSkip) => prevSkip + LIMIT);
+  const handleIntersect = useHandleIntersect({
+    setOffset: () => setSkip((prevSkip) => prevSkip + LIMIT),
+  });
 
-  useInfiniteScroll({ hasMore, setOffset: handleSetSkip, loadMore: refetch, ref: sentinelRef });
+  useIntersectionObserver({ ref: sentinelRef, cb: handleIntersect, rootMargin: '-200px' });
+
+  const { accItems: shopProducts, loading } = useInfiniteScroll<Product>({
+    loadMore: refetch,
+    offset: skip,
+    newItems: products,
+    totalItems: total,
+  });
+
   const productDataStatus = getQueryStatus();
-
-  useEffect(() => {
-    setShopProducts((prevProducts) => prevProducts.concat(products));
-  }, [products]);
 
   return (
     <>
-      <div className={styles['shop-products__header']}>
+      <header className={styles['shop-products__header']}>
         {productDataStatus === 'success' && <h6>Showing all {total} results</h6>}
-      </div>
+      </header>
       <ProductList products={shopProducts} skeletonQuantity={LIMIT} status={productDataStatus} />
-      {!isLoadingProducts && isFetching && (
+      {loading && (
         <div className={styles['shop-products__loader']}>
           <ProductList products={[]} skeletonQuantity={LIMIT} status="loading" />
         </div>
       )}
       <div ref={sentinelRef} />
-      <ProductList products={products} skeletonQuantity={LIMIT} status={productDataStatus} />
     </>
   );
 };

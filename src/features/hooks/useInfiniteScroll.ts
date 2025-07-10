@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 
-type UseInfiniteScrollProps<T> = {
+export type UseInfiniteScrollProps<T> = {
   offset: number;
   loadMore: () => void;
   newItems: T[];
@@ -23,7 +23,7 @@ export const useInfiniteScroll = <T>({
     if (!hasMore) return;
     setLoading(true);
     loadMore();
-  }, [offset]);
+  }, [offset, loadMore]);
 
   useEffect(() => {
     if (newItems.length > 0) {
@@ -31,7 +31,7 @@ export const useInfiniteScroll = <T>({
       setHasMore([...accItems, ...newItems].length < totalItems);
     }
     setLoading(false);
-  }, [newItems]);
+  }, [newItems, totalItems]);
 
   return { accItems, loading };
 };

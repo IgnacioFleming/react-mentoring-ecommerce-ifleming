@@ -1,5 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-
 import { RefObject, useEffect, useRef } from 'react';
 
 type UseIntersectionObserverProps = {
@@ -29,5 +27,5 @@ export const useIntersectionObserver = ({
     return () => {
       observerRef.current?.disconnect();
     };
-  }, []);
+  }, [ref, cb, rootMargin, threshold]);
 };

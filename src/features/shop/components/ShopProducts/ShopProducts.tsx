@@ -26,7 +26,7 @@ export const ShopProducts = () => {
     totalItems: total,
   });
 
-  useIntersectionObserver({ ref: sentinelRef, cb: handleOffset, rootMargin: '0px' });
+  useIntersectionObserver({ ref: sentinelRef, cb: handleOffset });
 
   const productDataStatus = getQueryStatus();
 

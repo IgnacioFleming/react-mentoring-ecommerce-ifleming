@@ -11,6 +11,18 @@ vi.mock('../../../hooks/useProducts', () => ({
   useProducts: mockUseProducts,
 }));
 
+vi.mock('../../../hooks/useInfiniteScroll', () => ({
+  useInfiniteScroll: () => ({ accItems: PRODUCTS_MOCK, loading: false }),
+}));
+
+vi.mock('../../../hooks/useIntersectionObserver', () => ({
+  useIntersectionObserver: vi.fn(),
+}));
+
+vi.mock('../../../hooks/useHandleOffset', () => ({
+  useHandleOffset: () => ({ offset: 1, handleOffset: vi.fn() }),
+}));
+
 const PRODUCTS_MOCK: Product[] = vi.hoisted(() => [
   {
     brand: 'mockBrand 1',

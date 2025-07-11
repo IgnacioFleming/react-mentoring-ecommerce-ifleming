@@ -5,8 +5,8 @@ import styles from './Dropdown.module.scss';
 export const Dropdown = ({
   children,
   className,
-}: DropdownPrimitive.DropdownMenuProps & { className: string }) => (
-  <div className={className}>
+}: DropdownPrimitive.DropdownMenuProps & { className?: string }) => (
+  <div className={className} data-testid="dropdown">
     <DropdownPrimitive.Root>{children}</DropdownPrimitive.Root>
   </div>
 );
@@ -17,6 +17,7 @@ const Trigger = ({ children, className }: DropdownPrimitive.DropdownMenuTriggerP
   <DropdownPrimitive.DropdownMenuTrigger
     className={clsx(styles.dropdown__trigger, className)}
     asChild
+    data-testid="dropdown-trigger"
   >
     {children}
   </DropdownPrimitive.DropdownMenuTrigger>
@@ -29,7 +30,10 @@ const Content = ({
   className,
 }: DropdownPrimitive.DropdownMenuContentProps & DropdownPrimitive.DropdownMenuPortalProps) => (
   <DropdownPrimitive.Portal>
-    <DropdownPrimitive.Content className={clsx(styles.dropdown__content, className)}>
+    <DropdownPrimitive.Content
+      className={clsx(styles.dropdown__content, className)}
+      data-testid="dropdown-content"
+    >
       {children}
     </DropdownPrimitive.Content>
   </DropdownPrimitive.Portal>
@@ -38,13 +42,15 @@ const Content = ({
 Dropdown.Content = Content;
 
 const Item = ({ children, className }: DropdownPrimitive.DropdownMenuItemProps) => (
-  <DropdownPrimitive.Item className={className}>{children}</DropdownPrimitive.Item>
+  <DropdownPrimitive.Item className={className} data-testid="dropdown-item">
+    {children}
+  </DropdownPrimitive.Item>
 );
 
 Dropdown.Item = Item;
 
 const Separator = ({ className }: DropdownPrimitive.DropdownMenuSeparatorProps) => (
-  <DropdownPrimitive.DropdownMenuSeparator className={className} />
+  <DropdownPrimitive.DropdownMenuSeparator className={className} data-testid="dropdown-separator" />
 );
 
 Dropdown.Separator = Separator;

@@ -5,7 +5,7 @@ import styles from './Dropdown.module.scss';
 export const Dropdown = ({
   children,
   className,
-}: DropdownPrimitive.DropdownMenuProps & { className: string }) => (
+}: DropdownPrimitive.DropdownMenuProps & { className?: string }) => (
   <div className={className}>
     <DropdownPrimitive.Root>{children}</DropdownPrimitive.Root>
   </div>

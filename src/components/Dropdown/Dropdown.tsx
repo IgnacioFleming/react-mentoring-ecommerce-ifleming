@@ -1,4 +1,6 @@
 import * as DropdownPrimitive from '@radix-ui/react-dropdown-menu';
+import clsx from 'clsx';
+import styles from './Dropdown.module.scss';
 
 export const Dropdown = ({
   children,
@@ -12,7 +14,10 @@ export const Dropdown = ({
 Dropdown.displayName = 'Dropdown';
 
 const Trigger = ({ children, className }: DropdownPrimitive.DropdownMenuTriggerProps) => (
-  <DropdownPrimitive.DropdownMenuTrigger className={className} asChild>
+  <DropdownPrimitive.DropdownMenuTrigger
+    className={clsx(styles.dropdown__trigger, className)}
+    asChild
+  >
     {children}
   </DropdownPrimitive.DropdownMenuTrigger>
 );
@@ -24,7 +29,9 @@ const Content = ({
   className,
 }: DropdownPrimitive.DropdownMenuContentProps & DropdownPrimitive.DropdownMenuPortalProps) => (
   <DropdownPrimitive.Portal>
-    <DropdownPrimitive.Content className={className}>{children}</DropdownPrimitive.Content>
+    <DropdownPrimitive.Content className={clsx(styles.dropdown__content, className)}>
+      {children}
+    </DropdownPrimitive.Content>
   </DropdownPrimitive.Portal>
 );
 

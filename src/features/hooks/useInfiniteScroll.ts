@@ -1,5 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-
 import { useEffect, useState } from 'react';
 
 export type UseInfiniteScrollProps<T> = {
@@ -23,12 +21,15 @@ export const useInfiniteScroll = <T>({
     if (!hasMore) return;
     setLoading(true);
     loadMore();
-  }, [offset, loadMore]);
+  }, [offset, hasMore, loadMore]);
 
   useEffect(() => {
     if (newItems.length > 0) {
-      setAccItems((prevItems) => prevItems.concat(newItems));
-      setHasMore([...accItems, ...newItems].length < totalItems);
+      setAccItems((prevItems) => {
+        const updatedItems = prevItems.concat(newItems);
+        setHasMore(updatedItems.length < totalItems);
+        return updatedItems;
+      });
     }
     setLoading(false);
   }, [newItems, totalItems]);

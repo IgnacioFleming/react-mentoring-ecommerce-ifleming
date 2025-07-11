@@ -1,3 +1,12 @@
+# Note: Based on the Original Template
+
+This repository is based on the [React E-commerce Template for Mentoring Program](https://github.com/emonteco/react-mentoring), you can visit it to see the original.
+
+## 🔍 Compare changes with the original repository
+
+To see the changes I made throughout development, you can check out the full diff on GitHub:
+[Commit Comparison](https://github.com/IgnacioFleming/react-mentoring-ecommerce-ifleming/compare/322697f...main).
+
 # React E-commerce Template for Mentoring Program
 
 A React e-commerce template designed for the Mentoring Program for React developers, aimed at simulating a real-world work environment and guiding participants through the development of a comprehensive e-commerce project.

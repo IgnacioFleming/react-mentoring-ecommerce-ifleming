@@ -6,7 +6,7 @@ import { useIntersectionObserver } from '../../../hooks/useIntersectionObserver'
 import { useHandleOffset } from '../../../hooks/useHandleOffset';
 import { ProductList } from '../../../../components/ProductList';
 import { ShopProductLoader } from './ShopProductsLoader';
-import styles from './ShopProducts.module.scss';
+import { ShopProductsHeader } from './ShopProductsHeader';
 
 const LIMIT = 24;
 
@@ -35,9 +35,7 @@ export const ShopProducts = () => {
 
   return (
     <>
-      <header className={styles['shop-products__header']}>
-        {productDataStatus === 'success' && <h6>Showing all {total} results</h6>}
-      </header>
+      <ShopProductsHeader isVisible={productDataStatus === 'success'} total={total} />
       <ProductList products={shopProducts} skeletonQuantity={LIMIT} status={productDataStatus} />
       <ShopProductLoader loading={loading} quantity={skeletonQuantity} />
       <div ref={sentinelRef} />

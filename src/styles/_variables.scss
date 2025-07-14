@@ -64,6 +64,7 @@ $color-faded-primary: #b2e3ff;
 $color-faded-secondary-1: #b2e3ff;
 $color-faded-secondary-2: #ffdcd1;
 $color-star-icon: #ffce31;
+$color-select-border: #ddd;
 
 // Container
 $container-max-width-mobile: 100%;
@@ -127,6 +128,7 @@ $font-paragraph: $font-weight-medium 14px/20px $font-family-base;
 $font-list: $font-weight-regular 20px/30px $font-family-base;
 $font-link: $font-weight-semi-bold 14px/24px $font-family-base;
 $font-small: $font-weight-regular 12px/16px $font-family-base;
+$font-select: $font-weight-regular 14px/28px $font-family-base;
 
 //Sizes
 $size-banner-icon: 16px;
@@ -143,3 +145,5 @@ $time-1200: 1.2s;
 
 //Borders
 $border-card: 2px solid $color-gray-200;
+$border-select: 1px solid $color-select-border;
+$border-select-focus: 2px solid $color-gray-400;

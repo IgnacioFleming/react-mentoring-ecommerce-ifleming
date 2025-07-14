@@ -1,0 +1,43 @@
+@use '../../../../../../styles/variables' as *;
+
+.select {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__trigger {
+    border-radius: $spacing-sm;
+    &__icon {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  &__option {
+    background-color: $color-gray-100;
+    border: $border-select;
+    color: $color-second-text;
+    gap: $spacing-md;
+    padding: $spacing-md $spacing-xl;
+    font: $font-select;
+    cursor: pointer;
+
+    &:not(.select__trigger) {
+      &:first-child {
+        border-radius: $spacing-sm $spacing-sm 0 0;
+      }
+      &:last-child {
+        border-radius: 0 0 $spacing-sm $spacing-sm;
+      }
+      &:hover,
+      &:focus {
+        border: $border-select-focus;
+        outline: none;
+      }
+    }
+    &:hover,
+    &:focus {
+      outline: $border-select-focus;
+    }
+  }
+}

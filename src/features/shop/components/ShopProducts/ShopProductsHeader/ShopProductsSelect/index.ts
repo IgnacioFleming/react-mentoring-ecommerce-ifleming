@@ -1,1 +1,1 @@
-export * from './ShopProductsDropdown';
+export * from './ShopProductsSelect';

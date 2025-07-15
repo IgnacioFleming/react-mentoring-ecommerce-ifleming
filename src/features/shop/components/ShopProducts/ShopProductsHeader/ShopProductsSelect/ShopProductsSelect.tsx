@@ -4,7 +4,7 @@ import { ChevronDown } from 'lucide-react';
 import { Select } from '../../../../../../components/Select';
 import styles from './ShopProductsSelect.module.scss';
 
-const ORDER = [
+export const ORDER = [
   { value: 'Default', path: '' },
   { value: 'Top Rated', path: '?orderBy=top-rated' },
   { value: 'Price Desc', path: '?orderBy=price-desc' },

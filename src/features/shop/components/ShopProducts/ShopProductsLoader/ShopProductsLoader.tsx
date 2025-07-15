@@ -1,5 +1,4 @@
 import { ProductList } from '../../../../../components/ProductList';
-import styles from './ShopProductLoader.module.scss';
 
 type ShopProductLoaderProps = {
   loading: boolean;
@@ -8,9 +7,5 @@ type ShopProductLoaderProps = {
 
 export const ShopProductLoader = ({ loading, quantity }: ShopProductLoaderProps) => {
   if (!loading) return null;
-  return (
-    <div className={styles['shop-product-loader']}>
-      <ProductList products={[]} skeletonQuantity={quantity} status="loading" />
-    </div>
-  );
+  return <ProductList products={[]} skeletonQuantity={quantity} status="loading" />;
 };

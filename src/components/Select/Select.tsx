@@ -46,7 +46,7 @@ const Content = ({
   className,
 }: SelectPrimitive.SelectContentProps & SelectPrimitive.SelectPortalProps) => (
   <SelectPrimitive.Portal>
-    <SelectPrimitive.Content>
+    <SelectPrimitive.Content position="popper" side="bottom">
       <SelectPrimitive.Viewport className={clsx(styles.select__viewport, className)}>
         {children}
       </SelectPrimitive.Viewport>

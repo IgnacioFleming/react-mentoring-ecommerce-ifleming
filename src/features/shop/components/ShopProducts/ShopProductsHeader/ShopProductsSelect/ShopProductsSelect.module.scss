@@ -1,46 +1,40 @@
 @use '../../../../../../styles/variables' as *;
 
 .select {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
   &__trigger {
+    width: $size-select-width;
+    height: $size-select-height;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $color-gray-100;
+    gap: $spacing-md;
+    border: $border-select;
+    color: $color-second-text;
+    font: $font-select;
+    cursor: pointer;
     border-radius: $spacing-sm;
+
+    &[data-state='open'] {
+      border-radius: $spacing-sm $spacing-sm 0 0;
+    }
+
+    &:hover,
+    &:focus {
+      border: $border-select-focus;
+      outline: none;
+    }
     &__icon {
       display: flex;
       align-items: center;
     }
-    &[data-state='open']:hover {
-      outline: none;
-    }
   }
 
   &__option {
-    background-color: $color-gray-100;
-    border: $border-select;
-    color: $color-second-text;
-    gap: $spacing-md;
-    padding: $spacing-md $spacing-xl;
-    font: $font-select;
-    cursor: pointer;
-
-    &:not(.select__trigger) {
-      &:first-child {
-        border-radius: $spacing-sm $spacing-sm 0 0;
-      }
-      &:last-child {
-        border-radius: 0 0 $spacing-sm $spacing-sm;
-      }
-      &:hover,
-      &:focus {
-        border: $border-select-focus;
-        outline: none;
-      }
-    }
-    &:hover,
-    &:focus {
-      outline: $border-select-focus;
+    @extend .select__trigger;
+    border-radius: 0;
+    &:last-child {
+      border-radius: 0 0 $spacing-sm $spacing-sm;
     }
   }
 }

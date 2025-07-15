@@ -24,9 +24,9 @@ export const ShopProductsSelect = () => {
   };
 
   return (
-    <Select className={styles.select} onValueChange={handleChange}>
+    <Select onValueChange={handleChange}>
       <Select.Trigger
-        className={clsx(styles.select__option, styles.select__trigger, styles.select__value)}
+        className={clsx(styles.select__trigger, styles.select__trigger, styles.select__value)}
       >
         <Select.Value placeholder={defaultValue} />
         <Select.Icon className={styles.select__trigger__icon}>

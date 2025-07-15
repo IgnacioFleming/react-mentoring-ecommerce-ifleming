@@ -21,7 +21,7 @@ const PARAMS_OPTIONS: Record<string, ProductQueryParams> = {
 export const ShopProducts = () => {
   const sentinelRef = useRef<HTMLDivElement>(null);
   const { search } = useLocation();
-  const params = search.split('=')[1] || '';
+  const params = new URLSearchParams(search).get('orderBy') || '';
   const { offset, handleOffset } = useHandleOffset(LIMIT);
 
   const { products, getQueryStatus, total, refetch } = useProducts({

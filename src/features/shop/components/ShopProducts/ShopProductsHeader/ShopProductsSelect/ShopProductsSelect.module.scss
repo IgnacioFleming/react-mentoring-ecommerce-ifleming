@@ -11,6 +11,9 @@
       display: flex;
       align-items: center;
     }
+    &[data-state='open']:hover {
+      outline: none;
+    }
   }
 
   &__option {

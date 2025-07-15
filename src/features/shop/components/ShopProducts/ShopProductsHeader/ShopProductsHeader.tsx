@@ -2,7 +2,7 @@ import { ReactNode } from 'react';
 import { ShopProductsSelect } from './ShopProductsSelect/ShopProductsSelect';
 import styles from './ShopProductsHeader.module.scss';
 
-type ShopProductsHeaderProps = {
+export type ShopProductsHeaderProps = {
   isVisible: boolean;
   total: number;
 };

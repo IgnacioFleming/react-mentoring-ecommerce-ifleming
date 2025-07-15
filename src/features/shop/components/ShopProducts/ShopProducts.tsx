@@ -1,4 +1,5 @@
 import { useRef } from 'react';
+import { useLocation } from 'react-router-dom';
 import { Product, ProductQueryParams } from '../../../../types/products';
 import { useProducts } from '../../../hooks/useProducts';
 import { useInfiniteScroll } from '../../../hooks/useInfiniteScroll';
@@ -7,7 +8,7 @@ import { useHandleOffset } from '../../../hooks/useHandleOffset';
 import { ProductList } from '../../../../components/ProductList';
 import { ShopProductLoader } from './ShopProductsLoader';
 import { ShopProductsHeader } from './ShopProductsHeader';
-import { useLocation } from 'react-router-dom';
+import styles from './ShopProducts.module.scss';
 
 const LIMIT = 24;
 const SHOP_QUERY_KEY = 'shopProducts';
@@ -47,8 +48,10 @@ export const ShopProducts = () => {
   return (
     <>
       <ShopProductsHeader isVisible={productDataStatus === 'success'} total={total} />
-      <ProductList products={shopProducts} skeletonQuantity={LIMIT} status={productDataStatus} />
-      <ShopProductLoader loading={loading} quantity={skeletonQuantity} />
+      <div className={styles['product-list']}>
+        <ProductList products={shopProducts} skeletonQuantity={LIMIT} status={productDataStatus} />
+        <ShopProductLoader loading={loading} quantity={skeletonQuantity} />
+      </div>
       <div ref={sentinelRef} />
     </>
   );

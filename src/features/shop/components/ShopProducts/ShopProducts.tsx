@@ -6,7 +6,7 @@ import { useInfiniteScroll } from '../../../hooks/useInfiniteScroll';
 import { useIntersectionObserver } from '../../../hooks/useIntersectionObserver';
 import { useHandleOffset } from '../../../hooks/useHandleOffset';
 import { ProductList } from '../../../../components/ProductList';
-import { ShopProductLoader } from './ShopProductsLoader';
+import { calculateSkeletonQuantity } from '../../../utils';
 import { ShopProductsHeader } from './ShopProductsHeader';
 import styles from './ShopProducts.module.scss';
 
@@ -24,7 +24,7 @@ export const ShopProducts = () => {
   const params = new URLSearchParams(search).get('orderBy') || '';
   const { offset, handleOffset } = useHandleOffset(LIMIT);
 
-  const { products, getQueryStatus, total, refetch } = useProducts({
+  const { products, getQueryStatus, total, refetch, isErrorProducts, isFetching } = useProducts({
     params: { limit: LIMIT, skip: offset, ...PARAMS_OPTIONS[params] },
     queryKey: SHOP_QUERY_KEY,
   });
@@ -35,24 +35,26 @@ export const ShopProducts = () => {
     newItems: products,
     totalItems: total,
     params,
-    queryKey: SHOP_QUERY_KEY,
   });
 
   useIntersectionObserver({ ref: sentinelRef, cb: handleOffset });
 
   const productDataStatus = getQueryStatus();
 
-  const productLeft = total - shopProducts.length;
-  const skeletonQuantity = productLeft > LIMIT ? LIMIT : productLeft;
+  const quantity = calculateSkeletonQuantity(total, shopProducts.length, LIMIT);
 
   return (
     <>
       <ShopProductsHeader isVisible={productDataStatus === 'success'} total={total} />
       <div className={styles['product-list']}>
-        <ProductList products={shopProducts} skeletonQuantity={LIMIT} status={productDataStatus} />
-        <ShopProductLoader loading={loading} quantity={skeletonQuantity} />
+        <ProductList
+          products={shopProducts}
+          skeletonQuantity={quantity}
+          status={productDataStatus}
+          isLoadingMore={loading}
+        />
       </div>
-      <div ref={sentinelRef} />
+      {!isErrorProducts && !isFetching && <div ref={sentinelRef} />}
     </>
   );
 };

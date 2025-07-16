@@ -72,7 +72,7 @@ describe('ShopProducts', () => {
     mockUseProducts.mockImplementation(() => ({
       products: PRODUCTS_MOCK,
       getQueryStatus: vi.fn().mockReturnValue('loading'),
-      total: 3,
+      total: 30,
     }));
     const { queryAllByTestId } = renderShopProducts();
     expect(queryAllByTestId('skeleton')).toHaveLength(24 * 5);

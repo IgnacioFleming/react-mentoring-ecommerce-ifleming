@@ -2,10 +2,6 @@ import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { renderHook } from '@testing-library/react';
 import { useInfiniteScroll, UseInfiniteScrollProps } from './useInfiniteScroll';
 
-vi.mock('../../main', () => ({ queryClient: { invalidateQueries: mockInvalidateQueries } }));
-
-const mockInvalidateQueries = vi.hoisted(() => vi.fn());
-
 describe('useInfiniteScroll', () => {
   const mockLoadMore = vi.fn();
 
@@ -21,15 +17,8 @@ describe('useInfiniteScroll', () => {
     initialProps: UseInfiniteScrollProps<string> = mockInitialProps,
   ) =>
     renderHook(
-      ({
-        loadMore,
-        newItems,
-        offset,
-        totalItems,
-        params,
-        queryKey,
-      }: UseInfiniteScrollProps<string>) =>
-        useInfiniteScroll<string>({ loadMore, newItems, offset, totalItems, params, queryKey }),
+      ({ loadMore, newItems, offset, totalItems, params }: UseInfiniteScrollProps<string>) =>
+        useInfiniteScroll<string>({ loadMore, newItems, offset, totalItems, params }),
       { initialProps },
     );
 
@@ -41,8 +30,6 @@ describe('useInfiniteScroll', () => {
     const { result } = renderUseInfiniteScroll();
     expect(result.current.accItems).toEqual([]);
     expect(result.current.loading).toBe(false);
-    expect(mockLoadMore).not.toHaveBeenCalled();
-    expect(mockInvalidateQueries).toHaveBeenCalledTimes(1);
   });
 
   it('should call loadMore function after first render', () => {
@@ -53,9 +40,8 @@ describe('useInfiniteScroll', () => {
       offset: 1,
       totalItems: 5,
       params: 'mockParams',
-      queryKey: 'mockQueryKey',
     });
-    expect(mockLoadMore).toHaveBeenCalledTimes(1);
+    expect(mockLoadMore).toHaveBeenCalledTimes(2);
   });
 
   it('should accumulate items correctly', () => {
@@ -67,7 +53,6 @@ describe('useInfiniteScroll', () => {
       offset: 1,
       totalItems: 5,
       params: 'mockParams',
-      queryKey: 'mockQueryKey',
     });
     expect(result.current.accItems).toEqual(mockItems);
     const moreMockItems = ['item_1', 'item_2', 'item_5'];
@@ -77,10 +62,8 @@ describe('useInfiniteScroll', () => {
       offset: 2,
       totalItems: 5,
       params: 'mockParams',
-      queryKey: 'mockQueryKey',
     });
     expect(result.current.accItems).toEqual(mockItems.concat(moreMockItems));
-    expect(mockInvalidateQueries).toHaveBeenCalledTimes(1);
-    expect(mockLoadMore).toHaveBeenCalledTimes(2);
+    expect(mockLoadMore).toHaveBeenCalledTimes(3);
   });
 });

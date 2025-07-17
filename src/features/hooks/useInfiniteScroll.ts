@@ -16,7 +16,6 @@ export const useInfiniteScroll = <T>({
   params,
 }: UseInfiniteScrollProps<T>) => {
   const [accItems, setAccItems] = useState<T[]>([]);
-  const [loading, setLoading] = useState(false);
   const [hasMore, setHasMore] = useState(true);
 
   useEffect(() => {
@@ -24,14 +23,12 @@ export const useInfiniteScroll = <T>({
       setAccItems([]);
       loadMore();
       setHasMore(true);
-      setLoading(true);
     }
   }, [params, offset, loadMore]);
 
   useEffect(() => {
     if (offset > 0 && hasMore) {
       loadMore();
-      setLoading(true);
     }
   }, [offset, loadMore, hasMore]);
 
@@ -43,8 +40,7 @@ export const useInfiniteScroll = <T>({
         return updatedItems;
       });
     }
-    setLoading(false);
   }, [newItems, totalItems]);
 
-  return { accItems, loading };
+  return { accItems };
 };

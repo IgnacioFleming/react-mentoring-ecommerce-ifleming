@@ -24,12 +24,13 @@ export const ShopProducts = () => {
   const params = new URLSearchParams(search).get('orderBy') || '';
   const { offset, handleOffset } = useHandleOffset(LIMIT);
 
-  const { products, getQueryStatus, total, refetch, isErrorProducts, isFetching } = useProducts({
-    params: { limit: LIMIT, skip: offset, ...PARAMS_OPTIONS[params] },
-    queryKey: SHOP_QUERY_KEY,
-  });
+  const { products, getQueryStatus, total, refetch, isErrorProducts, isFetchingProducts } =
+    useProducts({
+      params: { limit: LIMIT, skip: offset, ...PARAMS_OPTIONS[params] },
+      queryKey: SHOP_QUERY_KEY,
+    });
 
-  const { accItems: shopProducts, loading } = useInfiniteScroll<Product>({
+  const { accItems: shopProducts } = useInfiniteScroll<Product>({
     loadMore: refetch,
     offset,
     newItems: products,
@@ -51,10 +52,9 @@ export const ShopProducts = () => {
           products={shopProducts}
           skeletonQuantity={quantity}
           status={productDataStatus}
-          isLoadingMore={loading}
         />
       </div>
-      {!isErrorProducts && !isFetching && <div ref={sentinelRef} />}
+      {!isErrorProducts && !isFetchingProducts && <div ref={sentinelRef} />}
     </>
   );
 };

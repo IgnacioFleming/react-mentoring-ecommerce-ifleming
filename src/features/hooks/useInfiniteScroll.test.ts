@@ -26,10 +26,9 @@ describe('useInfiniteScroll', () => {
     vi.clearAllMocks();
   });
 
-  it('should return an empty array as accItems and loading false on first render', () => {
+  it('should return an empty array as accItems', () => {
     const { result } = renderUseInfiniteScroll();
     expect(result.current.accItems).toEqual([]);
-    expect(result.current.loading).toBe(false);
   });
 
   it('should call loadMore function after first render', () => {

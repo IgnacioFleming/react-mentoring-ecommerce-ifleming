@@ -1,0 +1,18 @@
+@use '../../../../../styles/variables' as *;
+
+.shop-products-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $spacing-lg;
+  padding-block: $spacing-lg;
+  h6 {
+    color: $color-second-text;
+    font: $font-heading-h6;
+  }
+
+  @include is-tablet {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}

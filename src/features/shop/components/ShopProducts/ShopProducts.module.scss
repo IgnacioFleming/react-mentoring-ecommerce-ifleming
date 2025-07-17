@@ -1,17 +1,9 @@
 @use '../../../../styles/variables' as *;
 
-.shop-products {
-  &__header {
-    padding-block: $spacing-lg;
+.product-list {
+  padding-block: $spacing-4xl;
 
-    h6 {
-      color: $color-second-text;
-      font: $font-heading-h6;
-      text-align: center;
-
-      @include is-tablet {
-        text-align: start;
-      }
-    }
+  @include is-tablet {
+    padding-block: $spacing-2xl;
   }
 }

@@ -13,15 +13,13 @@ export type ProductListProps = {
 export const ProductList = ({ products, status, skeletonQuantity }: ProductListProps) => {
   const isError = status === PRODUCT_DATA_STATUS.ERROR;
   const isLoading = status === PRODUCT_DATA_STATUS.LOADING;
+  const hasProducts = products.length > 0;
 
   if (isError) return <ProductListError />;
   return (
     <ul className={styles['products-list']}>
-      {isLoading ? (
-        <ProductListSkeleton quantity={skeletonQuantity} />
-      ) : (
-        products.map((p, index) => <ProductCard key={index} product={p} />)
-      )}
+      {hasProducts && products.map((p, index) => <ProductCard key={index} product={p} />)}
+      {isLoading && <ProductListSkeleton quantity={skeletonQuantity} />}
     </ul>
   );
 };

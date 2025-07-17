@@ -14,6 +14,7 @@ export const useProducts = ({ queryKey, params = {} }: UseProductsProps) => {
     isLoading: isLoadingProducts,
     error: productsError,
     isError: isErrorProducts,
+    isFetching: isFetchingProducts,
     ...rest
   } = useQuery({
     queryKey: [queryKey],
@@ -23,7 +24,7 @@ export const useProducts = ({ queryKey, params = {} }: UseProductsProps) => {
 
   const getQueryStatus = (): DataStatus => {
     if (isErrorProducts) return 'error';
-    if (isLoadingProducts) return 'loading';
+    if (isFetchingProducts) return 'loading';
     return 'success';
   };
 
@@ -31,6 +32,7 @@ export const useProducts = ({ queryKey, params = {} }: UseProductsProps) => {
     products,
     total,
     isLoadingProducts,
+    isFetchingProducts,
     productsError,
     isErrorProducts,
     getQueryStatus,

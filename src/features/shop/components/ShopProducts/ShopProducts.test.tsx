@@ -1,6 +1,6 @@
+import { MemoryRouter } from 'react-router-dom';
 import { describe, expect, it, vi } from 'vitest';
 import { render } from '@testing-library/react';
-import { MemoryRouter } from 'react-router-dom';
 import { Product } from '../../../../types/products';
 import { useProducts } from '../../../hooks/useProducts';
 import { ShopProducts } from './ShopProducts';
@@ -72,7 +72,7 @@ describe('ShopProducts', () => {
     mockUseProducts.mockImplementation(() => ({
       products: PRODUCTS_MOCK,
       getQueryStatus: vi.fn().mockReturnValue('loading'),
-      total: 3,
+      total: 30,
     }));
     const { queryAllByTestId } = renderShopProducts();
     expect(queryAllByTestId('skeleton')).toHaveLength(24 * 5);

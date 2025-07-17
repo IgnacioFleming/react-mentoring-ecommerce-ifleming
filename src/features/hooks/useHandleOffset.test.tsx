@@ -1,11 +1,15 @@
+import { MemoryRouter } from 'react-router-dom';
 import { describe, expect, it } from 'vitest';
 import { act, renderHook } from '@testing-library/react';
+import { PropsWithChildren } from 'react';
 import { useHandleOffset } from './useHandleOffset';
 
 describe('useHandleOffset', () => {
   const LIMIT_MOCK = 1;
 
-  const renderUseHandleOffset = () => renderHook(() => useHandleOffset(LIMIT_MOCK));
+  const wrapper = ({ children }: PropsWithChildren) => <MemoryRouter>{children}</MemoryRouter>;
+
+  const renderUseHandleOffset = () => renderHook(() => useHandleOffset(LIMIT_MOCK), { wrapper });
   it('should start returning 0', () => {
     const { result } = renderUseHandleOffset();
     expect(result.current.offset).toBe(0);

@@ -5,6 +5,7 @@ export type UseInfiniteScrollProps<T> = {
   loadMore: () => void;
   newItems: T[];
   totalItems: number;
+  params: string;
 };
 
 export const useInfiniteScroll = <T>({
@@ -12,16 +13,24 @@ export const useInfiniteScroll = <T>({
   offset,
   newItems,
   totalItems,
+  params,
 }: UseInfiniteScrollProps<T>) => {
   const [accItems, setAccItems] = useState<T[]>([]);
   const [hasMore, setHasMore] = useState(true);
-  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    if (!hasMore) return;
-    setLoading(true);
-    loadMore();
-  }, [offset, hasMore, loadMore]);
+    if (offset === 0) {
+      setAccItems([]);
+      loadMore();
+      setHasMore(true);
+    }
+  }, [params, offset, loadMore]);
+
+  useEffect(() => {
+    if (offset > 0 && hasMore) {
+      loadMore();
+    }
+  }, [offset, loadMore, hasMore]);
 
   useEffect(() => {
     if (newItems.length > 0) {
@@ -31,8 +40,7 @@ export const useInfiniteScroll = <T>({
         return updatedItems;
       });
     }
-    setLoading(false);
   }, [newItems, totalItems]);
 
-  return { accItems, loading };
+  return { accItems };
 };

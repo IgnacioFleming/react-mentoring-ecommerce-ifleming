@@ -1,0 +1,40 @@
+@use '../../styles/variables' as *;
+
+.container {
+  display: flex;
+  gap: $spacing-sm;
+}
+
+.stars {
+  display: flex;
+  align-items: center;
+  gap: $spacing-xs;
+
+  &__container {
+    position: relative;
+    width: $size-icon-sm;
+    height: $size-icon-sm;
+  }
+
+  &__star {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    fill: transparent;
+    stroke: $color-star-icon;
+
+    &.filled {
+      fill: $color-star-icon;
+    }
+
+    &.half-filled {
+      @extend .filled;
+      clip-path: inset(0 50% 0 0);
+    }
+  }
+}
+
+.reviews {
+  font: $font-heading-h6;
+  color: $color-second-text;
+}

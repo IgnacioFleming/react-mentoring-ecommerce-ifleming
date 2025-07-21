@@ -15,7 +15,7 @@ export const ProductCard = ({ product }: ProductCardProps) => {
   return (
     <li className={styles.container}>
       <Card className={styles.card}>
-        <ProductCardThumbnail thumbnail={product?.thumbnail} title={product?.title} />
+        <ProductCardThumbnail product={product} />
 
         <Card.Content className={styles.card__content}>
           <ProductCardHeader brand={product.brand} rating={product.rating} />

@@ -13,3 +13,12 @@ export const composeQueryParams = <T extends Record<string, unknown>>(
   }
   return paramsString;
 };
+
+export const formatCurrency = (value: number) => {
+  if (isNaN(value)) throw new Error('value must be a valid number');
+  return value.toLocaleString('en-US', {
+    style: 'currency',
+    currency: 'USD',
+    minimumFractionDigits: 2,
+  });
+};

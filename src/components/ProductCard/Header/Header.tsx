@@ -2,11 +2,11 @@ import { Link } from 'react-router-dom';
 import { Star } from 'lucide-react';
 import { Product } from '../../../types/products';
 import { Card } from '../../Card';
-import styles from './ProductCardHeader.module.scss';
+import styles from './Header.module.scss';
 
-type ProductCardHeaderProps = Pick<Product, 'brand' | 'rating'>;
+type HeaderProps = Pick<Product, 'brand' | 'rating'>;
 
-export const ProductCardHeader = ({ brand, rating }: ProductCardHeaderProps) => (
+export const Header = ({ brand, rating }: HeaderProps) => (
   <Card.Header className={styles['product-card-header']}>
     <Link to="" className={styles['product-card-header__brand']}>
       {brand}

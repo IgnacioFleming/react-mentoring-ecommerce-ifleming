@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { render } from '@testing-library/react';
-import { ProductCardMain } from './ProductCardMain';
+import { ProductCard } from '../ProductCard';
 
 describe('ProductCardMain', () => {
   const MOCK_TITLE = 'mockName';
@@ -8,7 +8,7 @@ describe('ProductCardMain', () => {
   const MOCK_DISCOUNT = 10;
   const renderProductCardMain = () =>
     render(
-      <ProductCardMain title={MOCK_TITLE} price={MOCK_PRICE} discountPercentage={MOCK_DISCOUNT} />,
+      <ProductCard.Main title={MOCK_TITLE} price={MOCK_PRICE} discountPercentage={MOCK_DISCOUNT} />,
     );
 
   it('renders product name, price and discount correctly in content main', () => {

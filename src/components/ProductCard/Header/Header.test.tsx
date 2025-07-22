@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { render } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
-import { ProductCardHeader } from './ProductCardHeader';
+import { ProductCard } from '../ProductCard';
 
 describe('ProductCardHeader', () => {
   const MOCK_BRAND = 'mockBrand';
@@ -9,7 +9,7 @@ describe('ProductCardHeader', () => {
   const renderProductCardHeader = () =>
     render(
       <MemoryRouter>
-        <ProductCardHeader brand={MOCK_BRAND} rating={MOCK_RATING} />
+        <ProductCard.Header brand={MOCK_BRAND} rating={MOCK_RATING} />
       </MemoryRouter>,
     );
 

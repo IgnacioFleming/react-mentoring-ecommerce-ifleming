@@ -1,6 +1,7 @@
 import * as DialogPrimitive from '@radix-ui/react-dialog';
 import { XCircleIcon } from 'lucide-react';
 import styles from './Modal.module.scss';
+import clsx from 'clsx';
 
 type ModalProps = DialogPrimitive.DialogProps;
 
@@ -16,9 +17,12 @@ const Trigger = ({ children }: DialogPrimitive.DialogTriggerProps) => {
 Trigger.displayName = 'Modal.Trigger';
 Modal.Trigger = Trigger;
 
-const Title = ({ children }: DialogPrimitive.DialogTitleProps) => {
+const Title = ({ children, className }: DialogPrimitive.DialogTitleProps) => {
   return (
-    <DialogPrimitive.Title className={styles.modal__title} data-testid="modal-title">
+    <DialogPrimitive.Title
+      className={clsx(styles.modal__title, className)}
+      data-testid="modal-title"
+    >
       {children}
     </DialogPrimitive.Title>
   );
@@ -29,12 +33,13 @@ Modal.Title = Title;
 
 const Content = ({
   children,
+  className,
 }: DialogPrimitive.DialogContentProps & DialogPrimitive.DialogPortalProps) => (
   <DialogPrimitive.Portal>
     <DialogPrimitive.Overlay className={styles.modal__overlay} data-testid="modal-overlay" />
     <DialogPrimitive.Content
       aria-describedby={undefined}
-      className={styles.modal__content}
+      className={clsx(styles.modal__content, className)}
       data-testid="modal-content"
     >
       <>

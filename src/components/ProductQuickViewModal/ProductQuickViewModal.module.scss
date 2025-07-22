@@ -1,0 +1,91 @@
+@use '../../styles/variables' as *;
+
+.productQuickView {
+  background-color: $color-light-gray-1;
+  gap: $spacing-xl;
+  color: $color-text;
+
+  @include is-tablet {
+    flex-direction: row;
+    height: $size-image-desktop;
+  }
+
+  &__header {
+    display: block;
+    @include is-tablet {
+      width: calc(50% - $spacing-xl/2);
+    }
+    img {
+      height: $size-image-mobile;
+      width: 100%;
+      object-fit: contain;
+
+      @include is-tablet {
+        height: 100%;
+      }
+    }
+  }
+  &__content {
+    padding-inline: $spacing-lg;
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-lg;
+    @include is-tablet {
+      width: calc(50% - $spacing-xl/2);
+    }
+
+    &__title {
+      font: $font-heading-h4;
+      color: $color-text;
+      text-align: start;
+    }
+
+    &__price {
+      font: $font-heading-h3;
+    }
+
+    &__availability {
+      font: $font-heading-h6;
+      color: $color-second-text;
+      span {
+        color: $color-primary;
+      }
+    }
+    &__description {
+      font: $font-paragraph;
+      color: $color-second-text-light;
+    }
+
+    &__separator {
+      border: 1px solid $color-muted;
+    }
+  }
+  &__footer {
+    display: flex;
+    gap: $spacing-sm;
+    align-items: center;
+    margin-top: auto;
+
+    &__button {
+      text-transform: uppercase;
+      padding: $spacing-md $spacing-lg;
+    }
+
+    &__icon {
+      background-color: $color-light-background;
+      height: $size-icon-lg;
+      width: $size-icon-lg;
+      border: 1px solid $color-gray-300;
+      border-radius: $spacing-2xl;
+      padding: 10px;
+      cursor: pointer;
+      fill: $color-light-background;
+      transition: all 0.2s ease-in-out;
+
+      &:hover {
+        fill: $color-danger;
+        stroke: $color-danger;
+      }
+    }
+  }
+}

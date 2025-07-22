@@ -4,6 +4,14 @@ export type Category = {
   url: string;
 };
 
+type ProductReview = {
+  rating: number;
+  comment: string;
+  date: Date;
+  reviewerName: string;
+  reviewerEmail: string;
+};
+
 export type Product = {
   title: string;
   brand: string;
@@ -11,6 +19,9 @@ export type Product = {
   discountPercentage: number;
   thumbnail: string;
   rating: number;
+  availabilityStatus: 'In Stock' | 'Low Stock' | 'Out of Stock';
+  description: string;
+  reviews: ProductReview[];
 };
 
 export const PRODUCT_DATA_STATUS = {

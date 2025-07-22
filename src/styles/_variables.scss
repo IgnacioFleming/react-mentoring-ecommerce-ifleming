@@ -65,6 +65,7 @@ $color-faded-secondary-1: #b2e3ff;
 $color-faded-secondary-2: #ffdcd1;
 $color-star-icon: #ffce31;
 $color-select-border: #ddd;
+$color-second-text-light: #858585;
 
 // Container
 $container-max-width-mobile: 100%;
@@ -133,12 +134,15 @@ $font-select: $font-weight-regular 14px/28px $font-family-base;
 //Sizes
 $size-section-image: 500px;
 $size-card-width: 250px;
+$size-image-mobile: 277px;
+$size-image-desktop: 450px;
 $size-card-thumbnail: 225px;
-$size-card-icon: 40px;
 $size-select-width: 141px;
 $size-select-height: 50px;
 $size-icon-xs: 16px;
 $size-icon-sm: 22px;
+$size-icon-md: 40px;
+$size-icon-lg: 50px;
 
 //Shadows
 $shadow-card: 1px 2px 5px 2px $color-gray-300;

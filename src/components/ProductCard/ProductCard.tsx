@@ -2,9 +2,9 @@ import { ChevronRight } from 'lucide-react';
 import { Product } from '../../types/products';
 import { Card } from '../Card';
 import { Button } from '../Button';
-import { ProductCardThumbnail } from './ProductCardThumbnail';
-import { ProductCardHeader } from './ProductCardHeader';
-import { ProductCardMain } from './ProductCardMain';
+import { Thumbnail } from './Thumbnail';
+import { Main } from './Main';
+import { Header } from './Header';
 import styles from './ProductCard.module.scss';
 
 type ProductCardProps = {
@@ -15,11 +15,10 @@ export const ProductCard = ({ product }: ProductCardProps) => {
   return (
     <li className={styles.container}>
       <Card className={styles.card}>
-        <ProductCardThumbnail thumbnail={product?.thumbnail} title={product?.title} />
-
+        <ProductCard.Thumbnail product={product} />
         <Card.Content className={styles.card__content}>
-          <ProductCardHeader brand={product.brand} rating={product.rating} />
-          <ProductCardMain
+          <ProductCard.Header brand={product.brand} rating={product.rating} />
+          <ProductCard.Main
             title={product.title}
             price={product.price}
             discountPercentage={product.discountPercentage}
@@ -39,3 +38,7 @@ export const ProductCard = ({ product }: ProductCardProps) => {
     </li>
   );
 };
+
+ProductCard.Header = Header;
+ProductCard.Thumbnail = Thumbnail;
+ProductCard.Main = Main;

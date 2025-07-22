@@ -1,11 +1,12 @@
 import { ReactNode } from 'react';
-import { Modal } from '../Modal';
-import { Product } from '../../types/products';
-import { ProductRating } from '../ProductRating';
-import { Button } from '../Button';
-import { formatCurrency } from '../../lib/api/utils';
 import { Heart } from 'lucide-react';
+import { Product } from '../../types/products';
+import { Modal } from '../Modal';
+import { Button } from '../Button';
+import { ProductRating } from '../ProductRating';
 import { Separator } from '../Separator';
+import { formatCurrency } from '../../lib/api/utils';
+import styles from './ProductQuickViewModal.module.scss';
 
 type ProductQuickViewModalProps = {
   trigger: ReactNode;
@@ -16,20 +17,30 @@ export const ProductQuickViewModal = ({ trigger, product }: ProductQuickViewModa
   return (
     <Modal>
       <Modal.Trigger>{trigger}</Modal.Trigger>
-      <Modal.Content>
-        <header>
+      <Modal.Content className={styles.productQuickView}>
+        <header className={styles.productQuickView__header}>
           <img src={product.thumbnail} alt="Photo of the product" />
         </header>
-        <Modal.Title>{product.title}</Modal.Title>
-        <ProductRating rating={product.rating} reviewCount={product.reviews.length} />
-        <h3>{formatCurrency(product.price)}</h3>
-        <h6>Availability: {product.availabilityStatus}</h6>
-        <p>{product.description}</p>
-        <Separator decorative />
-        <footer>
-          <Button>Add to cart</Button>
-          <Heart />
-        </footer>
+        <div className={styles.productQuickView__content}>
+          <Modal.Title className={styles.productQuickView__content__title}>
+            {product.title}
+          </Modal.Title>
+          <ProductRating rating={product.rating} reviewCount={product.reviews.length} />
+          <div>
+            <h3 className={styles.productQuickView__content__price}>
+              {formatCurrency(product.price)}
+            </h3>
+            <h6 className={styles.productQuickView__content__availability}>
+              Availability: <span>{product.availabilityStatus}</span>
+            </h6>
+          </div>
+          <p className={styles.productQuickView__content__description}>{product.description}</p>
+          <Separator decorative className={styles.productQuickView__content__separator} />
+          <footer className={styles.productQuickView__footer}>
+            <Button className={styles.productQuickView__footer__button}>Add to cart</Button>
+            <Heart className={styles.productQuickView__footer__icon} />
+          </footer>
+        </div>
       </Modal.Content>
     </Modal>
   );

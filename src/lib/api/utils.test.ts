@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { QueryParams } from '../../types/products';
-import { composeQueryParams } from './utils';
+import { composeQueryParams, formatCurrency } from './utils';
 
 describe('componseQueryParams', () => {
   const mockQueryParams: QueryParams<{ rating: unknown }> = {
@@ -27,5 +27,11 @@ describe('componseQueryParams', () => {
   it('should return a string concatenated with "&" after each key-value pair if it is called with more than one property', () => {
     const queryParams = composeQueryParams(mockQueryParams);
     expect(queryParams).toBe('/?limit=8&order=desc&sortBy=rating');
+  });
+});
+
+describe('formatCurrency', () => {
+  it('should format number correctly to $#,###.## format', () => {
+    expect(formatCurrency(1492.33)).toBe('$1,492.33');
   });
 });

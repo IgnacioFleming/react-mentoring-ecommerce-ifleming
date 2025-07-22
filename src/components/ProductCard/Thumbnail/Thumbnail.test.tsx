@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { render } from '@testing-library/react';
-import { ProductCardThumbnail } from './ProductCardThumbnail';
 import { Product } from '../../../types/products';
+import { ProductCard } from '../ProductCard';
 
 describe('ProductCardThumbnail', () => {
   const REVIEWS_MOCK = [
@@ -27,7 +27,7 @@ describe('ProductCardThumbnail', () => {
   };
 
   const renderProductThumbnail = () => {
-    return render(<ProductCardThumbnail product={PRODUCT_MOCK} />);
+    return render(<ProductCard.Thumbnail product={PRODUCT_MOCK} />);
   };
 
   it('renders thumbnail correctly', () => {

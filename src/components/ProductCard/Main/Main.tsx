@@ -1,10 +1,10 @@
 import { Product } from '../../../types/products';
 import { Card } from '../../Card';
-import styles from './ProductCardMain.module.scss';
+import styles from './Main.module.scss';
 
-type ProductCardMainProps = Pick<Product, 'title' | 'price' | 'discountPercentage'>;
+type MainProps = Pick<Product, 'title' | 'price' | 'discountPercentage'>;
 
-export const ProductCardMain = ({ title, price, discountPercentage }: ProductCardMainProps) => (
+export const Main = ({ title, price, discountPercentage }: MainProps) => (
   <Card.Main className={styles['product-card-main']}>
     <h5>{title}</h5>
     <div>

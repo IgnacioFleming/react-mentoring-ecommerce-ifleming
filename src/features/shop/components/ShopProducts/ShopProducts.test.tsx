@@ -23,6 +23,16 @@ vi.mock('../../../hooks/useHandleOffset', () => ({
   useHandleOffset: () => ({ offset: 1, handleOffset: vi.fn() }),
 }));
 
+const REVIEWS_MOCK = vi.hoisted(() => [
+  {
+    rating: 3,
+    comment: 'some comment',
+    date: new Date(),
+    reviewerName: 'mockReviewer',
+    reviewerEmail: 'mock.reviewer@example.com',
+  },
+]);
+
 const PRODUCTS_MOCK: Product[] = vi.hoisted(() => [
   {
     brand: 'mockBrand 1',
@@ -31,6 +41,9 @@ const PRODUCTS_MOCK: Product[] = vi.hoisted(() => [
     price: 100,
     discountPercentage: 10,
     thumbnail: 'mockURL/1',
+    availabilityStatus: 'In Stock',
+    description: 'Some short description',
+    reviews: REVIEWS_MOCK,
   },
   {
     brand: 'mockBrand 2',
@@ -39,6 +52,9 @@ const PRODUCTS_MOCK: Product[] = vi.hoisted(() => [
     price: 200,
     discountPercentage: 20,
     thumbnail: 'mockURL/2',
+    availabilityStatus: 'In Stock',
+    description: 'Some short description',
+    reviews: REVIEWS_MOCK,
   },
   {
     brand: 'mockBrand 3',
@@ -47,6 +63,9 @@ const PRODUCTS_MOCK: Product[] = vi.hoisted(() => [
     price: 300,
     discountPercentage: 30,
     thumbnail: 'mockURL/3',
+    availabilityStatus: 'In Stock',
+    description: 'Some short description',
+    reviews: REVIEWS_MOCK,
   },
 ]);
 

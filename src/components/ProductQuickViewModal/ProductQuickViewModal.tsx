@@ -38,7 +38,7 @@ export const ProductQuickViewModal = ({ trigger, product }: ProductQuickViewModa
           <Separator decorative className={styles.productQuickView__content__separator} />
           <footer className={styles.productQuickView__footer}>
             <Button className={styles.productQuickView__footer__button}>Add to cart</Button>
-            <Heart className={styles.productQuickView__footer__icon} />
+            <Heart className={styles.productQuickView__footer__icon} data-testid="mark-fav" />
           </footer>
         </div>
       </Modal.Content>

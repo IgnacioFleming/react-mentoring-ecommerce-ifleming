@@ -5,6 +5,15 @@ import { Product } from '../../types/products';
 import { ProductCard } from './ProductCard';
 
 describe('ProductCard', () => {
+  const REVIEWS_MOCK = [
+    {
+      rating: 3,
+      comment: 'some comment',
+      date: new Date(),
+      reviewerName: 'mockReviewer',
+      reviewerEmail: 'mock.reviewer@example.com',
+    },
+  ];
   const MOCK_PRODUCT: Product = {
     brand: 'mockBrand',
     title: 'mockName',
@@ -12,6 +21,9 @@ describe('ProductCard', () => {
     discountPercentage: 10,
     price: 100,
     thumbnail: 'mockUrl',
+    availabilityStatus: 'In Stock',
+    description: 'Some short description',
+    reviews: REVIEWS_MOCK,
   };
   const renderProductCard = () =>
     render(

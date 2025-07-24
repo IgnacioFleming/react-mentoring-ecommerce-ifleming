@@ -7,13 +7,17 @@ import { ProductRating } from '../ProductRating';
 import { Separator } from '../Separator';
 import { formatCurrency } from '../../lib/api/utils';
 import styles from './ProductQuickViewModal.module.scss';
+import { useProductStore } from '../../stores/useProductStore';
 
 type ProductQuickViewModalProps = {
   trigger: ReactNode;
-  product: Product;
+  id: Product['id'];
 };
 
-export const ProductQuickViewModal = ({ trigger, product }: ProductQuickViewModalProps) => {
+export const ProductQuickViewModal = ({ trigger, id }: ProductQuickViewModalProps) => {
+  const product = useProductStore((state) => state.getProductById)(id);
+  if (!product) return null;
+
   return (
     <Modal>
       <Modal.Trigger>{trigger}</Modal.Trigger>

@@ -6,23 +6,25 @@ import { Thumbnail } from './Thumbnail';
 import { Main } from './Main';
 import { Header } from './Header';
 import styles from './ProductCard.module.scss';
+import { useProductStore } from '../../stores/useProductStore';
+import { ReactNode } from 'react';
 
 type ProductCardProps = {
-  product: Product;
+  id: Product['id'];
+  children?: ReactNode;
 };
 
-export const ProductCard = ({ product }: ProductCardProps) => {
+export const ProductCard = ({ id }: ProductCardProps) => {
+  const product = useProductStore((state) => state.getProductById)(id);
+  if (!product) return null;
+
   return (
     <li className={styles.container}>
       <Card className={styles.card}>
-        <ProductCard.Thumbnail product={product} />
+        <ProductCard.Thumbnail id={id} />
         <Card.Content className={styles.card__content}>
-          <ProductCard.Header brand={product.brand} rating={product.rating} />
-          <ProductCard.Main
-            title={product.title}
-            price={product.price}
-            discountPercentage={product.discountPercentage}
-          />
+          <ProductCard.Header id={id} />
+          <ProductCard.Main id={id} />
           <Card.Footer>
             <Button
               variant="outline"

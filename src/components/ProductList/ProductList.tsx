@@ -21,7 +21,16 @@ export const ProductList = ({ offset }: ProductListProps) => {
   if (status === 'error') return <ProductListError />;
   return (
     <ul className={styles['products-list']}>
-      {hasProducts && products.map((p, index) => <ProductCard key={index} id={p.id} />)}
+      {hasProducts &&
+        products.map((p, index) => (
+          <ProductCard key={index}>
+            <ProductCard.Thumbnail id={p.id} />
+            <ProductCard.Content>
+              <ProductCard.Header id={p.id} />
+              <ProductCard.Main id={p.id} />
+            </ProductCard.Content>
+          </ProductCard>
+        ))}
       {status === 'loading' && <ProductListSkeleton quantity={skeletonQuantity} />}
     </ul>
   );

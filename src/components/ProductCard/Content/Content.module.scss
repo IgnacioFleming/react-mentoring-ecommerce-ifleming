@@ -1,0 +1,14 @@
+@use '../../../styles/variables' as *;
+
+.content {
+  flex-grow: 1;
+  gap: $spacing-sm;
+
+  &__footer {
+    &__btn {
+      display: flex;
+      align-items: center;
+      padding: $spacing-sm $spacing-md;
+    }
+  }
+}

@@ -1,27 +1,15 @@
 import { MemoryRouter } from 'react-router-dom';
-import { describe, expect, it, vi } from 'vitest';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { render } from '@testing-library/react';
 import { Product } from '../../../../types/products';
-import { useProducts } from '../../../hooks/useProducts';
 import { ShopProducts } from './ShopProducts';
 
 const mockUseProducts = vi.hoisted(() => vi.fn());
-
-vi.mock('../../../hooks/useProducts', () => ({
-  useProducts: mockUseProducts,
-}));
-
-vi.mock('../../../hooks/useInfiniteScroll', () => ({
-  useInfiniteScroll: () => ({ accItems: PRODUCTS_MOCK, loading: false }),
-}));
-
-vi.mock('../../../hooks/useIntersectionObserver', () => ({
-  useIntersectionObserver: vi.fn(),
-}));
-
-vi.mock('../../../hooks/useHandleOffset', () => ({
-  useHandleOffset: () => ({ offset: 1, handleOffset: vi.fn() }),
-}));
+const mockUseProductStore = vi.hoisted(() => vi.fn());
+const mockUseSetProducts = vi.hoisted(() => vi.fn());
+const mockUseInfiniteScroll = vi.hoisted(() => vi.fn());
+const mockUseIntersectionObserver = vi.hoisted(() => vi.fn());
+const mockUseHandleOffset = vi.hoisted(() => vi.fn());
 
 const REVIEWS_MOCK = vi.hoisted(() => [
   {
@@ -35,6 +23,7 @@ const REVIEWS_MOCK = vi.hoisted(() => [
 
 const PRODUCTS_MOCK: Product[] = vi.hoisted(() => [
   {
+    id: 1,
     brand: 'mockBrand 1',
     title: 'mockName 1',
     rating: 4.1,
@@ -46,6 +35,7 @@ const PRODUCTS_MOCK: Product[] = vi.hoisted(() => [
     reviews: REVIEWS_MOCK,
   },
   {
+    id: 2,
     brand: 'mockBrand 2',
     title: 'mockName 2',
     rating: 4.2,
@@ -57,6 +47,7 @@ const PRODUCTS_MOCK: Product[] = vi.hoisted(() => [
     reviews: REVIEWS_MOCK,
   },
   {
+    id: 3,
     brand: 'mockBrand 3',
     title: 'mockName 3',
     rating: 4.3,
@@ -69,7 +60,59 @@ const PRODUCTS_MOCK: Product[] = vi.hoisted(() => [
   },
 ]);
 
+vi.mock('../../../hooks/useProducts', () => ({
+  useProducts: mockUseProducts,
+}));
+
+vi.mock('../../../hooks/useInfiniteScroll', () => ({
+  useInfiniteScroll: mockUseInfiniteScroll,
+}));
+
+vi.mock('../../../hooks/useIntersectionObserver', () => ({
+  useIntersectionObserver: mockUseIntersectionObserver,
+}));
+
+vi.mock('../../../hooks/useHandleOffset', () => ({
+  useHandleOffset: mockUseHandleOffset,
+}));
+
+vi.mock('../../../../stores/useProductStore', () => ({
+  useProductStore: mockUseProductStore,
+}));
+
+vi.mock('../../../hooks/useSetProducts', () => ({
+  useSetProducts: mockUseSetProducts,
+}));
+
+vi.mock('../../../../components/ProductList', () => ({
+  ProductList: () => <div>Product List Mock</div>,
+}));
+
+vi.mock('./ShopProductsHeader', () => ({
+  ShopProductsHeader: () => <div>Header Mock</div>,
+}));
 describe('ShopProducts', () => {
+  beforeEach(() => {
+    vi.clearAllMocks();
+    mockUseProducts.mockReturnValue({
+      products: PRODUCTS_MOCK,
+      refetch: vi.fn(),
+    });
+
+    mockUseInfiniteScroll.mockReturnValue({
+      accItems: PRODUCTS_MOCK,
+      loading: false,
+    });
+
+    mockUseHandleOffset.mockReturnValue({
+      offset: 0,
+      handleOffset: vi.fn(),
+    });
+
+    mockUseSetProducts.mockReturnValue(undefined);
+    mockUseIntersectionObserver.mockReturnValue(undefined);
+  });
+
   const renderShopProducts = () =>
     render(
       <MemoryRouter>
@@ -77,39 +120,43 @@ describe('ShopProducts', () => {
       </MemoryRouter>,
     );
 
-  it('renders ProductListError component when data status is error', () => {
-    mockUseProducts.mockImplementation(() => ({
-      products: PRODUCTS_MOCK,
-      getQueryStatus: vi.fn().mockReturnValue('error'),
-      total: 24,
-    }));
-    const { getByRole } = renderShopProducts();
-    expect(getByRole('heading', { name: 'Loading Error:' }));
+  it('renders ShopProductsHeader component correctly', () => {
+    const { getByText } = renderShopProducts();
+    expect(getByText('Header Mock')).toBeInTheDocument();
+  });
+  it('renders ProductList component correctly', () => {
+    const { getByText } = renderShopProducts();
+    expect(getByText('Product List Mock')).toBeInTheDocument();
   });
 
-  it('renders skeletons when data status is loading', () => {
-    mockUseProducts.mockImplementation(() => ({
-      products: PRODUCTS_MOCK,
-      getQueryStatus: vi.fn().mockReturnValue('loading'),
-      total: 30,
-    }));
-    const { queryAllByTestId } = renderShopProducts();
-    expect(queryAllByTestId('skeleton')).toHaveLength(24 * 5);
+  it('renders sentinel div when status is success', () => {
+    mockUseProductStore.mockImplementation((selector) =>
+      selector({
+        status: 'success',
+        total: 3,
+        products: PRODUCTS_MOCK,
+      }),
+    );
+
+    const { getByTestId } = renderShopProducts();
+    expect(getByTestId('sentinel')).toBeInTheDocument();
   });
 
-  it('renders label and 3 ProductCards when data status is success', () => {
-    mockUseProducts.mockImplementation(() => ({
-      products: PRODUCTS_MOCK,
-      getQueryStatus: vi.fn().mockReturnValue('success'),
-      total: 3,
-    }));
-    const { total } = useProducts({ queryKey: 'shopProducts' });
-    const { getByText, queryAllByTestId } = renderShopProducts();
+  it('calls useSetProducts with accumulated items', () => {
+    const mockAccItems = [...PRODUCTS_MOCK];
 
-    expect(getByText(`Showing all ${total} results`));
-    expect(getByText('mockBrand 1'));
-    expect(getByText('mockBrand 2'));
-    expect(getByText('mockBrand 3'));
-    expect(queryAllByTestId('card')).toHaveLength(3);
+    mockUseProductStore.mockImplementation((selector) =>
+      selector({
+        products: PRODUCTS_MOCK,
+      }),
+    );
+
+    mockUseInfiniteScroll.mockReturnValue({
+      accItems: mockAccItems,
+    });
+
+    renderShopProducts();
+
+    expect(mockUseSetProducts).toHaveBeenCalledWith(mockAccItems);
   });
 });

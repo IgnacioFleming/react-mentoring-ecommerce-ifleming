@@ -1,5 +1,5 @@
 export const calculateSkeletonQuantity = (
-  total: number,
+  total: number | undefined,
   productsQuantity: number,
   offset: number,
 ) => {

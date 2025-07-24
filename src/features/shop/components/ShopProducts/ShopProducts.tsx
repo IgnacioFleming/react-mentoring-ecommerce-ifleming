@@ -3,13 +3,13 @@ import { useLocation } from 'react-router-dom';
 import { Product, ProductQueryParams } from '../../../../types/products';
 import { useProductStore } from '../../../../stores/useProductStore';
 import { useProducts } from '../../../hooks/useProducts';
+import { useSetProducts } from '../../../hooks/useSetProducts';
 import { useInfiniteScroll } from '../../../hooks/useInfiniteScroll';
 import { useIntersectionObserver } from '../../../hooks/useIntersectionObserver';
 import { useHandleOffset } from '../../../hooks/useHandleOffset';
 import { ProductList } from '../../../../components/ProductList';
 import { ShopProductsHeader } from './ShopProductsHeader';
 import styles from './ShopProducts.module.scss';
-import { useSetProducts } from '../../../hooks/useSetProducts';
 
 const LIMIT = 24;
 const SHOP_QUERY_KEY = 'shopProducts';
@@ -52,7 +52,7 @@ export const ShopProducts = () => {
       <div className={styles['product-list']}>
         <ProductList offset={LIMIT} />
       </div>
-      {status === 'success' && <div ref={sentinelRef} />}
+      {status === 'success' && <div ref={sentinelRef} data-testid="sentinel" />}
     </>
   );
 };

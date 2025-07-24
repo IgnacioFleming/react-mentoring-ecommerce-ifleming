@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom';
 import { Star } from 'lucide-react';
+import { useProductStore } from '../../../stores/useProductStore';
 import { Product } from '../../../types/products';
 import { Card } from '../../Card';
 import styles from './Header.module.scss';
-import { useProductStore } from '../../../stores/useProductStore';
 
 type HeaderProps = { id: Product['id'] };
 

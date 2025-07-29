@@ -18,7 +18,7 @@ export const ProductQuickViewModal = ({ trigger, id }: ProductQuickViewModalProp
     <Modal>
       <Modal.Trigger>{trigger}</Modal.Trigger>
       <Modal.Content className={styles.productQuickView}>
-        <ProductDetail id={id} />
+        <ProductDetail product={product} />
       </Modal.Content>
     </Modal>
   );

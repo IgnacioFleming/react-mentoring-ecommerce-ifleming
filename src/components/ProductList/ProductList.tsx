@@ -29,7 +29,7 @@ export const ProductList = ({ offset }: ProductListProps) => {
         products.map((p, index) => (
           <ProductCard key={index}>
             <ProductCard.Thumbnail id={p.id} />
-            <ProductCard.Content>
+            <ProductCard.Content id={p.id}>
               <ProductCard.Header id={p.id} />
               <ProductCard.Main id={p.id} />
             </ProductCard.Content>

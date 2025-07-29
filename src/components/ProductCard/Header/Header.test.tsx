@@ -1,19 +1,8 @@
-import { describe, expect, it, vi } from 'vitest';
+import { describe, expect, it } from 'vitest';
 import { render } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import { ProductCard } from '../ProductCard';
-
-type Selector = (state: { getProductById: () => void }) => void;
-
-const MOCK_BRAND = 'mockBrand';
-const MOCK_RATING = 4.5;
-
-vi.mock('../../../stores/useProductStore', () => ({
-  useProductStore: (selector: Selector) =>
-    selector({
-      getProductById: vi.fn().mockReturnValue({ brand: MOCK_BRAND, rating: MOCK_RATING }),
-    }),
-}));
+import { PRODUCTS_MOCK } from '@tests/setup';
 
 describe('ProductCardHeader', () => {
   const renderProductCardHeader = () =>
@@ -25,11 +14,11 @@ describe('ProductCardHeader', () => {
 
   it('renders brand name in content header', () => {
     const { getByRole } = renderProductCardHeader();
-    expect(getByRole('link', { name: MOCK_BRAND })).toBeInTheDocument();
+    expect(getByRole('link', { name: PRODUCTS_MOCK[0].brand })).toBeInTheDocument();
   });
 
   it('renders rating in content header', () => {
     const { getByText } = renderProductCardHeader();
-    expect(getByText(MOCK_RATING)).toBeInTheDocument();
+    expect(getByText(PRODUCTS_MOCK[0].rating)).toBeInTheDocument();
   });
 });

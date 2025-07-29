@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 import { useLocation } from 'react-router-dom';
 import { Product, ProductQueryParams } from '../../../../types/products';
-import { useProductStore } from '../../../../stores/useProductStore';
+import { useProductStore } from '@/stores/useProductStore';
 import { useProducts } from '../../../hooks/useProducts';
 import { useSetProducts } from '../../../hooks/useSetProducts';
 import { useInfiniteScroll } from '../../../hooks/useInfiniteScroll';

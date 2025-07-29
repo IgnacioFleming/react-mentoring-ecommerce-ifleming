@@ -2,7 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 import { DataStatus, ProductQueryParams } from '../../types/products';
 import { getProducts } from '../../lib/api/products';
 import { STALE_TIMES } from '../../lib/api/config';
-import { useProductStore } from '../../stores/useProductStore';
+import { useProductStore } from '@/stores/useProductStore';
 import { useEffect } from 'react';
 
 type UseProductsProps = {

@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { useProductStore } from '../../stores/useProductStore';
+import { useProductStore } from '@/stores/useProductStore';
 import { Product } from '../../types/products';
 
 export const useSetProducts = (products: Product[] = []) => {

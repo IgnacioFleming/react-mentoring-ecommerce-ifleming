@@ -11,7 +11,7 @@ export const ShopProductsHeader = () => {
   const total = useProductStore((state) => state.total);
 
   return (
-    <Header isVisible={total !== undefined}>
+    <Header isVisible={!!total}>
       <h6>Showing all {total} results</h6>
       <ShopProductsSelect />
     </Header>

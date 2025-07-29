@@ -4,7 +4,7 @@ import { DataStatus, Product } from '../types/products';
 type ProductStoreState = {
   products: Product[];
   status: DataStatus;
-  total: number | undefined;
+  total: number;
 };
 
 type ProductStoreActions = {
@@ -23,7 +23,7 @@ type ProductStore = ProductStoreState & ProductStoreActions;
 export const useProductStore = create<ProductStore>((set, get) => ({
   products: [],
   status: 'loading',
-  total: undefined,
+  total: 0,
   setProducts: (nextProducts) => {
     set((state) => ({
       products: typeof nextProducts === 'function' ? nextProducts(state.products) : nextProducts,
@@ -33,7 +33,7 @@ export const useProductStore = create<ProductStore>((set, get) => ({
     set({ status: nextStatus });
   },
   setTotal: (nextTotal) => {
-    set(() => ({ total: nextTotal }));
+    set({ total: nextTotal });
   },
   getProductById: (id) => get().products.find((p) => p.id === id),
 }));

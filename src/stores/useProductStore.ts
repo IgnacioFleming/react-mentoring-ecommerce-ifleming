@@ -30,7 +30,7 @@ export const useProductStore = create<ProductStore>((set, get) => ({
     }));
   },
   setStatus: (nextStatus) => {
-    set(() => ({ status: nextStatus }));
+    set({ status: nextStatus });
   },
   setTotal: (nextTotal) => {
     set(() => ({ total: nextTotal }));

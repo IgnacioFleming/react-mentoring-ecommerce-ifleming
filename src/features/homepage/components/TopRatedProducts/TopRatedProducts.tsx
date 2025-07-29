@@ -1,9 +1,10 @@
 import { useProducts } from '../../../hooks/useProducts';
 import { ProductList } from '../../../../components/ProductList';
 import { HomepageSection } from '../HomepageSection';
+import { useSetProducts } from '../../../hooks/useSetProducts';
 
 export const TopRatedProducts = () => {
-  const { products: topRatedProducts, getQueryStatus } = useProducts({
+  const { products } = useProducts({
     params: {
       sortBy: 'rating',
       order: 'desc',
@@ -12,7 +13,7 @@ export const TopRatedProducts = () => {
     queryKey: 'topRatedProducts',
   });
 
-  const status = getQueryStatus();
+  useSetProducts(products);
 
   return (
     <HomepageSection>
@@ -22,7 +23,7 @@ export const TopRatedProducts = () => {
         subtitle="Customer favorites loved for quality and style"
       />
       <HomepageSection.Content>
-        <ProductList products={topRatedProducts} status={status} skeletonQuantity={8} />
+        <ProductList offset={8} />
       </HomepageSection.Content>
     </HomepageSection>
   );

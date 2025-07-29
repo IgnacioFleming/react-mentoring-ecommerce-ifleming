@@ -1,34 +1,38 @@
 import { MemoryRouter } from 'react-router-dom';
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import { render } from '@testing-library/react';
-import { ShopProductsHeader, ShopProductsHeaderProps } from './ShopProductsHeader';
+import { ShopProductsHeader } from './ShopProductsHeader';
+import { useProductStore } from '@/stores/useProductStore';
+import { defaultProductStoreProps } from '@tests/setup';
+
+const mockUseProductStore = vi.mocked(useProductStore);
 
 describe('ShopProductsHeader', () => {
-  const mockTotal = 10;
-
-  const renderShopProductsHeader = (props?: ShopProductsHeaderProps) => {
-    const defaultProps: ShopProductsHeaderProps = {
-      isVisible: false,
-      total: mockTotal,
-    };
-    return render(
+  const renderShopProductsHeader = () =>
+    render(
       <MemoryRouter>
-        <ShopProductsHeader {...defaultProps} {...props} />
+        <ShopProductsHeader />
       </MemoryRouter>,
     );
-  };
 
-  it('should not render heading and Select when isVisible prop is false', () => {
+  it('should not render heading and Select when total is 0', () => {
+    const mockTotal = 0;
+    mockUseProductStore.mockImplementation((selector) =>
+      selector({ ...defaultProductStoreProps, total: mockTotal }),
+    );
     const { queryByRole, queryByTestId } = renderShopProductsHeader();
-    expect(
-      queryByRole('heading', { name: `Showing all ${mockTotal} results` }),
-    ).not.toBeInTheDocument();
+    expect(queryByRole('heading', { name: `Showing all ${3} results` })).not.toBeInTheDocument();
     expect(queryByTestId('select')).not.toBeInTheDocument();
   });
 
-  it('should render heading and Select when isVisible prop is true', () => {
-    const { queryByRole, queryByTestId } = renderShopProductsHeader({ isVisible: true, total: 5 });
-    expect(queryByRole('heading', { name: `Showing all 5 results` })).toBeInTheDocument();
+  it('should render heading and Select when total is greater than 0', () => {
+    const mockTotal = 10;
+    mockUseProductStore.mockImplementation((selector) =>
+      selector({ ...defaultProductStoreProps, total: mockTotal }),
+    );
+
+    const { queryByRole, queryByTestId } = renderShopProductsHeader();
+    expect(queryByRole('heading', { name: `Showing all 10 results` })).toBeInTheDocument();
     expect(queryByTestId('select')).toBeInTheDocument();
   });
 });

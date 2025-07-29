@@ -1,25 +1,41 @@
-import { DataStatus, Product, PRODUCT_DATA_STATUS } from '../../types/products';
+import { useProductStore } from '@/stores/useProductStore';
+import { calculateSkeletonQuantity } from '../../features/utils';
 import { ProductCard } from '../ProductCard';
 import { ProductListError } from './ProductListError';
 import { ProductListSkeleton } from './ProductListSkeleton';
 import styles from './ProductList.module.scss';
 
 export type ProductListProps = {
-  products: Product[];
-  status: DataStatus;
-  skeletonQuantity: number;
+  offset: number;
 };
 
-export const ProductList = ({ products, status, skeletonQuantity }: ProductListProps) => {
-  const isError = status === PRODUCT_DATA_STATUS.ERROR;
-  const isLoading = status === PRODUCT_DATA_STATUS.LOADING;
+export const ProductList = ({ offset }: ProductListProps) => {
+  const products = useProductStore((state) => state.products);
+  const status = useProductStore((state) => state.status);
+  const total = useProductStore((state) => state.total);
+
   const hasProducts = products.length > 0;
 
-  if (isError) return <ProductListError />;
+  const skeletonQuantity = calculateSkeletonQuantity(total, products.length, offset);
+
+  console.log('total', total);
+  console.log('products.length', products.length);
+  console.log('offset', offset);
+
+  if (status === 'error') return <ProductListError />;
   return (
     <ul className={styles['products-list']}>
-      {hasProducts && products.map((p, index) => <ProductCard key={index} product={p} />)}
-      {isLoading && <ProductListSkeleton quantity={skeletonQuantity} />}
+      {hasProducts &&
+        products.map((p, index) => (
+          <ProductCard key={index}>
+            <ProductCard.Thumbnail id={p.id} />
+            <ProductCard.Content>
+              <ProductCard.Header id={p.id} />
+              <ProductCard.Main id={p.id} />
+            </ProductCard.Content>
+          </ProductCard>
+        ))}
+      {status === 'loading' && <ProductListSkeleton quantity={skeletonQuantity} />}
     </ul>
   );
 };

@@ -1,46 +1,14 @@
 import { fireEvent, render } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 import { ProductQuickViewModal } from './ProductQuickViewModal';
-import { Product } from '../../types/products';
+import { PRODUCTS_MOCK } from '@tests/setup';
+import { formatCurrency } from '@/lib/api/utils';
+
+const mockTrigger = <button>Trigger</button>;
 
 describe('ProductQuickViewModal', () => {
-  const mockTrigger = <button>Trigger</button>;
-  const mockProduct: Product = {
-    brand: 'mockBrand',
-    title: 'mockTitle',
-    rating: 5,
-    discountPercentage: 10,
-    price: 1100.32,
-    thumbnail: 'mockUrl',
-    availabilityStatus: 'In Stock',
-    description: 'Some short description',
-    reviews: [
-      {
-        rating: 3,
-        comment: 'some comment',
-        date: new Date(),
-        reviewerName: 'mockReviewer',
-        reviewerEmail: 'mock.reviewer@example.com',
-      },
-      {
-        rating: 4.2,
-        comment: 'some comment',
-        date: new Date(),
-        reviewerName: 'mockReviewer2',
-        reviewerEmail: 'mock.reviewer2@example.com',
-      },
-      {
-        rating: 2.8,
-        comment: 'some comment',
-        date: new Date(),
-        reviewerName: 'mockReviewer3',
-        reviewerEmail: 'mock.reviewer3@example.com',
-      },
-    ],
-  };
-
   const renderProductQuickViewModal = () =>
-    render(<ProductQuickViewModal trigger={mockTrigger} product={mockProduct} />);
+    render(<ProductQuickViewModal trigger={mockTrigger} id={1} />);
 
   it('should render only trigger at first', () => {
     const { getByRole, queryByTestId } = renderProductQuickViewModal();
@@ -58,13 +26,16 @@ describe('ProductQuickViewModal', () => {
     const { getByRole, getAllByTestId, getByAltText, getByText, getByTestId } =
       renderProductQuickViewModal();
     fireEvent.click(getByRole('button', { name: 'Trigger' }));
+    const { title, reviews, price, availabilityStatus, description } = PRODUCTS_MOCK[0];
     expect(getByAltText('Photo of the product')).toBeInTheDocument();
-    expect(getByRole('heading', { name: 'mockTitle' })).toBeInTheDocument();
+    expect(getByRole('heading', { name: title })).toBeInTheDocument();
     expect(getAllByTestId('star')).toHaveLength(5);
-    expect(getByRole('heading', { name: '3 Reviews' })).toBeInTheDocument();
-    expect(getByRole('heading', { name: '$1,100.32' })).toBeInTheDocument();
-    expect(getByRole('heading', { name: 'Availability: In Stock' })).toBeInTheDocument();
-    expect(getByText('Some short description')).toBeInTheDocument();
+    expect(getByRole('heading', { name: `${reviews.length} Reviews` })).toBeInTheDocument();
+    expect(getByRole('heading', { name: formatCurrency(price) })).toBeInTheDocument();
+    expect(
+      getByRole('heading', { name: `Availability: ${availabilityStatus}` }),
+    ).toBeInTheDocument();
+    expect(getByText(description)).toBeInTheDocument();
     expect(getByRole('button', { name: 'Add to cart' })).toBeInTheDocument();
     expect(getByTestId('mark-fav')).toBeInTheDocument();
   });

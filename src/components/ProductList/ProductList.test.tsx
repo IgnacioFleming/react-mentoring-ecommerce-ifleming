@@ -1,68 +1,31 @@
-import { describe, expect, it } from 'vitest';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { render } from '@testing-library/react';
-import { MemoryRouter } from 'react-router-dom';
-import { Product } from '../../types/products';
 import { ProductList, ProductListProps } from './ProductList';
+import { useProductStore } from '@/stores/useProductStore';
+import { defaultProductStoreProps } from '@tests/setup';
 
-const REVIEWS_MOCK = [
-  {
-    rating: 3,
-    comment: 'some comment',
-    date: new Date(),
-    reviewerName: 'mockReviewer',
-    reviewerEmail: 'mock.reviewer@example.com',
-  },
-];
+const mockUseProductStore = vi.mocked(useProductStore);
 
-const PRODUCTS_MOCK: Product[] = [
-  {
-    brand: 'mockBrand 1',
-    title: 'mockName 1',
-    rating: 4.1,
-    price: 100,
-    discountPercentage: 10,
-    thumbnail: 'mockURL/1',
-    availabilityStatus: 'In Stock',
-    description: 'Some short description',
-    reviews: REVIEWS_MOCK,
-  },
-  {
-    brand: 'mockBrand 2',
-    title: 'mockName 2',
-    rating: 4.2,
-    price: 200,
-    discountPercentage: 20,
-    thumbnail: 'mockURL/2',
-    availabilityStatus: 'In Stock',
-    description: 'Some short description',
-    reviews: REVIEWS_MOCK,
-  },
-  {
-    brand: 'mockBrand 3',
-    title: 'mockName 3',
-    rating: 4.3,
-    price: 300,
-    discountPercentage: 30,
-    thumbnail: 'mockURL/3',
-    availabilityStatus: 'In Stock',
-    description: 'Some short description',
-    reviews: REVIEWS_MOCK,
-  },
-];
+vi.mock('../ProductCard', async () => {
+  const actual = (await vi.importActual('../ProductCard')) as typeof import('../ProductCard');
+  const ProductCardMock = actual.ProductCard;
+  ProductCardMock.Thumbnail = () => <div>Thumbnail</div>;
+  ProductCardMock.Header = () => <div>Header</div>;
+  ProductCardMock.Main = () => <div>Main</div>;
+  return { ProductCard: ProductCardMock };
+});
 
 describe('ProductList', () => {
   const renderProductListMock = (props?: Partial<ProductListProps>) => {
     const defaultProps: ProductListProps = {
-      products: PRODUCTS_MOCK,
-      skeletonQuantity: 4,
-      status: 'success',
+      offset: 10,
     };
-    return render(
-      <MemoryRouter>
-        <ProductList {...defaultProps} {...props} />
-      </MemoryRouter>,
-    );
+    return render(<ProductList {...defaultProps} {...props} />);
   };
+
+  beforeEach(() => {
+    vi.clearAllMocks();
+  });
 
   it('renders the component correctly', () => {
     const { getByRole } = renderProductListMock();
@@ -76,12 +39,18 @@ describe('ProductList', () => {
   });
 
   it('renders ProductListError when status is error', () => {
-    const { getByRole } = renderProductListMock({ status: 'error' });
+    mockUseProductStore.mockImplementation((selector) =>
+      selector({ ...defaultProductStoreProps, status: 'error' }),
+    );
+    const { getByRole } = renderProductListMock();
     expect(getByRole('heading', { name: 'Loading Error:' }));
   });
 
   it('renders skeletons when status is loading', () => {
-    const { queryAllByTestId } = renderProductListMock({ status: 'loading' });
-    expect(queryAllByTestId('skeleton')).toHaveLength(5 * 4);
+    mockUseProductStore.mockImplementation((selector) =>
+      selector({ ...defaultProductStoreProps, status: 'loading' }),
+    );
+    const { queryAllByTestId } = renderProductListMock();
+    expect(queryAllByTestId('skeleton')).toHaveLength(5 * 2);
   });
 });

@@ -5,19 +5,24 @@ import { Card } from '../../Card';
 import { ProductQuickViewModal } from '../../ProductQuickViewModal';
 import hoverStyles from '../ProductCard.module.scss';
 import styles from './Thumbnail.module.scss';
+import { useProductStore } from '@/stores/useProductStore';
 
-type ThumbnailProps = { product: Product };
+type ThumbnailProps = { id: Product['id'] };
 
-export const Thumbnail = ({ product }: ThumbnailProps) => (
-  <Card.Thumbnail
-    src={product.thumbnail}
-    alt={`${product.title} photo`}
-    className={styles.thumbnail}
-  >
-    <div className={clsx(hoverStyles.thumbnail__icons, styles.thumbnail__icons)}>
-      <Heart />
-      <ShoppingCart />
-      <ProductQuickViewModal trigger={<Eye />} product={product} />
-    </div>
-  </Card.Thumbnail>
-);
+export const Thumbnail = ({ id }: ThumbnailProps) => {
+  const product = useProductStore((state) => state.getProductById)(id)!;
+
+  return (
+    <Card.Thumbnail
+      src={product.thumbnail}
+      alt={`${product.title} photo`}
+      className={styles.thumbnail}
+    >
+      <div className={clsx(hoverStyles.thumbnail__icons, styles.thumbnail__icons)}>
+        <Heart />
+        <ShoppingCart />
+        <ProductQuickViewModal trigger={<Eye />} id={id} />
+      </div>
+    </Card.Thumbnail>
+  );
+};

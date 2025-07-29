@@ -1,6 +1,7 @@
 import { defineConfig, UserConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import svgr from 'vite-plugin-svgr';
+import path from 'node:path';
 
 export default defineConfig({
   plugins: [
@@ -21,5 +22,10 @@ export default defineConfig({
     environment: 'jsdom',
     globals: true,
     setupFiles: ['./tests/setup.ts'],
+  },
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, 'src'),
+    },
   },
 } as UserConfig);

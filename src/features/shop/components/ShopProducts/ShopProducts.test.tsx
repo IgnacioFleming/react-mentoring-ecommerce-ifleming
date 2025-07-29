@@ -5,7 +5,6 @@ import { Product } from '../../../../types/products';
 import { ShopProducts } from './ShopProducts';
 
 const mockUseProducts = vi.hoisted(() => vi.fn());
-const mockUseProductStore = vi.hoisted(() => vi.fn());
 const mockUseSetProducts = vi.hoisted(() => vi.fn());
 const mockUseInfiniteScroll = vi.hoisted(() => vi.fn());
 const mockUseIntersectionObserver = vi.hoisted(() => vi.fn());
@@ -76,10 +75,6 @@ vi.mock('../../../hooks/useHandleOffset', () => ({
   useHandleOffset: mockUseHandleOffset,
 }));
 
-vi.mock('../../../../stores/useProductStore', () => ({
-  useProductStore: mockUseProductStore,
-}));
-
 vi.mock('../../../hooks/useSetProducts', () => ({
   useSetProducts: mockUseSetProducts,
 }));
@@ -130,27 +125,12 @@ describe('ShopProducts', () => {
   });
 
   it('renders sentinel div when status is success', () => {
-    mockUseProductStore.mockImplementation((selector) =>
-      selector({
-        status: 'success',
-        total: 3,
-        products: PRODUCTS_MOCK,
-      }),
-    );
-
     const { getByTestId } = renderShopProducts();
     expect(getByTestId('sentinel')).toBeInTheDocument();
   });
 
   it('calls useSetProducts with accumulated items', () => {
     const mockAccItems = [...PRODUCTS_MOCK];
-
-    mockUseProductStore.mockImplementation((selector) =>
-      selector({
-        products: PRODUCTS_MOCK,
-      }),
-    );
-
     mockUseInfiniteScroll.mockReturnValue({
       accItems: mockAccItems,
     });

@@ -2,9 +2,11 @@ import { afterEach, vi } from 'vitest';
 import { cleanup } from '@testing-library/react';
 import '@testing-library/jest-dom/vitest';
 import { Product } from '@/types/products';
+import { ProductStore } from '@/stores/useProductStore';
 
 afterEach(() => {
   cleanup();
+  vi.clearAllMocks();
 });
 
 const REVIEWS_MOCK = [
@@ -17,7 +19,7 @@ const REVIEWS_MOCK = [
   },
 ];
 
-const PRODUCTS_MOCK: Product[] = [
+export const PRODUCTS_MOCK: Product[] = [
   {
     id: 1,
     brand: 'mockBrand 1',
@@ -55,14 +57,23 @@ const PRODUCTS_MOCK: Product[] = [
     reviews: REVIEWS_MOCK,
   },
 ];
-const mockUseProductStore = vi
-  .hoisted(() => vi.fn())
-  .mockImplementation((selector) =>
-    selector({
-      status: 'success',
-      total: 3,
-      products: PRODUCTS_MOCK,
-    }),
-  );
 
-vi.mock('@/stores/useProductStore', () => ({ useProductStore: mockUseProductStore }));
+export const defaultProductStoreProps: ProductStore = {
+  status: 'success',
+  total: 5,
+  products: PRODUCTS_MOCK,
+  getProductById: vi.fn().mockReturnValue(PRODUCTS_MOCK[0]),
+  setProducts: vi.fn(),
+  setStatus: vi.fn(),
+  setTotal: vi.fn(),
+};
+
+const mockUseProductStore = vi.hoisted(() =>
+  vi.fn().mockImplementation((selector) => selector({ ...defaultProductStoreProps })),
+);
+
+vi.mock('@/stores/useProductStore', () => {
+  return {
+    useProductStore: mockUseProductStore,
+  };
+});

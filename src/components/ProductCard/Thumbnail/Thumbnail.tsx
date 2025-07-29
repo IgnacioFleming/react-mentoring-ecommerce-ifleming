@@ -5,7 +5,7 @@ import { Card } from '../../Card';
 import { ProductQuickViewModal } from '../../ProductQuickViewModal';
 import hoverStyles from '../ProductCard.module.scss';
 import styles from './Thumbnail.module.scss';
-import { useProductStore } from '../../../stores/useProductStore';
+import { useProductStore } from '@/stores/useProductStore';
 
 type ThumbnailProps = { id: Product['id'] };
 

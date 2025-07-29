@@ -1,60 +1,10 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
-import { render, screen } from '@testing-library/react';
-import { Product } from '../../types/products';
+import { render } from '@testing-library/react';
 import { ProductList, ProductListProps } from './ProductList';
+import { useProductStore } from '@/stores/useProductStore';
+import { defaultProductStoreProps } from '@tests/setup';
 
-const REVIEWS_MOCK = [
-  {
-    rating: 3,
-    comment: 'some comment',
-    date: new Date(),
-    reviewerName: 'mockReviewer',
-    reviewerEmail: 'mock.reviewer@example.com',
-  },
-];
-
-const PRODUCTS_MOCK: Product[] = [
-  {
-    id: 1,
-    brand: 'mockBrand 1',
-    title: 'mockName 1',
-    rating: 4.1,
-    price: 100,
-    discountPercentage: 10,
-    thumbnail: 'mockURL/1',
-    availabilityStatus: 'In Stock',
-    description: 'Some short description',
-    reviews: REVIEWS_MOCK,
-  },
-  {
-    id: 2,
-    brand: 'mockBrand 2',
-    title: 'mockName 2',
-    rating: 4.2,
-    price: 200,
-    discountPercentage: 20,
-    thumbnail: 'mockURL/2',
-    availabilityStatus: 'In Stock',
-    description: 'Some short description',
-    reviews: REVIEWS_MOCK,
-  },
-  {
-    id: 3,
-    brand: 'mockBrand 3',
-    title: 'mockName 3',
-    rating: 4.3,
-    price: 300,
-    discountPercentage: 30,
-    thumbnail: 'mockURL/3',
-    availabilityStatus: 'In Stock',
-    description: 'Some short description',
-    reviews: REVIEWS_MOCK,
-  },
-];
-
-const mockUseProductStore = vi.hoisted(() => vi.fn());
-
-vi.mock('../../stores/useProductStore', () => ({ useProductStore: mockUseProductStore }));
+const mockUseProductStore = vi.mocked(useProductStore);
 
 vi.mock('../ProductCard', async () => {
   const actual = (await vi.importActual('../ProductCard')) as typeof import('../ProductCard');
@@ -75,13 +25,6 @@ describe('ProductList', () => {
 
   beforeEach(() => {
     vi.clearAllMocks();
-    mockUseProductStore.mockImplementation((selector) =>
-      selector({
-        status: 'success',
-        total: 3,
-        products: PRODUCTS_MOCK,
-      }),
-    );
   });
 
   it('renders the component correctly', () => {
@@ -97,11 +40,7 @@ describe('ProductList', () => {
 
   it('renders ProductListError when status is error', () => {
     mockUseProductStore.mockImplementation((selector) =>
-      selector({
-        status: 'error',
-        total: 3,
-        products: PRODUCTS_MOCK,
-      }),
+      selector({ ...defaultProductStoreProps, status: 'error' }),
     );
     const { getByRole } = renderProductListMock();
     expect(getByRole('heading', { name: 'Loading Error:' }));
@@ -109,14 +48,9 @@ describe('ProductList', () => {
 
   it('renders skeletons when status is loading', () => {
     mockUseProductStore.mockImplementation((selector) =>
-      selector({
-        status: 'loading',
-        total: 3,
-        products: [],
-      }),
+      selector({ ...defaultProductStoreProps, status: 'loading' }),
     );
     const { queryAllByTestId } = renderProductListMock();
-    screen.debug();
-    expect(queryAllByTestId('skeleton')).toHaveLength(5 * 3);
+    expect(queryAllByTestId('skeleton')).toHaveLength(5 * 2);
   });
 });

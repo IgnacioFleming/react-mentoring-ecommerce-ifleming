@@ -6,7 +6,7 @@ import { Button } from '../Button';
 import { ProductRating } from '../ProductRating';
 import { Separator } from '../Separator';
 import { formatCurrency } from '../../lib/api/utils';
-import { useProductStore } from '../../stores/useProductStore';
+import { useProductStore } from '@/stores/useProductStore';
 import styles from './ProductQuickViewModal.module.scss';
 
 type ProductQuickViewModalProps = {

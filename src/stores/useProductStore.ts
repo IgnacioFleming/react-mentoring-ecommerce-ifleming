@@ -18,7 +18,7 @@ type ProductStoreActions = {
   getProductById: (id: Product['id']) => Product | undefined;
 };
 
-type ProductStore = ProductStoreState & ProductStoreActions;
+export type ProductStore = ProductStoreState & ProductStoreActions;
 
 export const useProductStore = create<ProductStore>((set, get) => ({
   products: [],

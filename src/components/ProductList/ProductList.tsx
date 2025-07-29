@@ -1,4 +1,4 @@
-import { useProductStore } from '../../stores/useProductStore';
+import { useProductStore } from '@/stores/useProductStore';
 import { calculateSkeletonQuantity } from '../../features/utils';
 import { ProductCard } from '../ProductCard';
 import { ProductListError } from './ProductListError';
@@ -17,6 +17,10 @@ export const ProductList = ({ offset }: ProductListProps) => {
   const hasProducts = products.length > 0;
 
   const skeletonQuantity = calculateSkeletonQuantity(total, products.length, offset);
+
+  console.log('total', total);
+  console.log('products.length', products.length);
+  console.log('offset', offset);
 
   if (status === 'error') return <ProductListError />;
   return (

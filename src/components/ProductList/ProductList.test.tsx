@@ -3,6 +3,7 @@ import { render } from '@testing-library/react';
 import { ProductList, ProductListProps } from './ProductList';
 import { useProductStore } from '@/stores/useProductStore';
 import { defaultProductStoreProps } from '@tests/setup';
+import { MemoryRouter } from 'react-router-dom';
 
 const mockUseProductStore = vi.mocked(useProductStore);
 
@@ -20,7 +21,11 @@ describe('ProductList', () => {
     const defaultProps: ProductListProps = {
       offset: 10,
     };
-    return render(<ProductList {...defaultProps} {...props} />);
+    return render(
+      <MemoryRouter>
+        <ProductList {...defaultProps} {...props} />
+      </MemoryRouter>,
+    );
   };
 
   beforeEach(() => {

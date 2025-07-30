@@ -1,5 +1,6 @@
 import { STALE_TIMES } from '@/lib/api/config';
 import { getProductById } from '@/lib/api/products';
+import { getQueryStatus } from '@/lib/api/utils';
 import { Product } from '@/types/products';
 import { useQuery } from '@tanstack/react-query';
 
@@ -16,5 +17,7 @@ export const useGetProductById = (id: Product['id']) => {
     gcTime: 0,
   });
 
-  return { product, isLoading, isError, ...rest };
+  const dataStatus = getQueryStatus(isError, isLoading);
+
+  return { product, dataStatus, ...rest };
 };

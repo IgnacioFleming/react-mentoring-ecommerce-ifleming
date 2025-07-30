@@ -1,3 +1,5 @@
+import { DataStatus } from '@/types/products';
+
 export const composeQueryParams = <T extends Record<string, unknown>>(
   params: Partial<T> = {},
 ): string => {
@@ -21,4 +23,10 @@ export const formatCurrency = (value: number) => {
     currency: 'USD',
     minimumFractionDigits: 2,
   });
+};
+
+export const getQueryStatus = (isError: boolean, isFetching: boolean): DataStatus => {
+  if (isError) return 'error';
+  if (isFetching) return 'loading';
+  return 'success';
 };

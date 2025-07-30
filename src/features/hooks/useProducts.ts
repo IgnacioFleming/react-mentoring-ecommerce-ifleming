@@ -1,9 +1,10 @@
 import { useQuery } from '@tanstack/react-query';
-import { DataStatus, ProductQueryParams } from '../../types/products';
+import { ProductQueryParams } from '../../types/products';
 import { getProducts } from '../../lib/api/products';
 import { STALE_TIMES } from '../../lib/api/config';
 import { useProductStore } from '@/stores/useProductStore';
 import { useEffect } from 'react';
+import { getQueryStatus } from '@/lib/api/utils';
 
 type UseProductsProps = {
   queryKey: string;
@@ -25,15 +26,11 @@ export const useProducts = ({ queryKey, params = {} }: UseProductsProps) => {
     queryKey: [queryKey],
     queryFn: () => getProducts(params),
     staleTime: STALE_TIMES.DEFAULT,
+    gcTime: 0,
   });
 
   useEffect(() => {
-    const getQueryStatus = (): DataStatus => {
-      if (isErrorProducts) return 'error';
-      if (isFetchingProducts) return 'loading';
-      return 'success';
-    };
-    setStatus(getQueryStatus());
+    setStatus(getQueryStatus(isErrorProducts, isFetchingProducts));
   }, [isErrorProducts, isFetchingProducts, setStatus]);
 
   useEffect(() => {

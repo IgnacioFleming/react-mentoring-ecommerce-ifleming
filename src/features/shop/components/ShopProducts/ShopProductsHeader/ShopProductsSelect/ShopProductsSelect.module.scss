@@ -1,9 +1,9 @@
-@use '../../../../../../styles/variables' as *;
+@use '@/styles/variables' as *;
 
 .select {
   &__trigger {
-    width: $size-select-width;
-    height: $size-select-height;
+    width: $size-btn-width;
+    height: $size-btn-height;
     display: flex;
     justify-content: center;
     align-items: center;

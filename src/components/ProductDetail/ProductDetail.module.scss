@@ -23,6 +23,7 @@
       object-fit: contain;
 
       @include is-tablet {
+        height: $size-image-desktop;
         height: 100%;
       }
     }

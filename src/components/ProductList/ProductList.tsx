@@ -24,12 +24,12 @@ export const ProductList = ({ offset }: ProductListProps) => {
   return (
     <ul className={styles['products-list']}>
       {hasProducts &&
-        products.map((p, index) => (
+        products.map(({ id }, index) => (
           <ProductCard key={index}>
-            <ProductCard.Thumbnail id={p.id} />
-            <ProductCard.Content id={p.id}>
-              <ProductCard.Header id={p.id} />
-              <ProductCard.Main id={p.id} />
+            <ProductCard.Thumbnail id={id} />
+            <ProductCard.Content id={id}>
+              <ProductCard.Header id={id} />
+              <ProductCard.Main id={id} />
             </ProductCard.Content>
           </ProductCard>
         ))}

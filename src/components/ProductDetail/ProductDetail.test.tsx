@@ -13,7 +13,7 @@ describe('ProductQuickViewModal', () => {
     const { getByRole, getAllByTestId, getByAltText, getByText, getByTestId } =
       renderProductQuickViewModal();
     const { title, reviews, price, availabilityStatus, description } = mockProduct;
-    expect(getByAltText('Photo of the product')).toBeInTheDocument();
+    expect(getByAltText(`Photo of ${title}`)).toBeInTheDocument();
     expect(getByRole('heading', { name: title })).toBeInTheDocument();
     expect(getAllByTestId('star')).toHaveLength(5);
     expect(getByRole('heading', { name: `${reviews.length} Reviews` })).toBeInTheDocument();

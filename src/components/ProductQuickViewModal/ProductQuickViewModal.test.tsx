@@ -27,7 +27,7 @@ describe('ProductQuickViewModal', () => {
       renderProductQuickViewModal();
     fireEvent.click(getByRole('button', { name: 'Trigger' }));
     const { title, reviews, price, availabilityStatus, description } = PRODUCTS_MOCK[0];
-    expect(getByAltText('Photo of the product')).toBeInTheDocument();
+    expect(getByAltText(`Photo of ${title}`)).toBeInTheDocument();
     expect(getByRole('heading', { name: title })).toBeInTheDocument();
     expect(getAllByTestId('star')).toHaveLength(5);
     expect(getByRole('heading', { name: `${reviews.length} Reviews` })).toBeInTheDocument();

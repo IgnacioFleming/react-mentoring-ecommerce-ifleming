@@ -14,7 +14,7 @@ export const ProductDetail = ({ product }: ProductDetailProps) => {
   return (
     <div className={styles['product-detail']}>
       <header className={styles['product-detail__header']}>
-        <img height={300} width={300} src={product.thumbnail} alt="Photo of the product" />
+        <img height={300} width={300} src={product.thumbnail} alt={`Photo of ${product.title}`} />
       </header>
       <div className={styles['product-detail__content']}>
         <h4 className={styles['product-detail__content__title']}>{product.title}</h4>

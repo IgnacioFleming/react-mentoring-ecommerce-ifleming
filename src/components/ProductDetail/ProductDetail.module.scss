@@ -1,4 +1,4 @@
-@use '../../styles/variables' as *;
+@use '@/styles/variables' as *;
 
 .product-detail {
   display: flex;
@@ -60,7 +60,7 @@
     }
 
     &__separator {
-      border: 1px solid $color-muted;
+      border: $border-muted;
     }
   }
   &__footer {
@@ -78,12 +78,12 @@
       background-color: $color-light-background;
       height: $size-icon-lg;
       width: $size-icon-lg;
-      border: 1px solid $color-gray-300;
+      border: $border-thin-gray-300;
       border-radius: $spacing-2xl;
-      padding: 10px;
+      padding: $spacing-sm;
       cursor: pointer;
       fill: $color-light-background;
-      transition: all 0.2s ease-in-out;
+      transition: $transition-default;
 
       &:hover {
         fill: $color-danger;

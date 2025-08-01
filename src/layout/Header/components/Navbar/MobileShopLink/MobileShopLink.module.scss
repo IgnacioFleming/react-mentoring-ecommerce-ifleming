@@ -12,7 +12,7 @@
     gap: $spacing-sm;
 
     &__chevron {
-      transition: transform 0.2s ease-in-out;
+      transition: $transition-default;
     }
 
     &[data-state='open'] &__chevron {

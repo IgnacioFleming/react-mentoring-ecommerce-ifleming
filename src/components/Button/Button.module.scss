@@ -1,9 +1,9 @@
-@use '../../styles/variables' as *;
+@use '@/styles/variables' as *;
 
 .button {
   font-weight: $font-weight-bold;
   cursor: pointer;
-  transition: all 0.2s ease-in-out;
+  transition: $transition-default;
   border-radius: $radius-sm;
 
   &:hover {

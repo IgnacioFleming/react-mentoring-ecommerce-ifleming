@@ -30,7 +30,7 @@
     a {
       font: $font-link;
       color: $color-second-text;
-      transition: all 0.2s ease-in-out;
+      transition: $transition-default;
 
       &:hover {
         opacity: 0.8;

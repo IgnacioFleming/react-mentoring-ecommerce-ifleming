@@ -1,4 +1,4 @@
-@use '../../../styles/variables' as *;
+@use '@/styles/variables' as *;
 
 .thumbnail {
   position: relative;
@@ -11,7 +11,7 @@
     gap: $spacing-sm;
     position: absolute;
     bottom: $spacing-lg;
-    transition: opacity 0.2s ease-in-out;
+    transition: $transition-default;
     svg {
       height: $size-icon-md;
       width: $size-icon-md;
@@ -20,7 +20,7 @@
       color: $color-text;
       border-radius: $radius-2xl;
       cursor: pointer;
-      transition: background-color 0.2s ease-in-out;
+      transition: $transition-default;
 
       &:hover {
         background-color: $color-gray-300;

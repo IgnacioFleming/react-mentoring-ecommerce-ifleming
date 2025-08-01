@@ -9,7 +9,7 @@
     align-items: center;
     background-color: $color-gray-100;
     gap: $spacing-md;
-    border: $border-select;
+    border: $border-button;
     color: $color-second-text;
     font: $font-select;
     cursor: pointer;
@@ -21,7 +21,7 @@
 
     &:hover,
     &:focus {
-      border: $border-select-focus;
+      border: $border-thick-gray-400;
       outline: none;
     }
     &__icon {

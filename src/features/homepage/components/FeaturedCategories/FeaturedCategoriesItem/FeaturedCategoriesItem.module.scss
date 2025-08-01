@@ -1,4 +1,4 @@
-@use '../../../../../styles/variables' as *;
+@use '@/styles/variables' as *;
 
 .featured-categories-item {
   position: relative;
@@ -8,7 +8,7 @@
     width: 100%;
     height: $size-section-image;
     object-fit: cover;
-    transition: transform 0.2s ease-in-out;
+    transition: $transition-default;
 
     &--stacked {
       height: calc(($size-section-image - $spacing-lg) / 2);

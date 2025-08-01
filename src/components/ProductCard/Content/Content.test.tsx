@@ -1,13 +1,16 @@
 import { describe, expect, it } from 'vitest';
 import { render } from '@testing-library/react';
 import { ProductCard } from '../ProductCard';
+import { MemoryRouter } from 'react-router-dom';
 
 describe('ProductCard.Content', () => {
   const renderProductCardContent = () =>
     render(
-      <ProductCard.Content>
-        <div>Children</div>
-      </ProductCard.Content>,
+      <MemoryRouter>
+        <ProductCard.Content id={1}>
+          <div>Children</div>
+        </ProductCard.Content>
+      </MemoryRouter>,
     );
   it('renders children correctly', () => {
     const { getByText } = renderProductCardContent();

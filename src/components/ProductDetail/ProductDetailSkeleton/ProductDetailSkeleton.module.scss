@@ -1,0 +1,58 @@
+@use '@/styles/_variables' as *;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xl;
+
+  @include is-tablet {
+    flex-direction: row;
+  }
+}
+
+.thumbnail {
+  height: $size-image-mobile;
+  flex-shrink: 0;
+  @include is-tablet {
+    width: 50%;
+    height: $size-image-desktop;
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+  padding-inline: $spacing-lg;
+  width: 100%;
+  &__line {
+    height: $spacing-xl;
+  }
+
+  &__block {
+    &--sm {
+      height: $spacing-3xl;
+    }
+    &--md {
+      height: $spacing-5xl;
+    }
+  }
+
+  &__footer {
+    display: flex;
+    flex-direction: row;
+    gap: $spacing-md;
+    margin-top: auto;
+
+    &__btn {
+      height: $size-btn-height;
+      width: $size-btn-width;
+    }
+
+    &__fav {
+      width: $size-btn-height;
+      height: $size-btn-height;
+      border-radius: $radius-2xl;
+    }
+  }
+}

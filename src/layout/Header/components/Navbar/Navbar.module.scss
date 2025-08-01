@@ -23,7 +23,7 @@
   &__logo {
     font: $font-heading-h3;
     a {
-      transition: all 0.2s ease-in-out;
+      transition: $transition-default;
 
       &:hover {
         opacity: 0.8;

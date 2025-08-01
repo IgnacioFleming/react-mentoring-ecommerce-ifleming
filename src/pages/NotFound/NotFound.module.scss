@@ -1,3 +1,5 @@
+@use '@/styles/_variables' as *;
+
 .not-found {
   flex: 1;
   display: flex;
@@ -7,7 +9,7 @@
 
   &__link {
     cursor: pointer;
-    transition: all 0.2s ease-in-out;
+    transition: $transition-default;
     margin-top: 1rem;
     display: inline-block;
     color: #1e90ff;

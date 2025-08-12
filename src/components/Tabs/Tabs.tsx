@@ -1,5 +1,6 @@
 import * as TabsPrimitive from '@radix-ui/react-tabs';
 import { ReactNode } from 'react';
+import styles from './Tabs.module.scss';
 
 type TabItem = {
   label: string;
@@ -24,8 +25,8 @@ export const Tabs = ({ items }: TabsProps) => {
   ));
 
   return (
-    <TabsPrimitive.Root defaultValue="tab0">
-      <TabsPrimitive.List>{triggers}</TabsPrimitive.List>
+    <TabsPrimitive.Root defaultValue="tab0" className={styles.tabs}>
+      <TabsPrimitive.List className={styles.tabs__triggers}>{triggers}</TabsPrimitive.List>
       {contents}
     </TabsPrimitive.Root>
   );

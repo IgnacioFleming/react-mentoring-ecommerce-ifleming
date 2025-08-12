@@ -7,7 +7,7 @@ type TabItem = {
   content: string | ReactNode;
 };
 
-type TabsProps = {
+export type TabsProps = {
   items: TabItem[];
 };
 

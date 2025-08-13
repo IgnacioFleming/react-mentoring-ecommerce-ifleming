@@ -5,12 +5,12 @@ type ProductAdditionalInfoProps = {
   product: Product;
 };
 
-const renderTerm = (title: string, term: string | number | ReactNode) => {
-  if (!term) return null;
+const renderTerm = (term: string, description: string | number | ReactNode) => {
+  if (!description) return null;
   return (
     <div>
-      <dt>{title}:</dt>
-      <dd>{term}</dd>
+      <dt>{term}:</dt>
+      <dd>{description}</dd>
     </div>
   );
 };

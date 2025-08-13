@@ -24,7 +24,7 @@ export type Product = {
   description: string;
   reviews: ProductReview[];
   weight: number;
-  dimensions: { height: number; width: number; depth: number };
+  dimensions: { height?: number; width?: number; depth?: number };
   warrantyInformation: string;
   shippingInformation: string;
   returnPolicy: string;

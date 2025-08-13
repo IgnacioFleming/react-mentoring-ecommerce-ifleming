@@ -32,6 +32,11 @@ const PRODUCTS_MOCK: Product[] = vi.hoisted(() => [
     availabilityStatus: 'In Stock',
     description: 'Some short description',
     reviews: REVIEWS_MOCK,
+    dimensions: {},
+    returnPolicy: 'some text',
+    shippingInformation: 'shipping in 1 day',
+    warrantyInformation: '6 months warranty',
+    weight: 10,
   },
   {
     id: 2,
@@ -44,6 +49,11 @@ const PRODUCTS_MOCK: Product[] = vi.hoisted(() => [
     availabilityStatus: 'In Stock',
     description: 'Some short description',
     reviews: REVIEWS_MOCK,
+    dimensions: {},
+    returnPolicy: 'some text',
+    shippingInformation: 'shipping in 1 day',
+    warrantyInformation: '6 months warranty',
+    weight: 10,
   },
   {
     id: 3,
@@ -56,6 +66,11 @@ const PRODUCTS_MOCK: Product[] = vi.hoisted(() => [
     availabilityStatus: 'In Stock',
     description: 'Some short description',
     reviews: REVIEWS_MOCK,
+    dimensions: {},
+    returnPolicy: 'some text',
+    shippingInformation: 'shipping in 1 day',
+    warrantyInformation: '6 months warranty',
+    weight: 10,
   },
 ]);
 

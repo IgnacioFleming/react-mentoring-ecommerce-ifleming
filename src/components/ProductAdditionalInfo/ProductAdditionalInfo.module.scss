@@ -1,0 +1,31 @@
+@use '@/styles/_variables' as *;
+
+.additional-info {
+  color: $color-text;
+  padding: $spacing-2xl $spacing-lg;
+
+  @include is-tablet {
+    padding: $spacing-2xl;
+    border: $border-dark;
+  }
+
+  &__heading {
+    font: $font-heading-h3;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-xs;
+  }
+}
+
+.definition {
+  font: $font-heading-h6;
+  dt {
+    display: inline;
+  }
+  dd {
+    display: inline;
+  }
+}

@@ -1,5 +1,6 @@
-import { Product } from '@/types/products';
 import { ReactNode } from 'react';
+import { Product } from '@/types/products';
+import styles from './ProductAdditionalInfo.module.scss';
 
 type ProductAdditionalInfoProps = {
   product: Product;
@@ -8,8 +9,8 @@ type ProductAdditionalInfoProps = {
 const renderTerm = (term: string, description: string | number | ReactNode) => {
   if (!description) return null;
   return (
-    <div>
-      <dt>{term}:</dt>
+    <div className={styles.definition}>
+      <dt>{term}: </dt>
       <dd>{description}</dd>
     </div>
   );
@@ -17,17 +18,15 @@ const renderTerm = (term: string, description: string | number | ReactNode) => {
 
 const renderDimensions = (dimensionsObject: Product['dimensions']) => {
   if (!dimensionsObject || Object.keys(dimensionsObject).length === 0) return null;
-  return Object.entries(dimensionsObject).map((dimension, index) => (
-    <div key={index}>
-      {dimension[0]}: {dimension[1]}
-    </div>
-  ));
+  return Object.entries(dimensionsObject)
+    .map(([key, value]) => `${key}: ${value}`)
+    .join(', ');
 };
 
 export const ProductAdditionalInfo = ({ product }: ProductAdditionalInfoProps) => (
-  <div>
-    <h3>Additional Information:</h3>
-    <dl>
+  <div className={styles['additional-info']}>
+    <h3 className={styles['additional-info__heading']}>Additional Information:</h3>
+    <dl className={styles['additional-info__list']}>
       {renderTerm('Weight', product.weight ? `${product.weight} grams` : null)}
       {renderTerm('Dimensions', renderDimensions(product.dimensions))}
       {renderTerm('Warranty Information', product.warrantyInformation)}

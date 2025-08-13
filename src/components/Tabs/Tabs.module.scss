@@ -5,6 +5,7 @@
     display: flex;
     gap: $spacing-lg;
     padding-block: $spacing-lg;
+    justify-content: center;
 
     button {
       font: $font-tab;
@@ -16,10 +17,6 @@
         font-weight: $font-weight-semi-bold;
         text-decoration: underline;
       }
-    }
-
-    @include is-tablet {
-      justify-content: center;
     }
   }
 }

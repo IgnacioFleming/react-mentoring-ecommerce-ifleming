@@ -29,7 +29,9 @@ export const ProductDetailSection = () => {
     return (
       <>
         <ProductDetail product={product} />
-        <Tabs items={tabs} />
+        <div className={styles['tabs-container']}>
+          <Tabs items={tabs} />
+        </div>
       </>
     );
   };

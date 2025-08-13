@@ -31,7 +31,7 @@ export const PRODUCTS_MOCK: Product[] = [
     availabilityStatus: 'In Stock',
     description: 'Some short description',
     reviews: REVIEWS_MOCK,
-    dimensions: {},
+    dimensions: { height: 1, width: 1, depth: 1 },
     returnPolicy: 'some text',
     shippingInformation: 'shipping in 1 day',
     warrantyInformation: '6 months warranty',

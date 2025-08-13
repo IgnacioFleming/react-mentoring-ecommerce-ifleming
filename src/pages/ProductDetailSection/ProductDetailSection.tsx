@@ -7,6 +7,7 @@ import { ProductDetailSkeleton } from '@/components/ProductDetail/ProductDetailS
 import { ProductAdditionalInfo } from '@/components/ProductAdditionalInfo';
 import styles from './ProductDetailSection.module.scss';
 import { Tabs, TabsProps } from '@/components/Tabs';
+import { ProductAdditionalInfoSkeleton } from '@/components/ProductAdditionalInfo/ProductAdditionalInfoSkeleton';
 
 export const ProductDetailSection = () => {
   const id = Number(useParams().id);
@@ -25,7 +26,15 @@ export const ProductDetailSection = () => {
           goBackBtn
         />
       );
-    if (dataStatus === 'loading') return <ProductDetailSkeleton />;
+    if (dataStatus === 'loading')
+      return (
+        <>
+          <ProductDetailSkeleton />
+          <div className={styles['tabs-container']}>
+            <ProductAdditionalInfoSkeleton />
+          </div>
+        </>
+      );
     return (
       <>
         <ProductDetail product={product} />

@@ -1,0 +1,41 @@
+@use '@/styles/_variables' as *;
+
+.tabs-container {
+  padding-block: $spacing-lg;
+  display: flex;
+  justify-content: center;
+
+  &__tab {
+    height: $spacing-lg;
+    width: $spacing-5xl;
+  }
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+  padding: $spacing-2xl $spacing-lg;
+
+  @include is-tablet {
+    padding: $spacing-2xl;
+    border: $border-thick-gray-200;
+  }
+}
+
+.heading {
+  height: $spacing-xl;
+
+  width: 100%;
+  @include is-tablet {
+    width: 30%;
+  }
+}
+
+.line {
+  height: $spacing-md;
+  width: 100%;
+  @include is-tablet {
+    width: 50%;
+  }
+}

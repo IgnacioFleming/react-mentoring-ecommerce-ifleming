@@ -23,6 +23,11 @@ export type Product = {
   availabilityStatus: 'In Stock' | 'Low Stock' | 'Out of Stock';
   description: string;
   reviews: ProductReview[];
+  weight: number;
+  dimensions: { height: number; width: number; depth: number };
+  warrantyInformation: string;
+  shippingInformation: string;
+  returnPolicy: string;
 };
 
 export const PRODUCT_DATA_STATUS = {

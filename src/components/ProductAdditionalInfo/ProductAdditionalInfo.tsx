@@ -9,10 +9,10 @@ type ProductAdditionalInfoProps = {
 const renderTerm = (term: string, description: string | number | ReactNode) => {
   if (!description) return null;
   return (
-    <div className={styles.definition}>
+    <dl className={styles.definition}>
       <dt>{term}: </dt>
       <dd>{description}</dd>
-    </div>
+    </dl>
   );
 };
 
@@ -24,7 +24,7 @@ const renderDimensions = (dimensionsObject: Product['dimensions']) => {
 };
 
 export const ProductAdditionalInfo = ({ product }: ProductAdditionalInfoProps) => (
-  <div className={styles['additional-info']}>
+  <section className={styles['additional-info']}>
     <h3 className={styles['additional-info__heading']}>Additional Information:</h3>
     <dl className={styles['additional-info__list']}>
       {renderTerm('Weight', product.weight ? `${product.weight} grams` : null)}
@@ -33,5 +33,5 @@ export const ProductAdditionalInfo = ({ product }: ProductAdditionalInfoProps) =
       {renderTerm('Shipping Information', product.shippingInformation)}
       {renderTerm('Return Policy', product.returnPolicy)}
     </dl>
-  </div>
+  </section>
 );

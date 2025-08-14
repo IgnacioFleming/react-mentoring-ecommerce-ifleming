@@ -6,8 +6,8 @@
   justify-content: center;
 
   &__tab {
-    height: $spacing-lg;
-    width: $spacing-5xl;
+    height: $size-lg;
+    width: $size-5xl;
   }
 }
 
@@ -24,7 +24,7 @@
 }
 
 .heading {
-  height: $spacing-xl;
+  height: $size-xl;
 
   width: 100%;
   @include is-tablet {

@@ -15,6 +15,7 @@ export const ProductDetailSection = () => {
 
   const tabs: TabsProps['items'] = [
     { label: 'Product Details', content: <ProductAdditionalInfo product={product} /> },
+    { label: 'Reviews', content: '' },
   ];
 
   const renderProductDetail = () => {

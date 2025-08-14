@@ -1,0 +1,25 @@
+@use '@/styles/_variables' as *;
+
+.tabs {
+  &__triggers {
+    display: flex;
+    gap: $spacing-lg;
+    padding-block: $spacing-lg;
+
+    button {
+      font: $font-tab;
+      color: $color-second-text;
+      position: relative;
+      transition: $transition-default;
+
+      &[data-state='active'] {
+        font-weight: $font-weight-semi-bold;
+        text-decoration: underline;
+      }
+    }
+
+    @include is-tablet {
+      justify-content: center;
+    }
+  }
+}

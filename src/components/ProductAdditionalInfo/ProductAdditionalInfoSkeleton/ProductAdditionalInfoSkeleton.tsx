@@ -8,11 +8,9 @@ export const ProductAdditionalInfoSkeleton = () => (
     </div>
     <div className={styles.container} data-testid="product-additional-info-skeleton">
       <Skeleton className={styles.heading} />
-      <Skeleton className={styles.line} />
-      <Skeleton className={styles.line} />
-      <Skeleton className={styles.line} />
-      <Skeleton className={styles.line} />
-      <Skeleton className={styles.line} />
+      {Array.from({ length: 5 }).map((_, index) => (
+        <Skeleton key={index} className={styles.line} />
+      ))}
     </div>
   </>
 );

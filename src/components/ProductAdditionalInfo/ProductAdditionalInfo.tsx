@@ -17,7 +17,7 @@ const renderTerm = (term: string, description: string | number | ReactNode) => {
 };
 
 const renderDimensions = (dimensionsObject: Product['dimensions']) => {
-  if (!dimensionsObject || Object.keys(dimensionsObject).length === 0) return null;
+  if (!dimensionsObject || typeof dimensionsObject !== 'object' || Object.keys(dimensionsObject).length === 0)
   return Object.entries(dimensionsObject)
     .map(([key, value]) => `${key}: ${value}`)
     .join(', ');

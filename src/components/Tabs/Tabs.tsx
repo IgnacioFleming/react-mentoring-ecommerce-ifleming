@@ -19,7 +19,7 @@ export const Tabs = ({ items }: TabsProps) => {
   ));
 
   const contents = items.map((tabItem, index) => (
-    <TabsPrimitive.Content key={index} value={`tab${index}`}>
+    <TabsPrimitive.Content key={index} value={`tab${index}`} className={styles.tabs__contents}>
       {tabItem.content}
     </TabsPrimitive.Content>
   ));
